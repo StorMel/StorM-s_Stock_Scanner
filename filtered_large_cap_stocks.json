@@ -1,0 +1,5077 @@
+[
+    {
+        "Symbol": "AAL",
+        "Security Name": "American Airlines Group Inc.",
+        "MarketCapUSD": 8445811200
+    },
+    {
+        "Symbol": "AAOI",
+        "Security Name": "Applied Optoelectronics, Inc.",
+        "MarketCapUSD": 1367418880
+    },
+    {
+        "Symbol": "AAON",
+        "Security Name": "AAON, Inc.",
+        "MarketCapUSD": 6529793536
+    },
+    {
+        "Symbol": "AAPG",
+        "Security Name": null,
+        "MarketCapUSD": 4387872768
+    },
+    {
+        "Symbol": "AAPL",
+        "Security Name": "Apple Inc.",
+        "MarketCapUSD": 3354078740480
+    },
+    {
+        "Symbol": "ABCL",
+        "Security Name": "AbCellera Biologics Inc.",
+        "MarketCapUSD": 1246133632
+    },
+    {
+        "Symbol": "ABNB",
+        "Security Name": "Airbnb, Inc.",
+        "MarketCapUSD": 76505014272
+    },
+    {
+        "Symbol": "ABVX",
+        "Security Name": "ABIVAX Soci\u00e9t\u00e9 Anonyme",
+        "MarketCapUSD": 5432978944
+    },
+    {
+        "Symbol": "ACAD",
+        "Security Name": "ACADIA Pharmaceuticals Inc.",
+        "MarketCapUSD": 4207677440
+    },
+    {
+        "Symbol": "ACGL",
+        "Security Name": "Arch Capital Group Ltd.",
+        "MarketCapUSD": 34649743360
+    },
+    {
+        "Symbol": "ACGLO",
+        "Security Name": "Arch Capital Group Ltd.",
+        "MarketCapUSD": 12408134656
+    },
+    {
+        "Symbol": "ACHC",
+        "Security Name": "Acadia Healthcare Company, Inc.",
+        "MarketCapUSD": 1966982528
+    },
+    {
+        "Symbol": "ACIW",
+        "Security Name": "ACI Worldwide, Inc.",
+        "MarketCapUSD": 4859311104
+    },
+    {
+        "Symbol": "ACLS",
+        "Security Name": "Axcelis Technologies, Inc.",
+        "MarketCapUSD": 2484292352
+    },
+    {
+        "Symbol": "ACLX",
+        "Security Name": "Arcellx, Inc.",
+        "MarketCapUSD": 3965865984
+    },
+    {
+        "Symbol": "ACMR",
+        "Security Name": "ACM Research, Inc.",
+        "MarketCapUSD": 1614793984
+    },
+    {
+        "Symbol": "ACT",
+        "Security Name": "Enact Holdings, Inc.",
+        "MarketCapUSD": 5587527680
+    },
+    {
+        "Symbol": "ADBE",
+        "Security Name": "Adobe Inc.",
+        "MarketCapUSD": 149925003264
+    },
+    {
+        "Symbol": "ADEA",
+        "Security Name": "Adeia Inc.",
+        "MarketCapUSD": 1588037888
+    },
+    {
+        "Symbol": "ADI",
+        "Security Name": "Analog Devices, Inc.",
+        "MarketCapUSD": 121516244992
+    },
+    {
+        "Symbol": "ADMA",
+        "Security Name": "ADMA Biologics, Inc.",
+        "MarketCapUSD": 4128316160
+    },
+    {
+        "Symbol": "ADP",
+        "Security Name": "Automatic Data Processing, Inc.",
+        "MarketCapUSD": 125170442240
+    },
+    {
+        "Symbol": "ADPT",
+        "Security Name": "Adaptive Biotechnologies Corporation",
+        "MarketCapUSD": 1872208896
+    },
+    {
+        "Symbol": "ADSK",
+        "Security Name": "Autodesk, Inc.",
+        "MarketCapUSD": 61750943744
+    },
+    {
+        "Symbol": "ADUS",
+        "Security Name": "Addus HomeCare Corporation",
+        "MarketCapUSD": 2114066944
+    },
+    {
+        "Symbol": "AEIS",
+        "Security Name": "Advanced Energy Industries, Inc.",
+        "MarketCapUSD": 5572752896
+    },
+    {
+        "Symbol": "AEP",
+        "Security Name": "American Electric Power Company, Inc.",
+        "MarketCapUSD": 60725972992
+    },
+    {
+        "Symbol": "AFRM",
+        "Security Name": "Affirm Holdings, Inc.",
+        "MarketCapUSD": 23543349248
+    },
+    {
+        "Symbol": "AFYA",
+        "Security Name": "Afya Limited",
+        "MarketCapUSD": 1358532608
+    },
+    {
+        "Symbol": "AGIO",
+        "Security Name": "Agios Pharmaceuticals, Inc.",
+        "MarketCapUSD": 2139297152
+    },
+    {
+        "Symbol": "AGNC",
+        "Security Name": "AGNC Investment Corp.",
+        "MarketCapUSD": 10115197952
+    },
+    {
+        "Symbol": "AGNCM",
+        "Security Name": "AGNC Investment Corp.",
+        "MarketCapUSD": 8969139200
+    },
+    {
+        "Symbol": "AGNCN",
+        "Security Name": "AGNC Investment Corp.",
+        "MarketCapUSD": 8888511488
+    },
+    {
+        "Symbol": "AGYS",
+        "Security Name": "Agilysys, Inc.",
+        "MarketCapUSD": 2986558208
+    },
+    {
+        "Symbol": "AHCO",
+        "Security Name": "AdaptHealth Corp.",
+        "MarketCapUSD": 1262330368
+    },
+    {
+        "Symbol": "AKAM",
+        "Security Name": "Akamai Technologies, Inc.",
+        "MarketCapUSD": 10905938944
+    },
+    {
+        "Symbol": "AKRO",
+        "Security Name": "Akero Therapeutics, Inc.",
+        "MarketCapUSD": 3835472640
+    },
+    {
+        "Symbol": "ALAB",
+        "Security Name": "Astera Labs, Inc.",
+        "MarketCapUSD": 28664467456
+    },
+    {
+        "Symbol": "ALGM",
+        "Security Name": "Allegro MicroSystems, Inc.",
+        "MarketCapUSD": 5640018944
+    },
+    {
+        "Symbol": "ALGN",
+        "Security Name": "Align Technology, Inc.",
+        "MarketCapUSD": 10407597056
+    },
+    {
+        "Symbol": "ALGT",
+        "Security Name": "Allegiant Travel Company",
+        "MarketCapUSD": 1026510144
+    },
+    {
+        "Symbol": "ALHC",
+        "Security Name": "Alignment Healthcare, Inc.",
+        "MarketCapUSD": 2974425856
+    },
+    {
+        "Symbol": "ALKS",
+        "Security Name": "Alkermes plc",
+        "MarketCapUSD": 4782309376
+    },
+    {
+        "Symbol": "ALKT",
+        "Security Name": "Alkami Technology, Inc.",
+        "MarketCapUSD": 2320010240
+    },
+    {
+        "Symbol": "ALNY",
+        "Security Name": "Alnylam Pharmaceuticals, Inc.",
+        "MarketCapUSD": 60074815488
+    },
+    {
+        "Symbol": "ALRM",
+        "Security Name": "Alarm.com Holdings, Inc.",
+        "MarketCapUSD": 2845083904
+    },
+    {
+        "Symbol": "ALVO",
+        "Security Name": "Alvotech",
+        "MarketCapUSD": 2561360128
+    },
+    {
+        "Symbol": "AMAT",
+        "Security Name": "Applied Materials, Inc.",
+        "MarketCapUSD": 129170079744
+    },
+    {
+        "Symbol": "AMBA",
+        "Security Name": "Ambarella, Inc.",
+        "MarketCapUSD": 2781092608
+    },
+    {
+        "Symbol": "AMD",
+        "Security Name": "Advanced Micro Devices, Inc.",
+        "MarketCapUSD": 268093177856
+    },
+    {
+        "Symbol": "AMED",
+        "Security Name": "Amedisys, Inc.",
+        "MarketCapUSD": 3321328640
+    },
+    {
+        "Symbol": "AMGN",
+        "Security Name": "Amgen Inc.",
+        "MarketCapUSD": 159597412352
+    },
+    {
+        "Symbol": "AMKR",
+        "Security Name": "Amkor Technology, Inc.",
+        "MarketCapUSD": 5684289024
+    },
+    {
+        "Symbol": "AMPH",
+        "Security Name": "Amphastar Pharmaceuticals, Inc.",
+        "MarketCapUSD": 1377184896
+    },
+    {
+        "Symbol": "AMPL",
+        "Security Name": "Amplitude, Inc.",
+        "MarketCapUSD": 1439167104
+    },
+    {
+        "Symbol": "AMRX",
+        "Security Name": "Amneal Pharmaceuticals, Inc.",
+        "MarketCapUSD": 2955483392
+    },
+    {
+        "Symbol": "AMSC",
+        "Security Name": "American Superconductor Corporation",
+        "MarketCapUSD": 2172690944
+    },
+    {
+        "Symbol": "AMZN",
+        "Security Name": "Amazon.com, Inc.",
+        "MarketCapUSD": 2386911035392
+    },
+    {
+        "Symbol": "ANDE",
+        "Security Name": "The Andersons, Inc.",
+        "MarketCapUSD": 1309577856
+    },
+    {
+        "Symbol": "ANIP",
+        "Security Name": "ANI Pharmaceuticals, Inc.",
+        "MarketCapUSD": 1965439104
+    },
+    {
+        "Symbol": "APA",
+        "Security Name": "APA Corporation",
+        "MarketCapUSD": 7277366784
+    },
+    {
+        "Symbol": "APGE",
+        "Security Name": "Apogee Therapeutics, Inc.",
+        "MarketCapUSD": 2146662400
+    },
+    {
+        "Symbol": "APLD",
+        "Security Name": "Applied Digital Corporation",
+        "MarketCapUSD": 4111094528
+    },
+    {
+        "Symbol": "APLS",
+        "Security Name": "Apellis Pharmaceuticals, Inc.",
+        "MarketCapUSD": 3356788224
+    },
+    {
+        "Symbol": "APP",
+        "Security Name": "AppLovin Corporation",
+        "MarketCapUSD": 139487526912
+    },
+    {
+        "Symbol": "APPF",
+        "Security Name": "AppFolio, Inc.",
+        "MarketCapUSD": 9589242880
+    },
+    {
+        "Symbol": "APPN",
+        "Security Name": "Appian Corporation",
+        "MarketCapUSD": 2146187648
+    },
+    {
+        "Symbol": "ARCB",
+        "Security Name": "ArcBest Corporation",
+        "MarketCapUSD": 1609291776
+    },
+    {
+        "Symbol": "ARCC",
+        "Security Name": "Ares Capital Corporation",
+        "MarketCapUSD": 15722630144
+    },
+    {
+        "Symbol": "ARDX",
+        "Security Name": "Ardelyx, Inc.",
+        "MarketCapUSD": 1443488128
+    },
+    {
+        "Symbol": "ARGX",
+        "Security Name": "argenx SE",
+        "MarketCapUSD": 40451297280
+    },
+    {
+        "Symbol": "ARHS",
+        "Security Name": "Arhaus, Inc.",
+        "MarketCapUSD": 1704387840
+    },
+    {
+        "Symbol": "ARLP",
+        "Security Name": "Alliance Resource Partners, L.P.",
+        "MarketCapUSD": 2949991168
+    },
+    {
+        "Symbol": "ARM",
+        "Security Name": "Arm Holdings plc",
+        "MarketCapUSD": 138932551680
+    },
+    {
+        "Symbol": "ARQT",
+        "Security Name": "Arcutis Biotherapeutics, Inc.",
+        "MarketCapUSD": 1893299968
+    },
+    {
+        "Symbol": "ARRY",
+        "Security Name": "Array Technologies, Inc.",
+        "MarketCapUSD": 1363834240
+    },
+    {
+        "Symbol": "ARWR",
+        "Security Name": "Arrowhead Pharmaceuticals, Inc.",
+        "MarketCapUSD": 2792811776
+    },
+    {
+        "Symbol": "ASML",
+        "Security Name": "ASML Holding N.V.",
+        "MarketCapUSD": 294699466752
+    },
+    {
+        "Symbol": "ASND",
+        "Security Name": "Ascendis Pharma A/S",
+        "MarketCapUSD": 11674585088
+    },
+    {
+        "Symbol": "ASO",
+        "Security Name": "Academy Sports and Outdoors, Inc.",
+        "MarketCapUSD": 3404220416
+    },
+    {
+        "Symbol": "ASTE",
+        "Security Name": "Astec Industries, Inc.",
+        "MarketCapUSD": 1008545536
+    },
+    {
+        "Symbol": "ASTH",
+        "Security Name": "Astrana Health, Inc.",
+        "MarketCapUSD": 1343612800
+    },
+    {
+        "Symbol": "ASTS",
+        "Security Name": "AST SpaceMobile, Inc.",
+        "MarketCapUSD": 16161992704
+    },
+    {
+        "Symbol": "ATAT",
+        "Security Name": "Atour Lifestyle Holdings Limited",
+        "MarketCapUSD": 4692796416
+    },
+    {
+        "Symbol": "ATEC",
+        "Security Name": "Alphatec Holdings, Inc.",
+        "MarketCapUSD": 2351465728
+    },
+    {
+        "Symbol": "ATNF",
+        "Security Name": "ETHZilla Corporation",
+        "MarketCapUSD": 1077345280
+    },
+    {
+        "Symbol": "ATRC",
+        "Security Name": "AtriCure, Inc.",
+        "MarketCapUSD": 1792729472
+    },
+    {
+        "Symbol": "ATRO",
+        "Security Name": "Astronics Corporation",
+        "MarketCapUSD": 1209446144
+    },
+    {
+        "Symbol": "AUGO",
+        "Security Name": "Aura Minerals Inc.",
+        "MarketCapUSD": 2298663168
+    },
+    {
+        "Symbol": "AUPH",
+        "Security Name": "Aurinia Pharmaceuticals Inc.",
+        "MarketCapUSD": 1580876288
+    },
+    {
+        "Symbol": "AUR",
+        "Security Name": "Aurora Innovation, Inc.",
+        "MarketCapUSD": 10647554048
+    },
+    {
+        "Symbol": "AVAH",
+        "Security Name": "Aveanna Healthcare Holdings Inc.",
+        "MarketCapUSD": 1504051200
+    },
+    {
+        "Symbol": "AVAV",
+        "Security Name": "AeroVironment, Inc.",
+        "MarketCapUSD": 11596254208
+    },
+    {
+        "Symbol": "AVDL",
+        "Security Name": "Avadel Pharmaceuticals plc",
+        "MarketCapUSD": 1383640832
+    },
+    {
+        "Symbol": "AVDX",
+        "Security Name": "AvidXchange Holdings, Inc.",
+        "MarketCapUSD": 2058297088
+    },
+    {
+        "Symbol": "AVGO",
+        "Security Name": "Broadcom Inc.",
+        "MarketCapUSD": 1369509462016
+    },
+    {
+        "Symbol": "AVPT",
+        "Security Name": "AvePoint, Inc.",
+        "MarketCapUSD": 3161950976
+    },
+    {
+        "Symbol": "AVT",
+        "Security Name": "Avnet, Inc.",
+        "MarketCapUSD": 4446892544
+    },
+    {
+        "Symbol": "AXON",
+        "Security Name": "Axon Enterprise, Inc.",
+        "MarketCapUSD": 59733213184
+    },
+    {
+        "Symbol": "AXSM",
+        "Security Name": "Axsome Therapeutics, Inc.",
+        "MarketCapUSD": 5837976576
+    },
+    {
+        "Symbol": "AZN",
+        "Security Name": "AstraZeneca PLC",
+        "MarketCapUSD": 249650642944
+    },
+    {
+        "Symbol": "AZTA",
+        "Security Name": "Azenta, Inc.",
+        "MarketCapUSD": 1364647936
+    },
+    {
+        "Symbol": "BANF",
+        "Security Name": "BancFirst Corporation",
+        "MarketCapUSD": 4210961664
+    },
+    {
+        "Symbol": "BANR",
+        "Security Name": "Banner Corporation",
+        "MarketCapUSD": 2218941696
+    },
+    {
+        "Symbol": "BASE",
+        "Security Name": "Couchbase, Inc.",
+        "MarketCapUSD": 1345570944
+    },
+    {
+        "Symbol": "BATRA",
+        "Security Name": "Atlanta Braves Holdings, Inc.",
+        "MarketCapUSD": 2766464768
+    },
+    {
+        "Symbol": "BATRK",
+        "Security Name": "Atlanta Braves Holdings, Inc.",
+        "MarketCapUSD": 2759055104
+    },
+    {
+        "Symbol": "BBIO",
+        "Security Name": "BridgeBio Pharma, Inc.",
+        "MarketCapUSD": 9344340992
+    },
+    {
+        "Symbol": "BBSI",
+        "Security Name": "Barrett Business Services, Inc.",
+        "MarketCapUSD": 1191226752
+    },
+    {
+        "Symbol": "BCPC",
+        "Security Name": "Balchem Corporation",
+        "MarketCapUSD": 5252225024
+    },
+    {
+        "Symbol": "BCRX",
+        "Security Name": "BioCryst Pharmaceuticals, Inc.",
+        "MarketCapUSD": 1759129600
+    },
+    {
+        "Symbol": "BEAM",
+        "Security Name": "Beam Therapeutics Inc.",
+        "MarketCapUSD": 1624661632
+    },
+    {
+        "Symbol": "BELFA",
+        "Security Name": "Bel Fuse Inc.",
+        "MarketCapUSD": 1583078912
+    },
+    {
+        "Symbol": "BELFB",
+        "Security Name": "Bel Fuse Inc.",
+        "MarketCapUSD": 1583076992
+    },
+    {
+        "Symbol": "BFC",
+        "Security Name": "Bank First Corporation",
+        "MarketCapUSD": 1208502656
+    },
+    {
+        "Symbol": "BGC",
+        "Security Name": "BGC Group, Inc.",
+        "MarketCapUSD": 4662516736
+    },
+    {
+        "Symbol": "BGM",
+        "Security Name": "BGM Group Ltd.",
+        "MarketCapUSD": 1582915456
+    },
+    {
+        "Symbol": "BHF",
+        "Security Name": "Brighthouse Financial, Inc.",
+        "MarketCapUSD": 2668445440
+    },
+    {
+        "Symbol": "BHFAL",
+        "Security Name": "Brighthouse Financial, Inc.",
+        "MarketCapUSD": 4010617856
+    },
+    {
+        "Symbol": "BHFAP",
+        "Security Name": "Brighthouse Financial, Inc.",
+        "MarketCapUSD": 3042374912
+    },
+    {
+        "Symbol": "BIDU",
+        "Security Name": "Baidu, Inc.",
+        "MarketCapUSD": 30762668032
+    },
+    {
+        "Symbol": "BIIB",
+        "Security Name": "Biogen Inc.",
+        "MarketCapUSD": 20378019840
+    },
+    {
+        "Symbol": "BILI",
+        "Security Name": "Bilibili Inc.",
+        "MarketCapUSD": 10536344576
+    },
+    {
+        "Symbol": "BKNG",
+        "Security Name": "Booking Holdings Inc.",
+        "MarketCapUSD": 182784704512
+    },
+    {
+        "Symbol": "BKR",
+        "Security Name": "Baker Hughes Company",
+        "MarketCapUSD": 42244911104
+    },
+    {
+        "Symbol": "BL",
+        "Security Name": "BlackLine, Inc.",
+        "MarketCapUSD": 3232399872
+    },
+    {
+        "Symbol": "BLBD",
+        "Security Name": "Blue Bird Corporation",
+        "MarketCapUSD": 1750910336
+    },
+    {
+        "Symbol": "BLFS",
+        "Security Name": "BioLife Solutions, Inc.",
+        "MarketCapUSD": 1195716224
+    },
+    {
+        "Symbol": "BLKB",
+        "Security Name": "Blackbaud, Inc.",
+        "MarketCapUSD": 3131740928
+    },
+    {
+        "Symbol": "BLTE",
+        "Security Name": "Belite Bio, Inc",
+        "MarketCapUSD": 2082294144
+    },
+    {
+        "Symbol": "BMRN",
+        "Security Name": "BioMarin Pharmaceutical Inc.",
+        "MarketCapUSD": 11129189376
+    },
+    {
+        "Symbol": "BNTX",
+        "Security Name": "BioNTech SE",
+        "MarketCapUSD": 26756409344
+    },
+    {
+        "Symbol": "BOKF",
+        "Security Name": "BOK Financial Corporation",
+        "MarketCapUSD": 6719240192
+    },
+    {
+        "Symbol": "BPOP",
+        "Security Name": "Popular, Inc.",
+        "MarketCapUSD": 8065331200
+    },
+    {
+        "Symbol": "BPYPP",
+        "Security Name": "Brookfield Property Partners L.P.",
+        "MarketCapUSD": 9991861248
+    },
+    {
+        "Symbol": "BRKR",
+        "Security Name": "Bruker Corporation",
+        "MarketCapUSD": 5117481984
+    },
+    {
+        "Symbol": "BRZE",
+        "Security Name": "Braze, Inc.",
+        "MarketCapUSD": 2664590592
+    },
+    {
+        "Symbol": "BSY",
+        "Security Name": "Bentley Systems, Incorporated",
+        "MarketCapUSD": 16277658624
+    },
+    {
+        "Symbol": "BTDR",
+        "Security Name": "Bitdeer Technologies Group",
+        "MarketCapUSD": 2545880064
+    },
+    {
+        "Symbol": "BTSG",
+        "Security Name": "BrightSpring Health Services, Inc.",
+        "MarketCapUSD": 4186030592
+    },
+    {
+        "Symbol": "BULL",
+        "Security Name": "Webull Corporation",
+        "MarketCapUSD": 6951271936
+    },
+    {
+        "Symbol": "BUSE",
+        "Security Name": "First Busey Corporation",
+        "MarketCapUSD": 2069000960
+    },
+    {
+        "Symbol": "BWIN",
+        "Security Name": "The Baldwin Insurance Group, Inc.",
+        "MarketCapUSD": 2396897280
+    },
+    {
+        "Symbol": "BZ",
+        "Security Name": "Kanzhun Limited",
+        "MarketCapUSD": 9569162240
+    },
+    {
+        "Symbol": "CACC",
+        "Security Name": "Credit Acceptance Corporation",
+        "MarketCapUSD": 5411176960
+    },
+    {
+        "Symbol": "CAI",
+        "Security Name": "Caris Life Sciences, Inc.",
+        "MarketCapUSD": 9864069120
+    },
+    {
+        "Symbol": "CAKE",
+        "Security Name": "The Cheesecake Factory Incorporated",
+        "MarketCapUSD": 3084259840
+    },
+    {
+        "Symbol": "CALM",
+        "Security Name": "Cal-Maine Foods, Inc.",
+        "MarketCapUSD": 5538414592
+    },
+    {
+        "Symbol": "CAMT",
+        "Security Name": "Camtek Ltd.",
+        "MarketCapUSD": 3766791680
+    },
+    {
+        "Symbol": "CAR",
+        "Security Name": "Avis Budget Group, Inc.",
+        "MarketCapUSD": 5206526464
+    },
+    {
+        "Symbol": "CARG",
+        "Security Name": "CarGurus, Inc.",
+        "MarketCapUSD": 3150518784
+    },
+    {
+        "Symbol": "CART",
+        "Security Name": "Maplebear Inc.",
+        "MarketCapUSD": 11989062656
+    },
+    {
+        "Symbol": "CASH",
+        "Security Name": "Pathward Financial, Inc.",
+        "MarketCapUSD": 1738735232
+    },
+    {
+        "Symbol": "CASY",
+        "Security Name": "Casey's General Stores, Inc.",
+        "MarketCapUSD": 19088353280
+    },
+    {
+        "Symbol": "CATY",
+        "Security Name": "Cathay General Bancorp",
+        "MarketCapUSD": 3299209728
+    },
+    {
+        "Symbol": "CBRL",
+        "Security Name": "Cracker Barrel Old Country Store, Inc.",
+        "MarketCapUSD": 1314198400
+    },
+    {
+        "Symbol": "CBSH",
+        "Security Name": "Commerce Bancshares, Inc.",
+        "MarketCapUSD": 8269215232
+    },
+    {
+        "Symbol": "CCB",
+        "Security Name": "Coastal Financial Corporation",
+        "MarketCapUSD": 1568173440
+    },
+    {
+        "Symbol": "CCCS",
+        "Security Name": "CCC Intelligent Solutions Holdings Inc.",
+        "MarketCapUSD": 6388811776
+    },
+    {
+        "Symbol": "CCEC",
+        "Security Name": "Capital Clean Energy Carriers Corp.",
+        "MarketCapUSD": 1295480064
+    },
+    {
+        "Symbol": "CCEP",
+        "Security Name": "Coca-Cola Europacific Partners PLC",
+        "MarketCapUSD": 42222551040
+    },
+    {
+        "Symbol": "CCOI",
+        "Security Name": "Cogent Communications Holdings, Inc.",
+        "MarketCapUSD": 1844351232
+    },
+    {
+        "Symbol": "CDNS",
+        "Security Name": "Cadence Design Systems, Inc.",
+        "MarketCapUSD": 94131666944
+    },
+    {
+        "Symbol": "CDTX",
+        "Security Name": "Cidara Therapeutics, Inc.",
+        "MarketCapUSD": 1649037184
+    },
+    {
+        "Symbol": "CDW",
+        "Security Name": "CDW Corporation",
+        "MarketCapUSD": 21875392512
+    },
+    {
+        "Symbol": "CECO",
+        "Security Name": "CECO Environmental Corp.",
+        "MarketCapUSD": 1597183360
+    },
+    {
+        "Symbol": "CEG",
+        "Security Name": "Constellation Energy Corporation",
+        "MarketCapUSD": 98161090560
+    },
+    {
+        "Symbol": "CELC",
+        "Security Name": "Celcuity Inc.",
+        "MarketCapUSD": 2069150208
+    },
+    {
+        "Symbol": "CELH",
+        "Security Name": "Celsius Holdings, Inc.",
+        "MarketCapUSD": 15979754496
+    },
+    {
+        "Symbol": "CENT",
+        "Security Name": "Central Garden & Pet Company",
+        "MarketCapUSD": 2038367872
+    },
+    {
+        "Symbol": "CENTA",
+        "Security Name": "Central Garden & Pet Company",
+        "MarketCapUSD": 2038366848
+    },
+    {
+        "Symbol": "CENX",
+        "Security Name": "Century Aluminum Company",
+        "MarketCapUSD": 2038526080
+    },
+    {
+        "Symbol": "CERT",
+        "Security Name": "Certara, Inc.",
+        "MarketCapUSD": 1717070464
+    },
+    {
+        "Symbol": "CFLT",
+        "Security Name": "Confluent, Inc.",
+        "MarketCapUSD": 5902017536
+    },
+    {
+        "Symbol": "CG",
+        "Security Name": "The Carlyle Group Inc.",
+        "MarketCapUSD": 22186983424
+    },
+    {
+        "Symbol": "CGBD",
+        "Security Name": "Carlyle Secured Lending, Inc.",
+        "MarketCapUSD": 1001687232
+    },
+    {
+        "Symbol": "CGNX",
+        "Security Name": "Cognex Corporation",
+        "MarketCapUSD": 7170966528
+    },
+    {
+        "Symbol": "CGON",
+        "Security Name": "CG Oncology, Inc.",
+        "MarketCapUSD": 1946601344
+    },
+    {
+        "Symbol": "CHA",
+        "Security Name": "Chagee Holdings Limited",
+        "MarketCapUSD": 4183135232
+    },
+    {
+        "Symbol": "CHCO",
+        "Security Name": "City Holding Company",
+        "MarketCapUSD": 1792427008
+    },
+    {
+        "Symbol": "CHDN",
+        "Security Name": "Churchill Downs Incorporated",
+        "MarketCapUSD": 7188442624
+    },
+    {
+        "Symbol": "CHEF",
+        "Security Name": "The Chefs' Warehouse, Inc.",
+        "MarketCapUSD": 2523618816
+    },
+    {
+        "Symbol": "CHKP",
+        "Security Name": "Check Point Software Technologies Ltd.",
+        "MarketCapUSD": 20320659456
+    },
+    {
+        "Symbol": "CHRD",
+        "Security Name": "Chord Energy Corporation",
+        "MarketCapUSD": 5873536000
+    },
+    {
+        "Symbol": "CHRW",
+        "Security Name": "C.H. Robinson Worldwide, Inc.",
+        "MarketCapUSD": 14298458112
+    },
+    {
+        "Symbol": "CHTR",
+        "Security Name": "Charter Communications, Inc.",
+        "MarketCapUSD": 36417892352
+    },
+    {
+        "Symbol": "CHYM",
+        "Security Name": "Chime Financial, Inc.",
+        "MarketCapUSD": 9876361216
+    },
+    {
+        "Symbol": "CIFR",
+        "Security Name": "Cipher Mining Inc.",
+        "MarketCapUSD": 2340033792
+    },
+    {
+        "Symbol": "CIGI",
+        "Security Name": "Colliers International Group Inc.",
+        "MarketCapUSD": 8299734016
+    },
+    {
+        "Symbol": "CINF",
+        "Security Name": "Cincinnati Financial Corporation",
+        "MarketCapUSD": 24027170816
+    },
+    {
+        "Symbol": "CLBK",
+        "Security Name": "Columbia Financial, Inc.",
+        "MarketCapUSD": 1541377536
+    },
+    {
+        "Symbol": "CLBT",
+        "Security Name": "Cellebrite DI Ltd.",
+        "MarketCapUSD": 3784379904
+    },
+    {
+        "Symbol": "CLDX",
+        "Security Name": "Celldex Therapeutics, Inc.",
+        "MarketCapUSD": 1387231744
+    },
+    {
+        "Symbol": "CLMT",
+        "Security Name": "Calumet, Inc.",
+        "MarketCapUSD": 1200650496
+    },
+    {
+        "Symbol": "CLOV",
+        "Security Name": "Clover Health Investments, Corp.",
+        "MarketCapUSD": 1301783040
+    },
+    {
+        "Symbol": "CLSK",
+        "Security Name": "CleanSpark, Inc.",
+        "MarketCapUSD": 2667477760
+    },
+    {
+        "Symbol": "CMCSA",
+        "Security Name": "Comcast Corporation",
+        "MarketCapUSD": 122913669120
+    },
+    {
+        "Symbol": "CME",
+        "Security Name": "CME Group Inc.",
+        "MarketCapUSD": 98963947520
+    },
+    {
+        "Symbol": "CMPO",
+        "Security Name": "CompoSecure, Inc.",
+        "MarketCapUSD": 1947248640
+    },
+    {
+        "Symbol": "CMPR",
+        "Security Name": "Cimpress plc",
+        "MarketCapUSD": 1464214656
+    },
+    {
+        "Symbol": "CNOB",
+        "Security Name": "ConnectOne Bancorp, Inc.",
+        "MarketCapUSD": 1223073920
+    },
+    {
+        "Symbol": "CNTA",
+        "Security Name": "Centessa Pharmaceuticals plc",
+        "MarketCapUSD": 2316781568
+    },
+    {
+        "Symbol": "CNXC",
+        "Security Name": "Concentrix Corporation",
+        "MarketCapUSD": 3111549184
+    },
+    {
+        "Symbol": "CNXN",
+        "Security Name": "PC Connection, Inc.",
+        "MarketCapUSD": 1575895168
+    },
+    {
+        "Symbol": "COCO",
+        "Security Name": "The Vita Coco Company, Inc.",
+        "MarketCapUSD": 2041082112
+    },
+    {
+        "Symbol": "COGT",
+        "Security Name": "Cogent Biosciences, Inc.",
+        "MarketCapUSD": 1657552256
+    },
+    {
+        "Symbol": "COIN",
+        "Security Name": "Coinbase Global, Inc.",
+        "MarketCapUSD": 78209359872
+    },
+    {
+        "Symbol": "COKE",
+        "Security Name": "Coca-Cola Consolidated, Inc.",
+        "MarketCapUSD": 10323782656
+    },
+    {
+        "Symbol": "COLB",
+        "Security Name": "Columbia Banking System, Inc.",
+        "MarketCapUSD": 5385808384
+    },
+    {
+        "Symbol": "COLL",
+        "Security Name": "Collegium Pharmaceutical, Inc.",
+        "MarketCapUSD": 1208735488
+    },
+    {
+        "Symbol": "COLM",
+        "Security Name": "Columbia Sportswear Company",
+        "MarketCapUSD": 2958132992
+    },
+    {
+        "Symbol": "COMM",
+        "Security Name": "CommScope Holding Company, Inc.",
+        "MarketCapUSD": 3480173568
+    },
+    {
+        "Symbol": "COO",
+        "Security Name": "The Cooper Companies, Inc.",
+        "MarketCapUSD": 14664205312
+    },
+    {
+        "Symbol": "COOP",
+        "Security Name": "Mr. Cooper Group Inc.",
+        "MarketCapUSD": 11875876864
+    },
+    {
+        "Symbol": "CORT",
+        "Security Name": "Corcept Therapeutics Incorporated",
+        "MarketCapUSD": 7418188800
+    },
+    {
+        "Symbol": "CORZ",
+        "Security Name": "Core Scientific, Inc.",
+        "MarketCapUSD": 4300144640
+    },
+    {
+        "Symbol": "COST",
+        "Security Name": "Costco Wholesale Corporation",
+        "MarketCapUSD": 441068912640
+    },
+    {
+        "Symbol": "CPB",
+        "Security Name": "The Campbell's Company",
+        "MarketCapUSD": 9656429568
+    },
+    {
+        "Symbol": "CPRT",
+        "Security Name": "Copart, Inc.",
+        "MarketCapUSD": 46035824640
+    },
+    {
+        "Symbol": "CPRX",
+        "Security Name": "Catalyst Pharmaceuticals, Inc.",
+        "MarketCapUSD": 2489432832
+    },
+    {
+        "Symbol": "CRAI",
+        "Security Name": "CRA International, Inc.",
+        "MarketCapUSD": 1249594368
+    },
+    {
+        "Symbol": "CRCT",
+        "Security Name": "Cricut, Inc.",
+        "MarketCapUSD": 1211056128
+    },
+    {
+        "Symbol": "CRDO",
+        "Security Name": "Credo Technology Group Holding Ltd",
+        "MarketCapUSD": 18192334848
+    },
+    {
+        "Symbol": "CRMD",
+        "Security Name": "CorMedix Inc.",
+        "MarketCapUSD": 1009254528
+    },
+    {
+        "Symbol": "CRNX",
+        "Security Name": "Crinetics Pharmaceuticals, Inc.",
+        "MarketCapUSD": 2739579904
+    },
+    {
+        "Symbol": "CROX",
+        "Security Name": "Crocs, Inc.",
+        "MarketCapUSD": 4572568576
+    },
+    {
+        "Symbol": "CRSP",
+        "Security Name": "CRISPR Therapeutics AG",
+        "MarketCapUSD": 4826737664
+    },
+    {
+        "Symbol": "CRTO",
+        "Security Name": "Criteo S.A.",
+        "MarketCapUSD": 1261613696
+    },
+    {
+        "Symbol": "CRUS",
+        "Security Name": "Cirrus Logic, Inc.",
+        "MarketCapUSD": 5791298560
+    },
+    {
+        "Symbol": "CRVL",
+        "Security Name": "CorVel Corporation",
+        "MarketCapUSD": 4563238400
+    },
+    {
+        "Symbol": "CRWD",
+        "Security Name": "CrowdStrike Holdings, Inc.",
+        "MarketCapUSD": 104477286400
+    },
+    {
+        "Symbol": "CRWV",
+        "Security Name": "CoreWeave, Inc.",
+        "MarketCapUSD": 44714106880
+    },
+    {
+        "Symbol": "CSB",
+        "Security Name": "VictoryShares US Small Cap High Div Volatility Wtd ETF",
+        "MarketCapUSD": 11749250048
+    },
+    {
+        "Symbol": "CSCO",
+        "Security Name": "Cisco Systems, Inc.",
+        "MarketCapUSD": 265755607040
+    },
+    {
+        "Symbol": "CSGP",
+        "Security Name": "CoStar Group, Inc.",
+        "MarketCapUSD": 37387112448
+    },
+    {
+        "Symbol": "CSGS",
+        "Security Name": "CSG Systems International, Inc.",
+        "MarketCapUSD": 1774722560
+    },
+    {
+        "Symbol": "CSQ",
+        "Security Name": "Calamos Strategic Total Return Fund",
+        "MarketCapUSD": 2926752512
+    },
+    {
+        "Symbol": "CSWC",
+        "Security Name": "Capital Southwest Corporation",
+        "MarketCapUSD": 1245522048
+    },
+    {
+        "Symbol": "CSX",
+        "Security Name": "CSX Corporation",
+        "MarketCapUSD": 67095441408
+    },
+    {
+        "Symbol": "CTAS",
+        "Security Name": "Cintas Corporation",
+        "MarketCapUSD": 87337418752
+    },
+    {
+        "Symbol": "CTBI",
+        "Security Name": "Community Trust Bancorp, Inc.",
+        "MarketCapUSD": 1017091264
+    },
+    {
+        "Symbol": "CTSH",
+        "Security Name": "Cognizant Technology Solutions Corporation",
+        "MarketCapUSD": 34427031552
+    },
+    {
+        "Symbol": "CVAC",
+        "Security Name": "CureVac N.V.",
+        "MarketCapUSD": 1227192704
+    },
+    {
+        "Symbol": "CVBF",
+        "Security Name": "CVB Financial Corp.",
+        "MarketCapUSD": 2658509312
+    },
+    {
+        "Symbol": "CVCO",
+        "Security Name": "Cavco Industries, Inc.",
+        "MarketCapUSD": 3840931072
+    },
+    {
+        "Symbol": "CVLT",
+        "Security Name": "Commvault Systems, Inc.",
+        "MarketCapUSD": 7841357312
+    },
+    {
+        "Symbol": "CWST",
+        "Security Name": "Casella Waste Systems, Inc.",
+        "MarketCapUSD": 6418889216
+    },
+    {
+        "Symbol": "CYBR",
+        "Security Name": "CyberArk Software Ltd.",
+        "MarketCapUSD": 22112376832
+    },
+    {
+        "Symbol": "CYTK",
+        "Security Name": "Cytokinetics, Incorporated",
+        "MarketCapUSD": 4465598976
+    },
+    {
+        "Symbol": "CZR",
+        "Security Name": "Caesars Entertainment, Inc.",
+        "MarketCapUSD": 5245558272
+    },
+    {
+        "Symbol": "DASH",
+        "Security Name": "DoorDash, Inc.",
+        "MarketCapUSD": 104158691328
+    },
+    {
+        "Symbol": "DAVE",
+        "Security Name": "Dave Inc.",
+        "MarketCapUSD": 2541130240
+    },
+    {
+        "Symbol": "DBX",
+        "Security Name": "Dropbox, Inc.",
+        "MarketCapUSD": 7669449216
+    },
+    {
+        "Symbol": "DCOM",
+        "Security Name": "Dime Community Bancshares, Inc.",
+        "MarketCapUSD": 1255724416
+    },
+    {
+        "Symbol": "DDOG",
+        "Security Name": "Datadog, Inc.",
+        "MarketCapUSD": 44799782912
+    },
+    {
+        "Symbol": "DGII",
+        "Security Name": "Digi International Inc.",
+        "MarketCapUSD": 1239510272
+    },
+    {
+        "Symbol": "DGNX",
+        "Security Name": "Diginex Limited",
+        "MarketCapUSD": 1406079616
+    },
+    {
+        "Symbol": "DIOD",
+        "Security Name": "Diodes Incorporated",
+        "MarketCapUSD": 2443350528
+    },
+    {
+        "Symbol": "DJT",
+        "Security Name": "Trump Media & Technology Group Corp.",
+        "MarketCapUSD": 4726763008
+    },
+    {
+        "Symbol": "DJTWW",
+        "Security Name": "Trump Media & Technology Group Corp.",
+        "MarketCapUSD": 2966622208
+    },
+    {
+        "Symbol": "DKNG",
+        "Security Name": "DraftKings Inc.",
+        "MarketCapUSD": 22663856128
+    },
+    {
+        "Symbol": "DLO",
+        "Security Name": "DLocal Limited",
+        "MarketCapUSD": 4176471040
+    },
+    {
+        "Symbol": "DLTR",
+        "Security Name": "Dollar Tree, Inc.",
+        "MarketCapUSD": 23655692288
+    },
+    {
+        "Symbol": "DMLP",
+        "Security Name": "Dorchester Minerals, L.P.",
+        "MarketCapUSD": 1148936960
+    },
+    {
+        "Symbol": "DNLI",
+        "Security Name": "Denali Therapeutics Inc.",
+        "MarketCapUSD": 2121536128
+    },
+    {
+        "Symbol": "DOCU",
+        "Security Name": "DocuSign, Inc.",
+        "MarketCapUSD": 14364658688
+    },
+    {
+        "Symbol": "DOOO",
+        "Security Name": "BRP Inc.",
+        "MarketCapUSD": 4144371712
+    },
+    {
+        "Symbol": "DORM",
+        "Security Name": "Dorman Products, Inc.",
+        "MarketCapUSD": 4703793664
+    },
+    {
+        "Symbol": "DOX",
+        "Security Name": "Amdocs Limited",
+        "MarketCapUSD": 9667154944
+    },
+    {
+        "Symbol": "DPZ",
+        "Security Name": "Domino's Pizza, Inc.",
+        "MarketCapUSD": 15034609664
+    },
+    {
+        "Symbol": "DRS",
+        "Security Name": "Leonardo DRS, Inc.",
+        "MarketCapUSD": 10927051776
+    },
+    {
+        "Symbol": "DRVN",
+        "Security Name": "Driven Brands Holdings Inc.",
+        "MarketCapUSD": 2789474304
+    },
+    {
+        "Symbol": "DSGR",
+        "Security Name": "Distribution Solutions Group, Inc.",
+        "MarketCapUSD": 1474787456
+    },
+    {
+        "Symbol": "DSGX",
+        "Security Name": "The Descartes Systems Group Inc.",
+        "MarketCapUSD": 8445103616
+    },
+    {
+        "Symbol": "DUKH",
+        "Security Name": "Ocean Park High Income ETF",
+        "MarketCapUSD": 17078779904
+    },
+    {
+        "Symbol": "DUOL",
+        "Security Name": "Duolingo, Inc.",
+        "MarketCapUSD": 15528125440
+    },
+    {
+        "Symbol": "DVAX",
+        "Security Name": "Dynavax Technologies Corporation",
+        "MarketCapUSD": 1221922176
+    },
+    {
+        "Symbol": "DVY",
+        "Security Name": "iShares Select Dividend ETF",
+        "MarketCapUSD": 24408973312
+    },
+    {
+        "Symbol": "DXCM",
+        "Security Name": "DexCom, Inc.",
+        "MarketCapUSD": 32027297792
+    },
+    {
+        "Symbol": "DXPE",
+        "Security Name": "DXP Enterprises, Inc.",
+        "MarketCapUSD": 1803095168
+    },
+    {
+        "Symbol": "DYN",
+        "Security Name": "Dyne Therapeutics, Inc.",
+        "MarketCapUSD": 1702900096
+    },
+    {
+        "Symbol": "EA",
+        "Security Name": "Electronic Arts Inc.",
+        "MarketCapUSD": 42867965952
+    },
+    {
+        "Symbol": "EBAY",
+        "Security Name": "eBay Inc.",
+        "MarketCapUSD": 45311549440
+    },
+    {
+        "Symbol": "EBC",
+        "Security Name": "Eastern Bankshares, Inc.",
+        "MarketCapUSD": 3161205504
+    },
+    {
+        "Symbol": "EEFT",
+        "Security Name": "Euronet Worldwide, Inc.",
+        "MarketCapUSD": 3898328576
+    },
+    {
+        "Symbol": "EFSC",
+        "Security Name": "Enterprise Financial Services Corp",
+        "MarketCapUSD": 2117557248
+    },
+    {
+        "Symbol": "EH",
+        "Security Name": "EHang Holdings Limited",
+        "MarketCapUSD": 1242459264
+    },
+    {
+        "Symbol": "ELVN",
+        "Security Name": "Enliven Therapeutics, Inc.",
+        "MarketCapUSD": 1164569984
+    },
+    {
+        "Symbol": "ENLT",
+        "Security Name": "Enlight Renewable Energy Ltd",
+        "MarketCapUSD": 3199386624
+    },
+    {
+        "Symbol": "ENPH",
+        "Security Name": "Enphase Energy, Inc.",
+        "MarketCapUSD": 4665195520
+    },
+    {
+        "Symbol": "ENSG",
+        "Security Name": "The Ensign Group, Inc.",
+        "MarketCapUSD": 9751910400
+    },
+    {
+        "Symbol": "ENTG",
+        "Security Name": "Entegris, Inc.",
+        "MarketCapUSD": 12022674432
+    },
+    {
+        "Symbol": "ENVX",
+        "Security Name": "Enovix Corporation",
+        "MarketCapUSD": 1983694080
+    },
+    {
+        "Symbol": "EOSE",
+        "Security Name": "Eos Energy Enterprises, Inc.",
+        "MarketCapUSD": 1556525440
+    },
+    {
+        "Symbol": "EQIX",
+        "Security Name": "Equinix, Inc.",
+        "MarketCapUSD": 75970838528
+    },
+    {
+        "Symbol": "ERIC",
+        "Security Name": "Telefonaktiebolaget LM Ericsson (publ)",
+        "MarketCapUSD": 25758087168
+    },
+    {
+        "Symbol": "ERIE",
+        "Security Name": "Erie Indemnity Company",
+        "MarketCapUSD": 19048165376
+    },
+    {
+        "Symbol": "ESLT",
+        "Security Name": "Elbit Systems Ltd.",
+        "MarketCapUSD": 21338085376
+    },
+    {
+        "Symbol": "ESTA",
+        "Security Name": "Establishment Labs Holdings Inc.",
+        "MarketCapUSD": 1132464640
+    },
+    {
+        "Symbol": "ETNB",
+        "Security Name": "89bio, Inc.",
+        "MarketCapUSD": 1349602816
+    },
+    {
+        "Symbol": "ETOR",
+        "Security Name": "eToro Group Ltd.",
+        "MarketCapUSD": 3714783488
+    },
+    {
+        "Symbol": "ETSY",
+        "Security Name": "Etsy, Inc.",
+        "MarketCapUSD": 6438094336
+    },
+    {
+        "Symbol": "EVCM",
+        "Security Name": "EverCommerce Inc.",
+        "MarketCapUSD": 1983192320
+    },
+    {
+        "Symbol": "EVGO",
+        "Security Name": "EVgo, Inc.",
+        "MarketCapUSD": 1214589440
+    },
+    {
+        "Symbol": "EVLV",
+        "Security Name": "Evolv Technologies Holdings, Inc.",
+        "MarketCapUSD": 1371690240
+    },
+    {
+        "Symbol": "EVO",
+        "Security Name": "Evotec SE",
+        "MarketCapUSD": 1298005632
+    },
+    {
+        "Symbol": "EVRG",
+        "Security Name": "Evergy, Inc.",
+        "MarketCapUSD": 16709253120
+    },
+    {
+        "Symbol": "EWBC",
+        "Security Name": "East West Bancorp, Inc.",
+        "MarketCapUSD": 13977907200
+    },
+    {
+        "Symbol": "EWTX",
+        "Security Name": "Edgewise Therapeutics, Inc.",
+        "MarketCapUSD": 1457988608
+    },
+    {
+        "Symbol": "EXAS",
+        "Security Name": "Exact Sciences Corporation",
+        "MarketCapUSD": 8897993728
+    },
+    {
+        "Symbol": "EXC",
+        "Security Name": "Exelon Corporation",
+        "MarketCapUSD": 45328351232
+    },
+    {
+        "Symbol": "EXE",
+        "Security Name": "Expand Energy Corporation",
+        "MarketCapUSD": 22385723392
+    },
+    {
+        "Symbol": "EXEL",
+        "Security Name": "Exelixis, Inc.",
+        "MarketCapUSD": 10192025600
+    },
+    {
+        "Symbol": "EXLS",
+        "Security Name": "ExlService Holdings, Inc.",
+        "MarketCapUSD": 6991897600
+    },
+    {
+        "Symbol": "EXPE",
+        "Security Name": "Expedia Group, Inc.",
+        "MarketCapUSD": 25445906432
+    },
+    {
+        "Symbol": "EXPI",
+        "Security Name": "eXp World Holdings, Inc.",
+        "MarketCapUSD": 1594332544
+    },
+    {
+        "Symbol": "EXPO",
+        "Security Name": "Exponent, Inc.",
+        "MarketCapUSD": 3536591872
+    },
+    {
+        "Symbol": "EXTR",
+        "Security Name": "Extreme Networks, Inc.",
+        "MarketCapUSD": 2629656832
+    },
+    {
+        "Symbol": "EYE",
+        "Security Name": "National Vision Holdings, Inc.",
+        "MarketCapUSD": 1916552960
+    },
+    {
+        "Symbol": "FA",
+        "Security Name": "First Advantage Corporation",
+        "MarketCapUSD": 2872591616
+    },
+    {
+        "Symbol": "FANG",
+        "Security Name": "Diamondback Energy, Inc.",
+        "MarketCapUSD": 39911436288
+    },
+    {
+        "Symbol": "FAST",
+        "Security Name": "Fastenal Company",
+        "MarketCapUSD": 56854089728
+    },
+    {
+        "Symbol": "FBNC",
+        "Security Name": "First Bancorp",
+        "MarketCapUSD": 2168068864
+    },
+    {
+        "Symbol": "FCFS",
+        "Security Name": "FirstCash Holdings, Inc.",
+        "MarketCapUSD": 6171559424
+    },
+    {
+        "Symbol": "FCNCA",
+        "Security Name": "First Citizens BancShares, Inc.",
+        "MarketCapUSD": 24669005824
+    },
+    {
+        "Symbol": "FELE",
+        "Security Name": "Franklin Electric Co., Inc.",
+        "MarketCapUSD": 4262069504
+    },
+    {
+        "Symbol": "FER",
+        "Security Name": "Ferrovial SE",
+        "MarketCapUSD": 39787450368
+    },
+    {
+        "Symbol": "FFBC",
+        "Security Name": "First Financial Bancorp.",
+        "MarketCapUSD": 2407970560
+    },
+    {
+        "Symbol": "FFIN",
+        "Security Name": "First Financial Bankshares, Inc.",
+        "MarketCapUSD": 5081298944
+    },
+    {
+        "Symbol": "FFIV",
+        "Security Name": "F5, Inc.",
+        "MarketCapUSD": 18141251584
+    },
+    {
+        "Symbol": "FHB",
+        "Security Name": "First Hawaiian, Inc.",
+        "MarketCapUSD": 3067095040
+    },
+    {
+        "Symbol": "FIBK",
+        "Security Name": "First Interstate BancSystem, Inc.",
+        "MarketCapUSD": 3168778496
+    },
+    {
+        "Symbol": "FITB",
+        "Security Name": "Fifth Third Bancorp",
+        "MarketCapUSD": 28527327232
+    },
+    {
+        "Symbol": "FITBI",
+        "Security Name": "Fifth Third Bancorp",
+        "MarketCapUSD": 17971156992
+    },
+    {
+        "Symbol": "FIVE",
+        "Security Name": "Five Below, Inc.",
+        "MarketCapUSD": 7668477952
+    },
+    {
+        "Symbol": "FIVN",
+        "Security Name": "Five9, Inc.",
+        "MarketCapUSD": 1989514624
+    },
+    {
+        "Symbol": "FIZZ",
+        "Security Name": "National Beverage Corp.",
+        "MarketCapUSD": 4153928192
+    },
+    {
+        "Symbol": "FLEX",
+        "Security Name": "Flex Ltd.",
+        "MarketCapUSD": 18361288704
+    },
+    {
+        "Symbol": "FLNC",
+        "Security Name": "Fluence Energy, Inc.",
+        "MarketCapUSD": 1365144832
+    },
+    {
+        "Symbol": "FLYW",
+        "Security Name": "Flywire Corporation",
+        "MarketCapUSD": 1492182016
+    },
+    {
+        "Symbol": "FOLD",
+        "Security Name": "Amicus Therapeutics, Inc.",
+        "MarketCapUSD": 2280968704
+    },
+    {
+        "Symbol": "FORM",
+        "Security Name": "FormFactor, Inc.",
+        "MarketCapUSD": 2151486208
+    },
+    {
+        "Symbol": "FORTY",
+        "Security Name": "Formula Systems (1985) Ltd.",
+        "MarketCapUSD": 1977918336
+    },
+    {
+        "Symbol": "FOX",
+        "Security Name": "Fox Corporation",
+        "MarketCapUSD": 25104764928
+    },
+    {
+        "Symbol": "FOXA",
+        "Security Name": "Fox Corporation",
+        "MarketCapUSD": 25104766976
+    },
+    {
+        "Symbol": "FOXF",
+        "Security Name": "Fox Factory Holding Corp.",
+        "MarketCapUSD": 1208455296
+    },
+    {
+        "Symbol": "FRHC",
+        "Security Name": "Freedom Holding Corp.",
+        "MarketCapUSD": 10623801344
+    },
+    {
+        "Symbol": "FRME",
+        "Security Name": "First Merchants Corporation",
+        "MarketCapUSD": 2280425728
+    },
+    {
+        "Symbol": "FROG",
+        "Security Name": "JFrog Ltd.",
+        "MarketCapUSD": 5212530688
+    },
+    {
+        "Symbol": "FRPT",
+        "Security Name": "Freshpet, Inc.",
+        "MarketCapUSD": 2970695936
+    },
+    {
+        "Symbol": "FRSH",
+        "Security Name": "Freshworks Inc.",
+        "MarketCapUSD": 3820634112
+    },
+    {
+        "Symbol": "FSLR",
+        "Security Name": "First Solar, Inc.",
+        "MarketCapUSD": 22140276736
+    },
+    {
+        "Symbol": "FSUN",
+        "Security Name": "FirstSun Capital Bancorp",
+        "MarketCapUSD": 1017647616
+    },
+    {
+        "Symbol": "FSV",
+        "Security Name": "FirstService Corporation",
+        "MarketCapUSD": 9122278400
+    },
+    {
+        "Symbol": "FTAI",
+        "Security Name": "FTAI Aviation Ltd.",
+        "MarketCapUSD": 14400967680
+    },
+    {
+        "Symbol": "FTDR",
+        "Security Name": "Frontdoor, Inc.",
+        "MarketCapUSD": 4287915776
+    },
+    {
+        "Symbol": "FTNT",
+        "Security Name": "Fortinet, Inc.",
+        "MarketCapUSD": 61002436608
+    },
+    {
+        "Symbol": "FULT",
+        "Security Name": "Fulton Financial Corporation",
+        "MarketCapUSD": 3387134464
+    },
+    {
+        "Symbol": "FUTU",
+        "Security Name": "Futu Holdings Limited",
+        "MarketCapUSD": 24874475520
+    },
+    {
+        "Symbol": "FWONA",
+        "Security Name": "Formula One Group",
+        "MarketCapUSD": 25129541632
+    },
+    {
+        "Symbol": "FWONK",
+        "Security Name": "Formula One Group",
+        "MarketCapUSD": 25129469952
+    },
+    {
+        "Symbol": "FWRG",
+        "Security Name": "First Watch Restaurant Group, Inc.",
+        "MarketCapUSD": 1063648320
+    },
+    {
+        "Symbol": "FYBR",
+        "Security Name": "Frontier Communications Parent, Inc.",
+        "MarketCapUSD": 9249102848
+    },
+    {
+        "Symbol": "GABC",
+        "Security Name": "German American Bancorp, Inc.",
+        "MarketCapUSD": 1504590080
+    },
+    {
+        "Symbol": "GBDC",
+        "Security Name": "Golub Capital BDC, Inc.",
+        "MarketCapUSD": 3921054720
+    },
+    {
+        "Symbol": "GCMG",
+        "Security Name": "GCM Grosvenor Inc.",
+        "MarketCapUSD": 2403276800
+    },
+    {
+        "Symbol": "GCT",
+        "Security Name": "GigaCloud Technology Inc.",
+        "MarketCapUSD": 1190248832
+    },
+    {
+        "Symbol": "GDRX",
+        "Security Name": "GoodRx Holdings, Inc.",
+        "MarketCapUSD": 1518356352
+    },
+    {
+        "Symbol": "GDS",
+        "Security Name": "GDS Holdings Limited",
+        "MarketCapUSD": 6756439552
+    },
+    {
+        "Symbol": "GEHC",
+        "Security Name": "GE HealthCare Technologies Inc.",
+        "MarketCapUSD": 33726234624
+    },
+    {
+        "Symbol": "GEN",
+        "Security Name": "Gen Digital Inc.",
+        "MarketCapUSD": 19362920448
+    },
+    {
+        "Symbol": "GFS",
+        "Security Name": "GlobalFoundries Inc.",
+        "MarketCapUSD": 18325176320
+    },
+    {
+        "Symbol": "GGAL",
+        "Security Name": "Grupo Financiero Galicia S.A.",
+        "MarketCapUSD": 7829624320
+    },
+    {
+        "Symbol": "GH",
+        "Security Name": "Guardant Health, Inc.",
+        "MarketCapUSD": 7295301120
+    },
+    {
+        "Symbol": "GIII",
+        "Security Name": "G-III Apparel Group, Ltd.",
+        "MarketCapUSD": 1119454976
+    },
+    {
+        "Symbol": "GILD",
+        "Security Name": "Gilead Sciences, Inc.",
+        "MarketCapUSD": 147321372672
+    },
+    {
+        "Symbol": "GLBE",
+        "Security Name": "Global-E Online Ltd.",
+        "MarketCapUSD": 5404076032
+    },
+    {
+        "Symbol": "GLIBA",
+        "Security Name": null,
+        "MarketCapUSD": 1038982016
+    },
+    {
+        "Symbol": "GLIBK",
+        "Security Name": "GCI Liberty, Inc.",
+        "MarketCapUSD": 1038983168
+    },
+    {
+        "Symbol": "GLNG",
+        "Security Name": "Golar LNG Limited",
+        "MarketCapUSD": 4262840832
+    },
+    {
+        "Symbol": "GLPG",
+        "Security Name": "Galapagos NV",
+        "MarketCapUSD": 2128218496
+    },
+    {
+        "Symbol": "GLPI",
+        "Security Name": "Gaming and Leisure Properties, Inc.",
+        "MarketCapUSD": 13434390528
+    },
+    {
+        "Symbol": "GLXY",
+        "Security Name": "Galaxy Digital",
+        "MarketCapUSD": 9222794240
+    },
+    {
+        "Symbol": "GMAB",
+        "Security Name": "Genmab A/S",
+        "MarketCapUSD": 14806090752
+    },
+    {
+        "Symbol": "GNTX",
+        "Security Name": "Gentex Corporation",
+        "MarketCapUSD": 6007413760
+    },
+    {
+        "Symbol": "GO",
+        "Security Name": "Grocery Outlet Holding Corp.",
+        "MarketCapUSD": 1808043776
+    },
+    {
+        "Symbol": "GOGL",
+        "Security Name": "Golden Ocean Group Limited",
+        "MarketCapUSD": 1591235968
+    },
+    {
+        "Symbol": "GOGO",
+        "Security Name": "Gogo Inc.",
+        "MarketCapUSD": 1642988672
+    },
+    {
+        "Symbol": "GOOG",
+        "Security Name": "Alphabet Inc.",
+        "MarketCapUSD": 2415292579840
+    },
+    {
+        "Symbol": "GOOGL",
+        "Security Name": "Alphabet Inc.",
+        "MarketCapUSD": 2415299919872
+    },
+    {
+        "Symbol": "GPCR",
+        "Security Name": "Structure Therapeutics Inc.",
+        "MarketCapUSD": 1069305024
+    },
+    {
+        "Symbol": "GRAB",
+        "Security Name": "Grab Holdings Limited",
+        "MarketCapUSD": 20505096192
+    },
+    {
+        "Symbol": "GRAL",
+        "Security Name": "GRAIL, Inc.",
+        "MarketCapUSD": 1159657600
+    },
+    {
+        "Symbol": "GRFS",
+        "Security Name": "Grifols, S.A.",
+        "MarketCapUSD": 8685943808
+    },
+    {
+        "Symbol": "GRPN",
+        "Security Name": "Groupon, Inc.",
+        "MarketCapUSD": 1111714944
+    },
+    {
+        "Symbol": "GSAT",
+        "Security Name": "Globalstar, Inc.",
+        "MarketCapUSD": 3156691200
+    },
+    {
+        "Symbol": "GSHD",
+        "Security Name": "Goosehead Insurance, Inc",
+        "MarketCapUSD": 3324267520
+    },
+    {
+        "Symbol": "GT",
+        "Security Name": "The Goodyear Tire & Rubber Company",
+        "MarketCapUSD": 2371321344
+    },
+    {
+        "Symbol": "GTLB",
+        "Security Name": "GitLab Inc.",
+        "MarketCapUSD": 7219239936
+    },
+    {
+        "Symbol": "GTM",
+        "Security Name": "ZoomInfo Technologies Inc.",
+        "MarketCapUSD": 11333514240
+    },
+    {
+        "Symbol": "GTX",
+        "Security Name": "Garrett Motion Inc.",
+        "MarketCapUSD": 2650711296
+    },
+    {
+        "Symbol": "HALO",
+        "Security Name": "Halozyme Therapeutics, Inc.",
+        "MarketCapUSD": 8319791104
+    },
+    {
+        "Symbol": "HAS",
+        "Security Name": "Hasbro, Inc.",
+        "MarketCapUSD": 11175166976
+    },
+    {
+        "Symbol": "HBAN",
+        "Security Name": "Huntington Bancshares Incorporated",
+        "MarketCapUSD": 24509685760
+    },
+    {
+        "Symbol": "HCM",
+        "Security Name": "HUTCHMED (China) Limited",
+        "MarketCapUSD": 2797214464
+    },
+    {
+        "Symbol": "HCSG",
+        "Security Name": "Healthcare Services Group, Inc.",
+        "MarketCapUSD": 1102845440
+    },
+    {
+        "Symbol": "HDL",
+        "Security Name": "Super Hi International Holding Ltd.",
+        "MarketCapUSD": 1233203968
+    },
+    {
+        "Symbol": "HIMX",
+        "Security Name": "Himax Technologies, Inc.",
+        "MarketCapUSD": 1305506944
+    },
+    {
+        "Symbol": "HLMN",
+        "Security Name": "Hillman Solutions Corp.",
+        "MarketCapUSD": 1913145600
+    },
+    {
+        "Symbol": "HLNE",
+        "Security Name": "Hamilton Lane Incorporated",
+        "MarketCapUSD": 8375220224
+    },
+    {
+        "Symbol": "HOLX",
+        "Security Name": "Hologic, Inc.",
+        "MarketCapUSD": 15293531136
+    },
+    {
+        "Symbol": "HON",
+        "Security Name": "Honeywell International Inc.",
+        "MarketCapUSD": 137772646400
+    },
+    {
+        "Symbol": "HOOD",
+        "Security Name": "Robinhood Markets, Inc.",
+        "MarketCapUSD": 93613023232
+    },
+    {
+        "Symbol": "HOPE",
+        "Security Name": "Hope Bancorp, Inc.",
+        "MarketCapUSD": 1342044672
+    },
+    {
+        "Symbol": "HOVNP",
+        "Security Name": "Hovnanian Enterprises, Inc. PFD DEP1/1000A",
+        "MarketCapUSD": 2917846784
+    },
+    {
+        "Symbol": "HQY",
+        "Security Name": "HealthEquity, Inc.",
+        "MarketCapUSD": 7699769856
+    },
+    {
+        "Symbol": "HRMY",
+        "Security Name": "Harmony Biosciences Holdings, Inc.",
+        "MarketCapUSD": 2107419136
+    },
+    {
+        "Symbol": "HROW",
+        "Security Name": "Harrow, Inc.",
+        "MarketCapUSD": 1414590208
+    },
+    {
+        "Symbol": "HSAI",
+        "Security Name": "Hesai Group",
+        "MarketCapUSD": 3432245760
+    },
+    {
+        "Symbol": "HSIC",
+        "Security Name": "Henry Schein, Inc.",
+        "MarketCapUSD": 8323835392
+    },
+    {
+        "Symbol": "HSII",
+        "Security Name": "Heidrick & Struggles International, Inc.",
+        "MarketCapUSD": 1009443072
+    },
+    {
+        "Symbol": "HST",
+        "Security Name": "Host Hotels & Resorts, Inc.",
+        "MarketCapUSD": 11226451968
+    },
+    {
+        "Symbol": "HTHT",
+        "Security Name": "H World Group Limited",
+        "MarketCapUSD": 10791975936
+    },
+    {
+        "Symbol": "HTO",
+        "Security Name": "H2O America",
+        "MarketCapUSD": 1768942336
+    },
+    {
+        "Symbol": "HTZ",
+        "Security Name": "Hertz Global Holdings, Inc.",
+        "MarketCapUSD": 1712430848
+    },
+    {
+        "Symbol": "HUBG",
+        "Security Name": "Hub Group, Inc.",
+        "MarketCapUSD": 2137788288
+    },
+    {
+        "Symbol": "HURN",
+        "Security Name": "Huron Consulting Group Inc.",
+        "MarketCapUSD": 2341450496
+    },
+    {
+        "Symbol": "HUT",
+        "Security Name": "Hut 8 Corp.",
+        "MarketCapUSD": 2354329600
+    },
+    {
+        "Symbol": "HWC",
+        "Security Name": "Hancock Whitney Corporation",
+        "MarketCapUSD": 5124286976
+    },
+    {
+        "Symbol": "HWKN",
+        "Security Name": "Hawkins, Inc.",
+        "MarketCapUSD": 3505264896
+    },
+    {
+        "Symbol": "IAC",
+        "Security Name": "IAC Inc.",
+        "MarketCapUSD": 2829552384
+    },
+    {
+        "Symbol": "IART",
+        "Security Name": "Integra LifeSciences Holdings Corporation",
+        "MarketCapUSD": 1111008000
+    },
+    {
+        "Symbol": "IAS",
+        "Security Name": "Integral Ad Science Holding Corp.",
+        "MarketCapUSD": 1447288448
+    },
+    {
+        "Symbol": "IBB",
+        "Security Name": "iShares Biotechnology ETF",
+        "MarketCapUSD": 9647874048
+    },
+    {
+        "Symbol": "IBKR",
+        "Security Name": "Interactive Brokers Group, Inc.",
+        "MarketCapUSD": 106162266112
+    },
+    {
+        "Symbol": "IBOC",
+        "Security Name": "International Bancshares Corporation",
+        "MarketCapUSD": 4255227136
+    },
+    {
+        "Symbol": "IBRX",
+        "Security Name": "ImmunityBio, Inc.",
+        "MarketCapUSD": 2136276224
+    },
+    {
+        "Symbol": "ICFI",
+        "Security Name": "ICF International, Inc.",
+        "MarketCapUSD": 1801754368
+    },
+    {
+        "Symbol": "ICLR",
+        "Security Name": "ICON Public Limited Company",
+        "MarketCapUSD": 14018420736
+    },
+    {
+        "Symbol": "ICUI",
+        "Security Name": "ICU Medical, Inc.",
+        "MarketCapUSD": 3045228032
+    },
+    {
+        "Symbol": "IDCC",
+        "Security Name": "InterDigital, Inc.",
+        "MarketCapUSD": 6707591680
+    },
+    {
+        "Symbol": "IDXX",
+        "Security Name": "IDEXX Laboratories, Inc.",
+        "MarketCapUSD": 51191009280
+    },
+    {
+        "Symbol": "IDYA",
+        "Security Name": "IDEAYA Biosciences, Inc.",
+        "MarketCapUSD": 2131494656
+    },
+    {
+        "Symbol": "IEF",
+        "Security Name": "iShares 7-10 Year Treasury Bond ETF",
+        "MarketCapUSD": 13945919488
+    },
+    {
+        "Symbol": "IEP",
+        "Security Name": "Icahn Enterprises L.P.",
+        "MarketCapUSD": 4856867840
+    },
+    {
+        "Symbol": "IESC",
+        "Security Name": "IES Holdings, Inc.",
+        "MarketCapUSD": 6385008640
+    },
+    {
+        "Symbol": "IGIC",
+        "Security Name": "International General Insurance Holdings Ltd.",
+        "MarketCapUSD": 1062892864
+    },
+    {
+        "Symbol": "IJT",
+        "Security Name": "iShares S&P Small-Cap 600 Growth ETF",
+        "MarketCapUSD": 4129946880
+    },
+    {
+        "Symbol": "ILMN",
+        "Security Name": "Illumina, Inc.",
+        "MarketCapUSD": 15956640768
+    },
+    {
+        "Symbol": "IMCR",
+        "Security Name": "Immunocore Holdings plc",
+        "MarketCapUSD": 1637076992
+    },
+    {
+        "Symbol": "IMKTA",
+        "Security Name": "Ingles Markets, Incorporated",
+        "MarketCapUSD": 1236345472
+    },
+    {
+        "Symbol": "IMVT",
+        "Security Name": "Immunovant, Inc.",
+        "MarketCapUSD": 2583377664
+    },
+    {
+        "Symbol": "INCY",
+        "Security Name": "Incyte Corporation",
+        "MarketCapUSD": 16832790528
+    },
+    {
+        "Symbol": "INDB",
+        "Security Name": "Independent Bank Corp.",
+        "MarketCapUSD": 3356345088
+    },
+    {
+        "Symbol": "INDV",
+        "Security Name": "Indivior PLC",
+        "MarketCapUSD": 3013195520
+    },
+    {
+        "Symbol": "INOD",
+        "Security Name": "Innodata Inc.",
+        "MarketCapUSD": 1218731136
+    },
+    {
+        "Symbol": "INSM",
+        "Security Name": "Insmed Incorporated",
+        "MarketCapUSD": 27362494464
+    },
+    {
+        "Symbol": "INTA",
+        "Security Name": "Intapp, Inc.",
+        "MarketCapUSD": 3385951232
+    },
+    {
+        "Symbol": "INTC",
+        "Security Name": "Intel Corporation",
+        "MarketCapUSD": 103034585088
+    },
+    {
+        "Symbol": "INTR",
+        "Security Name": "Inter & Co, Inc.",
+        "MarketCapUSD": 3414718208
+    },
+    {
+        "Symbol": "INTU",
+        "Security Name": "Intuit Inc.",
+        "MarketCapUSD": 195025813504
+    },
+    {
+        "Symbol": "INVA",
+        "Security Name": "Innoviva, Inc.",
+        "MarketCapUSD": 1257268992
+    },
+    {
+        "Symbol": "IONS",
+        "Security Name": "Ionis Pharmaceuticals, Inc.",
+        "MarketCapUSD": 6823529472
+    },
+    {
+        "Symbol": "IOSP",
+        "Security Name": "Innospec Inc.",
+        "MarketCapUSD": 2077297280
+    },
+    {
+        "Symbol": "IPAR",
+        "Security Name": "Interparfums, Inc.",
+        "MarketCapUSD": 3638281728
+    },
+    {
+        "Symbol": "IPGP",
+        "Security Name": "IPG Photonics Corporation",
+        "MarketCapUSD": 3196890880
+    },
+    {
+        "Symbol": "IPX",
+        "Security Name": "IperionX Limited",
+        "MarketCapUSD": 1236852992
+    },
+    {
+        "Symbol": "IQ",
+        "Security Name": "iQIYI, Inc.",
+        "MarketCapUSD": 2214805504
+    },
+    {
+        "Symbol": "IRDM",
+        "Security Name": "Iridium Communications Inc.",
+        "MarketCapUSD": 2560530688
+    },
+    {
+        "Symbol": "IREN",
+        "Security Name": "IREN Limited",
+        "MarketCapUSD": 4779292160
+    },
+    {
+        "Symbol": "IRON",
+        "Security Name": "Disc Medicine, Inc.",
+        "MarketCapUSD": 2041436032
+    },
+    {
+        "Symbol": "IRTC",
+        "Security Name": "iRhythm Technologies, Inc.",
+        "MarketCapUSD": 5243256832
+    },
+    {
+        "Symbol": "ISRG",
+        "Security Name": "Intuitive Surgical, Inc.",
+        "MarketCapUSD": 172230279168
+    },
+    {
+        "Symbol": "ITRI",
+        "Security Name": "Itron, Inc.",
+        "MarketCapUSD": 5700564992
+    },
+    {
+        "Symbol": "IUSG",
+        "Security Name": "iShares Core S&P U.S. Growth ETF",
+        "MarketCapUSD": 16408170496
+    },
+    {
+        "Symbol": "IUSV",
+        "Security Name": "iShares Core S&P U.S. Value ETF",
+        "MarketCapUSD": 9721149440
+    },
+    {
+        "Symbol": "JAMF",
+        "Security Name": "Jamf Holding Corp.",
+        "MarketCapUSD": 1117159168
+    },
+    {
+        "Symbol": "JANX",
+        "Security Name": "Janux Therapeutics, Inc.",
+        "MarketCapUSD": 1494535296
+    },
+    {
+        "Symbol": "JAZZ",
+        "Security Name": "Jazz Pharmaceuticals plc",
+        "MarketCapUSD": 7222643200
+    },
+    {
+        "Symbol": "JBHT",
+        "Security Name": "J.B. Hunt Transport Services, Inc.",
+        "MarketCapUSD": 13796803584
+    },
+    {
+        "Symbol": "JBLU",
+        "Security Name": "JetBlue Airways Corporation",
+        "MarketCapUSD": 1869232896
+    },
+    {
+        "Symbol": "JCAP",
+        "Security Name": "Jefferson Capital, Inc.",
+        "MarketCapUSD": 1161744384
+    },
+    {
+        "Symbol": "JD",
+        "Security Name": "JD.com, Inc.",
+        "MarketCapUSD": 45548097536
+    },
+    {
+        "Symbol": "JJSF",
+        "Security Name": "J&J Snack Foods Corp.",
+        "MarketCapUSD": 2186806784
+    },
+    {
+        "Symbol": "JKHY",
+        "Security Name": "Jack Henry & Associates, Inc.",
+        "MarketCapUSD": 11927261184
+    },
+    {
+        "Symbol": "JOYY",
+        "Security Name": "JOYY Inc.",
+        "MarketCapUSD": 2604719872
+    },
+    {
+        "Symbol": "JSM",
+        "Security Name": "Navient Corporation SR NT 6% 121543",
+        "MarketCapUSD": 5279243264
+    },
+    {
+        "Symbol": "KALU",
+        "Security Name": "Kaiser Aluminum Corporation",
+        "MarketCapUSD": 1206878720
+    },
+    {
+        "Symbol": "KARO",
+        "Security Name": "Karooooo Ltd.",
+        "MarketCapUSD": 1458163840
+    },
+    {
+        "Symbol": "KC",
+        "Security Name": "Kingsoft Cloud Holdings Limited",
+        "MarketCapUSD": 3835751424
+    },
+    {
+        "Symbol": "KDP",
+        "Security Name": "Keurig Dr Pepper Inc.",
+        "MarketCapUSD": 47789916160
+    },
+    {
+        "Symbol": "KHC",
+        "Security Name": "The Kraft Heinz Company",
+        "MarketCapUSD": 32454311936
+    },
+    {
+        "Symbol": "KLAC",
+        "Security Name": "KLA Corporation",
+        "MarketCapUSD": 115919822848
+    },
+    {
+        "Symbol": "KLIC",
+        "Security Name": "Kulicke and Soffa Industries, Inc.",
+        "MarketCapUSD": 1871501952
+    },
+    {
+        "Symbol": "KMB",
+        "Security Name": "Kimberly-Clark Corporation",
+        "MarketCapUSD": 44213002240
+    },
+    {
+        "Symbol": "KNSA",
+        "Security Name": "Kiniksa Pharmaceuticals International, plc",
+        "MarketCapUSD": 2461116416
+    },
+    {
+        "Symbol": "KRYS",
+        "Security Name": "Krystal Biotech, Inc.",
+        "MarketCapUSD": 4221626112
+    },
+    {
+        "Symbol": "KSPI",
+        "Security Name": "Joint Stock Company Kaspi.kz",
+        "MarketCapUSD": 17229791232
+    },
+    {
+        "Symbol": "KTOS",
+        "Security Name": "Kratos Defense & Security Solutions, Inc.",
+        "MarketCapUSD": 10848390144
+    },
+    {
+        "Symbol": "KYMR",
+        "Security Name": "Kymera Therapeutics, Inc.",
+        "MarketCapUSD": 3027923200
+    },
+    {
+        "Symbol": "LAMR",
+        "Security Name": "Lamar Advertising Company",
+        "MarketCapUSD": 12410461184
+    },
+    {
+        "Symbol": "LASR",
+        "Security Name": "nLIGHT, Inc.",
+        "MarketCapUSD": 1295390976
+    },
+    {
+        "Symbol": "LAUR",
+        "Security Name": "Laureate Education, Inc.",
+        "MarketCapUSD": 3840279808
+    },
+    {
+        "Symbol": "LBRDA",
+        "Security Name": "Liberty Broadband Corporation",
+        "MarketCapUSD": 8818362368
+    },
+    {
+        "Symbol": "LBRDK",
+        "Security Name": "Liberty Broadband Corporation",
+        "MarketCapUSD": 8786756608
+    },
+    {
+        "Symbol": "LBTYA",
+        "Security Name": "Liberty Global Ltd.",
+        "MarketCapUSD": 3888059392
+    },
+    {
+        "Symbol": "LBTYB",
+        "Security Name": "Liberty Global Ltd.",
+        "MarketCapUSD": 3888056576
+    },
+    {
+        "Symbol": "LBTYK",
+        "Security Name": "Liberty Global Ltd.",
+        "MarketCapUSD": 3888053248
+    },
+    {
+        "Symbol": "LCID",
+        "Security Name": "Lucid Group, Inc.",
+        "MarketCapUSD": 6421504000
+    },
+    {
+        "Symbol": "LECO",
+        "Security Name": "Lincoln Electric Holdings, Inc.",
+        "MarketCapUSD": 13172969472
+    },
+    {
+        "Symbol": "LEGN",
+        "Security Name": "Legend Biotech Corporation",
+        "MarketCapUSD": 6576265216
+    },
+    {
+        "Symbol": "LENZ",
+        "Security Name": "LENZ Therapeutics, Inc.",
+        "MarketCapUSD": 1099241728
+    },
+    {
+        "Symbol": "LFST",
+        "Security Name": "LifeStance Health Group, Inc.",
+        "MarketCapUSD": 2080807552
+    },
+    {
+        "Symbol": "LFUS",
+        "Security Name": "Littelfuse, Inc.",
+        "MarketCapUSD": 6176566272
+    },
+    {
+        "Symbol": "LGIH",
+        "Security Name": "LGI Homes, Inc.",
+        "MarketCapUSD": 1462249472
+    },
+    {
+        "Symbol": "LGND",
+        "Security Name": "Ligand Pharmaceuticals Incorporated",
+        "MarketCapUSD": 3058207744
+    },
+    {
+        "Symbol": "LI",
+        "Security Name": "Li Auto Inc.",
+        "MarketCapUSD": 23941799936
+    },
+    {
+        "Symbol": "LIF",
+        "Security Name": "Life360, Inc.",
+        "MarketCapUSD": 6604814336
+    },
+    {
+        "Symbol": "LILA",
+        "Security Name": "Liberty Latin America Ltd.",
+        "MarketCapUSD": 1568712576
+    },
+    {
+        "Symbol": "LILAK",
+        "Security Name": "Liberty Latin America Ltd.",
+        "MarketCapUSD": 1568711168
+    },
+    {
+        "Symbol": "LIN",
+        "Security Name": "Linde plc",
+        "MarketCapUSD": 226183430144
+    },
+    {
+        "Symbol": "LINE",
+        "Security Name": "Lineage, Inc.",
+        "MarketCapUSD": 9787045888
+    },
+    {
+        "Symbol": "LITE",
+        "Security Name": "Lumentum Holdings Inc.",
+        "MarketCapUSD": 8100710912
+    },
+    {
+        "Symbol": "LIVN",
+        "Security Name": "LivaNova PLC",
+        "MarketCapUSD": 2915152640
+    },
+    {
+        "Symbol": "LKFN",
+        "Security Name": "Lakeland Financial Corporation",
+        "MarketCapUSD": 1633677568
+    },
+    {
+        "Symbol": "LKQ",
+        "Security Name": "LKQ Corporation",
+        "MarketCapUSD": 7878311424
+    },
+    {
+        "Symbol": "LLYVA",
+        "Security Name": "Liberty Live Group",
+        "MarketCapUSD": 8494160896
+    },
+    {
+        "Symbol": "LLYVK",
+        "Security Name": "Liberty Live Group",
+        "MarketCapUSD": 8493786112
+    },
+    {
+        "Symbol": "LMAT",
+        "Security Name": "LeMaitre Vascular, Inc.",
+        "MarketCapUSD": 2189272576
+    },
+    {
+        "Symbol": "LMB",
+        "Security Name": "Limbach Holdings, Inc.",
+        "MarketCapUSD": 1370799744
+    },
+    {
+        "Symbol": "LNT",
+        "Security Name": "Alliant Energy Corporation",
+        "MarketCapUSD": 17044753408
+    },
+    {
+        "Symbol": "LNTH",
+        "Security Name": "Lantheus Holdings, Inc.",
+        "MarketCapUSD": 3817194240
+    },
+    {
+        "Symbol": "LNW",
+        "Security Name": "Light & Wonder, Inc.",
+        "MarketCapUSD": 7556872704
+    },
+    {
+        "Symbol": "LOGI",
+        "Security Name": "Logitech International S.A.",
+        "MarketCapUSD": 14670681088
+    },
+    {
+        "Symbol": "LOPE",
+        "Security Name": "Grand Canyon Education, Inc.",
+        "MarketCapUSD": 5658728448
+    },
+    {
+        "Symbol": "LOT",
+        "Security Name": "Lotus Technology Inc.",
+        "MarketCapUSD": 1391345280
+    },
+    {
+        "Symbol": "LPLA",
+        "Security Name": "LPL Financial Holdings Inc.",
+        "MarketCapUSD": 28425453568
+    },
+    {
+        "Symbol": "LQDA",
+        "Security Name": "Liquidia Corporation",
+        "MarketCapUSD": 2354602752
+    },
+    {
+        "Symbol": "LRCX",
+        "Security Name": "Lam Research Corporation",
+        "MarketCapUSD": 125486219264
+    },
+    {
+        "Symbol": "LSCC",
+        "Security Name": "Lattice Semiconductor Corporation",
+        "MarketCapUSD": 8405414400
+    },
+    {
+        "Symbol": "LSTR",
+        "Security Name": "Landstar System, Inc.",
+        "MarketCapUSD": 4471341056
+    },
+    {
+        "Symbol": "LULU",
+        "Security Name": "lululemon athletica inc.",
+        "MarketCapUSD": 23744878592
+    },
+    {
+        "Symbol": "LUNR",
+        "Security Name": "Intuitive Machines, Inc.",
+        "MarketCapUSD": 1019142976
+    },
+    {
+        "Symbol": "LX",
+        "Security Name": "LexinFintech Holdings Ltd.",
+        "MarketCapUSD": 1075206912
+    },
+    {
+        "Symbol": "LYFT",
+        "Security Name": "Lyft, Inc.",
+        "MarketCapUSD": 6328301568
+    },
+    {
+        "Symbol": "LZ",
+        "Security Name": "LegalZoom.com, Inc.",
+        "MarketCapUSD": 1898021888
+    },
+    {
+        "Symbol": "MANH",
+        "Security Name": "Manhattan Associates, Inc.",
+        "MarketCapUSD": 12820552704
+    },
+    {
+        "Symbol": "MAR",
+        "Security Name": "Marriott International, Inc.",
+        "MarketCapUSD": 71537319936
+    },
+    {
+        "Symbol": "MARA",
+        "Security Name": "MARA Holdings, Inc.",
+        "MarketCapUSD": 5723575808
+    },
+    {
+        "Symbol": "MASI",
+        "Security Name": "Masimo Corporation",
+        "MarketCapUSD": 7912407040
+    },
+    {
+        "Symbol": "MAT",
+        "Security Name": "Mattel, Inc.",
+        "MarketCapUSD": 5702940160
+    },
+    {
+        "Symbol": "MBIN",
+        "Security Name": "Merchants Bancorp",
+        "MarketCapUSD": 1487607808
+    },
+    {
+        "Symbol": "MBLY",
+        "Security Name": "Mobileye Global Inc.",
+        "MarketCapUSD": 11278907392
+    },
+    {
+        "Symbol": "MCHP",
+        "Security Name": "Microchip Technology Incorporated",
+        "MarketCapUSD": 36029038592
+    },
+    {
+        "Symbol": "MCRI",
+        "Security Name": "Monarch Casino & Resort, Inc.",
+        "MarketCapUSD": 1847209600
+    },
+    {
+        "Symbol": "MCW",
+        "Security Name": "Mister Car Wash, Inc.",
+        "MarketCapUSD": 1881831296
+    },
+    {
+        "Symbol": "MDB",
+        "Security Name": "MongoDB, Inc.",
+        "MarketCapUSD": 17380632576
+    },
+    {
+        "Symbol": "MDGL",
+        "Security Name": "Madrigal Pharmaceuticals, Inc.",
+        "MarketCapUSD": 8729709568
+    },
+    {
+        "Symbol": "MDLZ",
+        "Security Name": "Mondelez International, Inc.",
+        "MarketCapUSD": 81738817536
+    },
+    {
+        "Symbol": "MDXG",
+        "Security Name": "MiMedx Group, Inc.",
+        "MarketCapUSD": 1060866112
+    },
+    {
+        "Symbol": "MEDP",
+        "Security Name": "Medpace Holdings, Inc.",
+        "MarketCapUSD": 13083471872
+    },
+    {
+        "Symbol": "MELI",
+        "Security Name": "MercadoLibre, Inc.",
+        "MarketCapUSD": 118428114944
+    },
+    {
+        "Symbol": "MENS",
+        "Security Name": "Jyong Biotech Ltd.",
+        "MarketCapUSD": 3622719744
+    },
+    {
+        "Symbol": "MEOH",
+        "Security Name": "Methanex Corporation",
+        "MarketCapUSD": 2617821696
+    },
+    {
+        "Symbol": "MESO",
+        "Security Name": "Mesoblast Limited",
+        "MarketCapUSD": 1960621184
+    },
+    {
+        "Symbol": "META",
+        "Security Name": "Meta Platforms, Inc.",
+        "MarketCapUSD": 1878377234432
+    },
+    {
+        "Symbol": "METC",
+        "Security Name": "Ramaco Resources, Inc.",
+        "MarketCapUSD": 1312066304
+    },
+    {
+        "Symbol": "METCB",
+        "Security Name": "Ramaco Resources, Inc.",
+        "MarketCapUSD": 1312066048
+    },
+    {
+        "Symbol": "MFIC",
+        "Security Name": "MidCap Financial Investment Corporation",
+        "MarketCapUSD": 1209214720
+    },
+    {
+        "Symbol": "MGEE",
+        "Security Name": "MGE Energy, Inc.",
+        "MarketCapUSD": 3109707008
+    },
+    {
+        "Symbol": "MGNI",
+        "Security Name": "Magnite, Inc.",
+        "MarketCapUSD": 3109994240
+    },
+    {
+        "Symbol": "MGRC",
+        "Security Name": "McGrath RentCorp",
+        "MarketCapUSD": 2914617088
+    },
+    {
+        "Symbol": "MIDD",
+        "Security Name": "The Middleby Corporation",
+        "MarketCapUSD": 6608984576
+    },
+    {
+        "Symbol": "MIRM",
+        "Security Name": "Mirum Pharmaceuticals, Inc.",
+        "MarketCapUSD": 3351350272
+    },
+    {
+        "Symbol": "MKSI",
+        "Security Name": "MKS Inc.",
+        "MarketCapUSD": 6673589760
+    },
+    {
+        "Symbol": "MKTX",
+        "Security Name": "MarketAxess Holdings Inc.",
+        "MarketCapUSD": 7066241536
+    },
+    {
+        "Symbol": "MLCO",
+        "Security Name": "Melco Resorts & Entertainment Limited",
+        "MarketCapUSD": 3498046720
+    },
+    {
+        "Symbol": "MLKN",
+        "Security Name": "MillerKnoll, Inc.",
+        "MarketCapUSD": 1432753408
+    },
+    {
+        "Symbol": "MLTX",
+        "Security Name": "MoonLake Immunotherapeutics",
+        "MarketCapUSD": 3437965824
+    },
+    {
+        "Symbol": "MLYS",
+        "Security Name": "Mineralys Therapeutics, Inc.",
+        "MarketCapUSD": 1026249664
+    },
+    {
+        "Symbol": "MMSI",
+        "Security Name": "Merit Medical Systems, Inc.",
+        "MarketCapUSD": 5173380608
+    },
+    {
+        "Symbol": "MMYT",
+        "Security Name": "MakeMyTrip Limited",
+        "MarketCapUSD": 9731676160
+    },
+    {
+        "Symbol": "MNDY",
+        "Security Name": "monday.com Ltd.",
+        "MarketCapUSD": 8937483264
+    },
+    {
+        "Symbol": "MNKD",
+        "Security Name": "MannKind Corporation",
+        "MarketCapUSD": 1218107136
+    },
+    {
+        "Symbol": "MNST",
+        "Security Name": "Monster Beverage Corporation",
+        "MarketCapUSD": 62872199168
+    },
+    {
+        "Symbol": "MOMO",
+        "Security Name": "Hello Group Inc.",
+        "MarketCapUSD": 1285351936
+    },
+    {
+        "Symbol": "MORN",
+        "Security Name": "Morningstar, Inc.",
+        "MarketCapUSD": 11062789120
+    },
+    {
+        "Symbol": "MPWR",
+        "Security Name": "Monolithic Power Systems, Inc.",
+        "MarketCapUSD": 39571722240
+    },
+    {
+        "Symbol": "MQ",
+        "Security Name": "Marqeta, Inc.",
+        "MarketCapUSD": 2680433408
+    },
+    {
+        "Symbol": "MRCY",
+        "Security Name": "Mercury Systems, Inc.",
+        "MarketCapUSD": 3866959360
+    },
+    {
+        "Symbol": "MRNA",
+        "Security Name": "Moderna, Inc.",
+        "MarketCapUSD": 10462360576
+    },
+    {
+        "Symbol": "MRUS",
+        "Security Name": "Merus N.V.",
+        "MarketCapUSD": 4873124352
+    },
+    {
+        "Symbol": "MRVL",
+        "Security Name": "Marvell Technology, Inc.",
+        "MarketCapUSD": 61405884416
+    },
+    {
+        "Symbol": "MRX",
+        "Security Name": "Marex Group plc",
+        "MarketCapUSD": 2603955968
+    },
+    {
+        "Symbol": "MSFT",
+        "Security Name": "Microsoft Corporation",
+        "MarketCapUSD": 3759102754816
+    },
+    {
+        "Symbol": "MSTR",
+        "Security Name": "Strategy Inc",
+        "MarketCapUSD": 97647140864
+    },
+    {
+        "Symbol": "MTCH",
+        "Security Name": "Match Group, Inc.",
+        "MarketCapUSD": 8905419776
+    },
+    {
+        "Symbol": "MTSI",
+        "Security Name": "MACOM Technology Solutions Holdings, Inc.",
+        "MarketCapUSD": 9022197760
+    },
+    {
+        "Symbol": "MTSR",
+        "Security Name": "Metsera, Inc.",
+        "MarketCapUSD": 3381752576
+    },
+    {
+        "Symbol": "MU",
+        "Security Name": "Micron Technology, Inc.",
+        "MarketCapUSD": 131173220352
+    },
+    {
+        "Symbol": "MXL",
+        "Security Name": "MaxLinear, Inc.",
+        "MarketCapUSD": 1242638720
+    },
+    {
+        "Symbol": "MYRG",
+        "Security Name": "MYR Group Inc.",
+        "MarketCapUSD": 2816922624
+    },
+    {
+        "Symbol": "MZTI",
+        "Security Name": "The Marzetti Company",
+        "MarketCapUSD": 4916122112
+    },
+    {
+        "Symbol": "NAMS",
+        "Security Name": "NewAmsterdam Pharma Company N.V.",
+        "MarketCapUSD": 2739112960
+    },
+    {
+        "Symbol": "NAVI",
+        "Security Name": "Navient Corporation",
+        "MarketCapUSD": 1297574528
+    },
+    {
+        "Symbol": "NBIS",
+        "Security Name": null,
+        "MarketCapUSD": 16105696256
+    },
+    {
+        "Symbol": "NBIX",
+        "Security Name": "Neurocrine Biosciences, Inc.",
+        "MarketCapUSD": 13213950976
+    },
+    {
+        "Symbol": "NBTB",
+        "Security Name": "NBT Bancorp Inc.",
+        "MarketCapUSD": 2226225408
+    },
+    {
+        "Symbol": "NCNA",
+        "Security Name": "NuCana plc",
+        "MarketCapUSD": 1186825728
+    },
+    {
+        "Symbol": "NCNO",
+        "Security Name": "nCino, Inc.",
+        "MarketCapUSD": 3232462848
+    },
+    {
+        "Symbol": "NDAQ",
+        "Security Name": "Nasdaq, Inc.",
+        "MarketCapUSD": 54223626240
+    },
+    {
+        "Symbol": "NDSN",
+        "Security Name": "Nordson Corporation",
+        "MarketCapUSD": 12065780736
+    },
+    {
+        "Symbol": "NEGG",
+        "Security Name": "Newegg Commerce, Inc.",
+        "MarketCapUSD": 2155045888
+    },
+    {
+        "Symbol": "NEOG",
+        "Security Name": "Neogen Corporation",
+        "MarketCapUSD": 1209831808
+    },
+    {
+        "Symbol": "NEXT",
+        "Security Name": "NextDecade Corporation",
+        "MarketCapUSD": 2627739648
+    },
+    {
+        "Symbol": "NFLX",
+        "Security Name": "Netflix, Inc.",
+        "MarketCapUSD": 515800694784
+    },
+    {
+        "Symbol": "NICE",
+        "Security Name": "NICE Ltd.",
+        "MarketCapUSD": 8796956672
+    },
+    {
+        "Symbol": "NMFC",
+        "Security Name": "New Mountain Finance Corporation",
+        "MarketCapUSD": 1099772800
+    },
+    {
+        "Symbol": "NMIH",
+        "Security Name": "NMI Holdings, Inc.",
+        "MarketCapUSD": 3048662016
+    },
+    {
+        "Symbol": "NMRK",
+        "Security Name": "Newmark Group, Inc.",
+        "MarketCapUSD": 4274774272
+    },
+    {
+        "Symbol": "NN",
+        "Security Name": "NextNav Inc.",
+        "MarketCapUSD": 1889794560
+    },
+    {
+        "Symbol": "NNE",
+        "Security Name": "NANO Nuclear Energy Inc.",
+        "MarketCapUSD": 1207711488
+    },
+    {
+        "Symbol": "NNNN",
+        "Security Name": "Anbio Biotechnology",
+        "MarketCapUSD": 2218700032
+    },
+    {
+        "Symbol": "NOVT",
+        "Security Name": "Novanta Inc.",
+        "MarketCapUSD": 4142360064
+    },
+    {
+        "Symbol": "NSIT",
+        "Security Name": "Insight Enterprises, Inc.",
+        "MarketCapUSD": 4076098048
+    },
+    {
+        "Symbol": "NSSC",
+        "Security Name": "Napco Security Technologies, Inc.",
+        "MarketCapUSD": 1076466688
+    },
+    {
+        "Symbol": "NTAP",
+        "Security Name": "NetApp, Inc.",
+        "MarketCapUSD": 21694734336
+    },
+    {
+        "Symbol": "NTCT",
+        "Security Name": "NetScout Systems, Inc.",
+        "MarketCapUSD": 1628694144
+    },
+    {
+        "Symbol": "NTES",
+        "Security Name": "NetEase, Inc.",
+        "MarketCapUSD": 82645008384
+    },
+    {
+        "Symbol": "NTLA",
+        "Security Name": "Intellia Therapeutics, Inc.",
+        "MarketCapUSD": 1096012928
+    },
+    {
+        "Symbol": "NTNX",
+        "Security Name": "Nutanix, Inc.",
+        "MarketCapUSD": 18666201088
+    },
+    {
+        "Symbol": "NTRA",
+        "Security Name": "Natera, Inc.",
+        "MarketCapUSD": 22047518720
+    },
+    {
+        "Symbol": "NTRS",
+        "Security Name": "Northern Trust Corporation",
+        "MarketCapUSD": 24381726720
+    },
+    {
+        "Symbol": "NUVL",
+        "Security Name": "Nuvalent, Inc.",
+        "MarketCapUSD": 5280955392
+    },
+    {
+        "Symbol": "NVAX",
+        "Security Name": "Novavax, Inc.",
+        "MarketCapUSD": 1419568256
+    },
+    {
+        "Symbol": "NVCR",
+        "Security Name": "NovoCure Limited",
+        "MarketCapUSD": 1316992128
+    },
+    {
+        "Symbol": "NVDA",
+        "Security Name": "NVIDIA Corporation",
+        "MarketCapUSD": 4277585051648
+    },
+    {
+        "Symbol": "NVEE",
+        "Security Name": "NV5 Global, Inc.",
+        "MarketCapUSD": 1512368256
+    },
+    {
+        "Symbol": "NVMI",
+        "Security Name": "Nova Ltd.",
+        "MarketCapUSD": 7245948928
+    },
+    {
+        "Symbol": "NVTS",
+        "Security Name": "Navitas Semiconductor Corporation",
+        "MarketCapUSD": 1331918848
+    },
+    {
+        "Symbol": "NWBI",
+        "Security Name": "Northwest Bancshares, Inc.",
+        "MarketCapUSD": 1767703040
+    },
+    {
+        "Symbol": "NWE",
+        "Security Name": "NorthWestern Energy Group, Inc.",
+        "MarketCapUSD": 3530120448
+    },
+    {
+        "Symbol": "NWL",
+        "Security Name": "Newell Brands Inc.",
+        "MarketCapUSD": 2334386944
+    },
+    {
+        "Symbol": "NWS",
+        "Security Name": "News Corporation",
+        "MarketCapUSD": 17575358464
+    },
+    {
+        "Symbol": "NWSA",
+        "Security Name": "News Corporation",
+        "MarketCapUSD": 17575370752
+    },
+    {
+        "Symbol": "NXPI",
+        "Security Name": "NXP Semiconductors N.V.",
+        "MarketCapUSD": 57676349440
+    },
+    {
+        "Symbol": "NXST",
+        "Security Name": "Nexstar Media Group, Inc.",
+        "MarketCapUSD": 6138342912
+    },
+    {
+        "Symbol": "NXT",
+        "Security Name": "Nextracker Inc.",
+        "MarketCapUSD": 10037343232
+    },
+    {
+        "Symbol": "NYAX",
+        "Security Name": "Nayax Ltd.",
+        "MarketCapUSD": 1708391808
+    },
+    {
+        "Symbol": "NYMTN",
+        "Security Name": "New York Mortgage Trust, Inc.",
+        "MarketCapUSD": 1145721088
+    },
+    {
+        "Symbol": "OCSL",
+        "Security Name": "Oaktree Specialty Lending Corporation",
+        "MarketCapUSD": 1202367104
+    },
+    {
+        "Symbol": "OCUL",
+        "Security Name": "Ocular Therapeutix, Inc.",
+        "MarketCapUSD": 2080980352
+    },
+    {
+        "Symbol": "ODD",
+        "Security Name": "Oddity Tech Ltd.",
+        "MarketCapUSD": 3340765440
+    },
+    {
+        "Symbol": "ODFL",
+        "Security Name": "Old Dominion Freight Line, Inc.",
+        "MarketCapUSD": 31575642112
+    },
+    {
+        "Symbol": "OKTA",
+        "Security Name": "Okta, Inc.",
+        "MarketCapUSD": 15936893952
+    },
+    {
+        "Symbol": "OLED",
+        "Security Name": "Universal Display Corporation",
+        "MarketCapUSD": 6668572672
+    },
+    {
+        "Symbol": "OLLI",
+        "Security Name": "Ollie's Bargain Outlet Holdings, Inc.",
+        "MarketCapUSD": 8273688064
+    },
+    {
+        "Symbol": "OMAB",
+        "Security Name": "Grupo Aeroportuario del Centro Norte, S.A.B. de C.V.",
+        "MarketCapUSD": 5178200576
+    },
+    {
+        "Symbol": "OMCL",
+        "Security Name": "Omnicell, Inc.",
+        "MarketCapUSD": 1458414080
+    },
+    {
+        "Symbol": "OMDA",
+        "Security Name": "Omada Health, Inc.",
+        "MarketCapUSD": 1239587584
+    },
+    {
+        "Symbol": "ON",
+        "Security Name": "ON Semiconductor Corporation",
+        "MarketCapUSD": 20231944192
+    },
+    {
+        "Symbol": "ONB",
+        "Security Name": "Old National Bancorp",
+        "MarketCapUSD": 8487579648
+    },
+    {
+        "Symbol": "ONC",
+        "Security Name": "BeOne Medicines Ltd.",
+        "MarketCapUSD": 37600915456
+    },
+    {
+        "Symbol": "OPCH",
+        "Security Name": "Option Care Health, Inc.",
+        "MarketCapUSD": 4417670144
+    },
+    {
+        "Symbol": "OPEN",
+        "Security Name": "Opendoor Technologies Inc.",
+        "MarketCapUSD": 2369771776
+    },
+    {
+        "Symbol": "OPK",
+        "Security Name": "OPKO Health, Inc.",
+        "MarketCapUSD": 1103358336
+    },
+    {
+        "Symbol": "OPRA",
+        "Security Name": "Opera Limited",
+        "MarketCapUSD": 1412519808
+    },
+    {
+        "Symbol": "ORLY",
+        "Security Name": "O'Reilly Automotive, Inc.",
+        "MarketCapUSD": 88243691520
+    },
+    {
+        "Symbol": "OS",
+        "Security Name": "OneStream, Inc.",
+        "MarketCapUSD": 4820473344
+    },
+    {
+        "Symbol": "OSIS",
+        "Security Name": "OSI Systems, Inc.",
+        "MarketCapUSD": 3750405376
+    },
+    {
+        "Symbol": "OSW",
+        "Security Name": "OneSpaWorld Holdings Limited",
+        "MarketCapUSD": 2228525056
+    },
+    {
+        "Symbol": "OTEX",
+        "Security Name": "Open Text Corporation",
+        "MarketCapUSD": 8148162048
+    },
+    {
+        "Symbol": "OTTR",
+        "Security Name": "Otter Tail Corporation",
+        "MarketCapUSD": 3485280256
+    },
+    {
+        "Symbol": "OUST",
+        "Security Name": "Ouster, Inc.",
+        "MarketCapUSD": 1709135488
+    },
+    {
+        "Symbol": "OXLC",
+        "Security Name": "Oxford Lane Capital Corp.",
+        "MarketCapUSD": 1647072000
+    },
+    {
+        "Symbol": "OZK",
+        "Security Name": "Bank OZK",
+        "MarketCapUSD": 5638808576
+    },
+    {
+        "Symbol": "PAA",
+        "Security Name": "Plains All American Pipeline, L.P.",
+        "MarketCapUSD": 12342984704
+    },
+    {
+        "Symbol": "PAGP",
+        "Security Name": "Plains GP Holdings, L.P.",
+        "MarketCapUSD": 4391664128
+    },
+    {
+        "Symbol": "PAHC",
+        "Security Name": "Phibro Animal Health Corporation",
+        "MarketCapUSD": 1262216320
+    },
+    {
+        "Symbol": "PANW",
+        "Security Name": "Palo Alto Networks, Inc.",
+        "MarketCapUSD": 123187429376
+    },
+    {
+        "Symbol": "PARA",
+        "Security Name": "Paramount Skydance Corporation",
+        "MarketCapUSD": 6994082816
+    },
+    {
+        "Symbol": "PARAA",
+        "Security Name": "Paramount Skydance Corporation",
+        "MarketCapUSD": 7682364928
+    },
+    {
+        "Symbol": "PATK",
+        "Security Name": "Patrick Industries, Inc.",
+        "MarketCapUSD": 3699260416
+    },
+    {
+        "Symbol": "PAX",
+        "Security Name": "Patria Investments Limited",
+        "MarketCapUSD": 2089017856
+    },
+    {
+        "Symbol": "PAYO",
+        "Security Name": "Payoneer Global Inc.",
+        "MarketCapUSD": 2396101376
+    },
+    {
+        "Symbol": "PAYX",
+        "Security Name": "Paychex, Inc.",
+        "MarketCapUSD": 50030690304
+    },
+    {
+        "Symbol": "PCAR",
+        "Security Name": "PACCAR Inc",
+        "MarketCapUSD": 51554615296
+    },
+    {
+        "Symbol": "PCH",
+        "Security Name": "PotlatchDeltic Corporation",
+        "MarketCapUSD": 3287746560
+    },
+    {
+        "Symbol": "PCRX",
+        "Security Name": "Pacira BioSciences, Inc.",
+        "MarketCapUSD": 1122868224
+    },
+    {
+        "Symbol": "PCT",
+        "Security Name": "PureCycle Technologies, Inc.",
+        "MarketCapUSD": 2267370752
+    },
+    {
+        "Symbol": "PCTY",
+        "Security Name": "Paylocity Holding Corporation",
+        "MarketCapUSD": 9999143936
+    },
+    {
+        "Symbol": "PCVX",
+        "Security Name": "Vaxcyte, Inc.",
+        "MarketCapUSD": 4058267136
+    },
+    {
+        "Symbol": "PDD",
+        "Security Name": "PDD Holdings Inc.",
+        "MarketCapUSD": 167518699520
+    },
+    {
+        "Symbol": "PEBO",
+        "Security Name": "Peoples Bancorp Inc.",
+        "MarketCapUSD": 1056572096
+    },
+    {
+        "Symbol": "PECO",
+        "Security Name": "Phillips Edison & Company, Inc.",
+        "MarketCapUSD": 4736869376
+    },
+    {
+        "Symbol": "PEGA",
+        "Security Name": "Pegasystems Inc.",
+        "MarketCapUSD": 8865417216
+    },
+    {
+        "Symbol": "PENG",
+        "Security Name": "Penguin Solutions, Inc.",
+        "MarketCapUSD": 1218849536
+    },
+    {
+        "Symbol": "PENN",
+        "Security Name": "PENN Entertainment, Inc.",
+        "MarketCapUSD": 2725913088
+    },
+    {
+        "Symbol": "PEP",
+        "Security Name": "PepsiCo, Inc.",
+        "MarketCapUSD": 206361427968
+    },
+    {
+        "Symbol": "PFBC",
+        "Security Name": "Preferred Bank",
+        "MarketCapUSD": 1127586432
+    },
+    {
+        "Symbol": "PFF",
+        "Security Name": "iShares Preferred and Income Securities ETF",
+        "MarketCapUSD": 13164436480
+    },
+    {
+        "Symbol": "PFG",
+        "Security Name": "Principal Financial Group, Inc.",
+        "MarketCapUSD": 17536296960
+    },
+    {
+        "Symbol": "PGNY",
+        "Security Name": "Progyny, Inc.",
+        "MarketCapUSD": 1939762944
+    },
+    {
+        "Symbol": "PGY",
+        "Security Name": "Pagaya Technologies Ltd.",
+        "MarketCapUSD": 2320468480
+    },
+    {
+        "Symbol": "PHVS",
+        "Security Name": "Pharvaris N.V.",
+        "MarketCapUSD": 1478888448
+    },
+    {
+        "Symbol": "PI",
+        "Security Name": "Impinj, Inc.",
+        "MarketCapUSD": 4793400832
+    },
+    {
+        "Symbol": "PIII",
+        "Security Name": "P3 Health Partners Inc.",
+        "MarketCapUSD": 1486005632
+    },
+    {
+        "Symbol": "PINC",
+        "Security Name": "Premier, Inc.",
+        "MarketCapUSD": 2103848320
+    },
+    {
+        "Symbol": "PLAB",
+        "Security Name": "Photronics, Inc.",
+        "MarketCapUSD": 1241506304
+    },
+    {
+        "Symbol": "PLMR",
+        "Security Name": "Palomar Holdings, Inc.",
+        "MarketCapUSD": 3349812224
+    },
+    {
+        "Symbol": "PLSE",
+        "Security Name": "Pulse Biosciences, Inc.",
+        "MarketCapUSD": 1073088960
+    },
+    {
+        "Symbol": "PLTK",
+        "Security Name": "Playtika Holding Corp.",
+        "MarketCapUSD": 1352869120
+    },
+    {
+        "Symbol": "PLTR",
+        "Security Name": "Palantir Technologies Inc.",
+        "MarketCapUSD": 370108760064
+    },
+    {
+        "Symbol": "PLUG",
+        "Security Name": "Plug Power Inc.",
+        "MarketCapUSD": 1801550464
+    },
+    {
+        "Symbol": "PLUS",
+        "Security Name": "ePlus inc.",
+        "MarketCapUSD": 1895742592
+    },
+    {
+        "Symbol": "PLXS",
+        "Security Name": "Plexus Corp.",
+        "MarketCapUSD": 3473593088
+    },
+    {
+        "Symbol": "PNFP",
+        "Security Name": "Pinnacle Financial Partners, Inc.",
+        "MarketCapUSD": 7201817088
+    },
+    {
+        "Symbol": "PODD",
+        "Security Name": "Insulet Corporation",
+        "MarketCapUSD": 23440701440
+    },
+    {
+        "Symbol": "PONY",
+        "Security Name": "Pony AI Inc.",
+        "MarketCapUSD": 5290312704
+    },
+    {
+        "Symbol": "POOL",
+        "Security Name": "Pool Corporation",
+        "MarketCapUSD": 11753304064
+    },
+    {
+        "Symbol": "POWI",
+        "Security Name": "Power Integrations, Inc.",
+        "MarketCapUSD": 2557959168
+    },
+    {
+        "Symbol": "POWL",
+        "Security Name": "Powell Industries, Inc.",
+        "MarketCapUSD": 2975126784
+    },
+    {
+        "Symbol": "PPBI",
+        "Security Name": "Pacific Premier Bancorp, Inc.",
+        "MarketCapUSD": 2237591552
+    },
+    {
+        "Symbol": "PPC",
+        "Security Name": "Pilgrim's Pride Corporation",
+        "MarketCapUSD": 11207468032
+    },
+    {
+        "Symbol": "PPH",
+        "Security Name": "VanEck Pharmaceutical ETF",
+        "MarketCapUSD": 1025027136
+    },
+    {
+        "Symbol": "PPTA",
+        "Security Name": "Perpetua Resources Corp.",
+        "MarketCapUSD": 1834543488
+    },
+    {
+        "Symbol": "PRCH",
+        "Security Name": "Porch Group, Inc.",
+        "MarketCapUSD": 1597401088
+    },
+    {
+        "Symbol": "PRCT",
+        "Security Name": "PROCEPT BioRobotics Corporation",
+        "MarketCapUSD": 2190941696
+    },
+    {
+        "Symbol": "PRDO",
+        "Security Name": "Perdoceo Education Corporation",
+        "MarketCapUSD": 2100593024
+    },
+    {
+        "Symbol": "PRGS",
+        "Security Name": "Progress Software Corporation",
+        "MarketCapUSD": 1920905856
+    },
+    {
+        "Symbol": "PROK",
+        "Security Name": "ProKidney Corp.",
+        "MarketCapUSD": 1772943872
+    },
+    {
+        "Symbol": "PRVA",
+        "Security Name": "Privia Health Group, Inc.",
+        "MarketCapUSD": 2595739392
+    },
+    {
+        "Symbol": "PSEC",
+        "Security Name": "Prospect Capital Corporation",
+        "MarketCapUSD": 1286874752
+    },
+    {
+        "Symbol": "PSIX",
+        "Security Name": "Power Solutions International, Inc.",
+        "MarketCapUSD": 1859195776
+    },
+    {
+        "Symbol": "PSMT",
+        "Security Name": "PriceSmart, Inc.",
+        "MarketCapUSD": 3345409280
+    },
+    {
+        "Symbol": "PSNY",
+        "Security Name": "Polestar Automotive Holding UK PLC",
+        "MarketCapUSD": 2267640320
+    },
+    {
+        "Symbol": "PSNYW",
+        "Security Name": "Polestar Automotive Holding UK PLC",
+        "MarketCapUSD": 2267640320
+    },
+    {
+        "Symbol": "PTC",
+        "Security Name": "PTC Inc.",
+        "MarketCapUSD": 25263144960
+    },
+    {
+        "Symbol": "PTCT",
+        "Security Name": "PTC Therapeutics, Inc.",
+        "MarketCapUSD": 3880550912
+    },
+    {
+        "Symbol": "PTEN",
+        "Security Name": "Patterson-UTI Energy, Inc.",
+        "MarketCapUSD": 2037533440
+    },
+    {
+        "Symbol": "PTGX",
+        "Security Name": "Protagonist Therapeutics, Inc.",
+        "MarketCapUSD": 3498141440
+    },
+    {
+        "Symbol": "PTON",
+        "Security Name": "Peloton Interactive, Inc.",
+        "MarketCapUSD": 3152015616
+    },
+    {
+        "Symbol": "PWP",
+        "Security Name": "Perella Weinberg Partners",
+        "MarketCapUSD": 1862087168
+    },
+    {
+        "Symbol": "PYPL",
+        "Security Name": "PayPal Holdings, Inc.",
+        "MarketCapUSD": 65042132992
+    },
+    {
+        "Symbol": "PZZA",
+        "Security Name": "Papa John's International, Inc.",
+        "MarketCapUSD": 1475743360
+    },
+    {
+        "Symbol": "QCOM",
+        "Security Name": "QUALCOMM Incorporated",
+        "MarketCapUSD": 167719780352
+    },
+    {
+        "Symbol": "QCRH",
+        "Security Name": "QCR Holdings, Inc.",
+        "MarketCapUSD": 1275563136
+    },
+    {
+        "Symbol": "QDEL",
+        "Security Name": "QuidelOrtho Corporation",
+        "MarketCapUSD": 1788499072
+    },
+    {
+        "Symbol": "QFIN",
+        "Security Name": "Qfin Holdings, Inc.",
+        "MarketCapUSD": 3930492672
+    },
+    {
+        "Symbol": "QLYS",
+        "Security Name": "Qualys, Inc.",
+        "MarketCapUSD": 4768629248
+    },
+    {
+        "Symbol": "QQQ",
+        "Security Name": "Invesco QQQ Trust",
+        "MarketCapUSD": 222455300096
+    },
+    {
+        "Symbol": "QQQX",
+        "Security Name": "Nuveen Nasdaq 100 Dynamic Overwrite Fund",
+        "MarketCapUSD": 1293421952
+    },
+    {
+        "Symbol": "QRVO",
+        "Security Name": "Qorvo, Inc.",
+        "MarketCapUSD": 8250866176
+    },
+    {
+        "Symbol": "QUBT",
+        "Security Name": "Quantum Computing Inc.",
+        "MarketCapUSD": 2337489664
+    },
+    {
+        "Symbol": "RARE",
+        "Security Name": "Ultragenyx Pharmaceutical Inc.",
+        "MarketCapUSD": 2829470208
+    },
+    {
+        "Symbol": "RBCAA",
+        "Security Name": "Republic Bancorp, Inc.",
+        "MarketCapUSD": 1416742528
+    },
+    {
+        "Symbol": "RDNT",
+        "Security Name": "RadNet, Inc.",
+        "MarketCapUSD": 5279520768
+    },
+    {
+        "Symbol": "RDWR",
+        "Security Name": "Radware Ltd.",
+        "MarketCapUSD": 1049661056
+    },
+    {
+        "Symbol": "REG",
+        "Security Name": "Regency Centers Corporation",
+        "MarketCapUSD": 13101485056
+    },
+    {
+        "Symbol": "REGN",
+        "Security Name": "Regeneron Pharmaceuticals, Inc.",
+        "MarketCapUSD": 62639378432
+    },
+    {
+        "Symbol": "RELY",
+        "Security Name": "Remitly Global, Inc.",
+        "MarketCapUSD": 3882614016
+    },
+    {
+        "Symbol": "REYN",
+        "Security Name": "Reynolds Consumer Products Inc.",
+        "MarketCapUSD": 4860610560
+    },
+    {
+        "Symbol": "RGC",
+        "Security Name": "Regencell Bioscience Holdings Limited",
+        "MarketCapUSD": 6097049088
+    },
+    {
+        "Symbol": "RGEN",
+        "Security Name": "Repligen Corporation",
+        "MarketCapUSD": 6838673920
+    },
+    {
+        "Symbol": "RGLD",
+        "Security Name": "Royal Gold, Inc.",
+        "MarketCapUSD": 11172196352
+    },
+    {
+        "Symbol": "RGTI",
+        "Security Name": "Rigetti Computing, Inc.",
+        "MarketCapUSD": 4784675328
+    },
+    {
+        "Symbol": "RIOT",
+        "Security Name": "Riot Platforms, Inc.",
+        "MarketCapUSD": 4627680256
+    },
+    {
+        "Symbol": "RIVN",
+        "Security Name": "Rivian Automotive, Inc.",
+        "MarketCapUSD": 14646099968
+    },
+    {
+        "Symbol": "RKLB",
+        "Security Name": "Rocket Lab Corporation",
+        "MarketCapUSD": 19629383680
+    },
+    {
+        "Symbol": "RMBS",
+        "Security Name": "Rambus Inc.",
+        "MarketCapUSD": 7497149952
+    },
+    {
+        "Symbol": "RNA",
+        "Security Name": "Avidity Biosciences, Inc.",
+        "MarketCapUSD": 5704474112
+    },
+    {
+        "Symbol": "RNW",
+        "Security Name": "ReNew Energy Global Plc",
+        "MarketCapUSD": 2795134976
+    },
+    {
+        "Symbol": "ROAD",
+        "Security Name": "Construction Partners, Inc.",
+        "MarketCapUSD": 6438021632
+    },
+    {
+        "Symbol": "ROCK",
+        "Security Name": "Gibraltar Industries, Inc.",
+        "MarketCapUSD": 1838271360
+    },
+    {
+        "Symbol": "ROIV",
+        "Security Name": "Roivant Sciences Ltd.",
+        "MarketCapUSD": 8003377152
+    },
+    {
+        "Symbol": "ROKU",
+        "Security Name": "Roku, Inc.",
+        "MarketCapUSD": 13034374144
+    },
+    {
+        "Symbol": "ROOT",
+        "Security Name": "Root, Inc.",
+        "MarketCapUSD": 1340207744
+    },
+    {
+        "Symbol": "ROP",
+        "Security Name": "Roper Technologies, Inc.",
+        "MarketCapUSD": 58167521280
+    },
+    {
+        "Symbol": "ROST",
+        "Security Name": "Ross Stores, Inc.",
+        "MarketCapUSD": 47866843136
+    },
+    {
+        "Symbol": "RPD",
+        "Security Name": "Rapid7, Inc.",
+        "MarketCapUSD": 1312723072
+    },
+    {
+        "Symbol": "RPRX",
+        "Security Name": "Royalty Pharma plc",
+        "MarketCapUSD": 21507459072
+    },
+    {
+        "Symbol": "RRR",
+        "Security Name": "Red Rock Resorts, Inc.",
+        "MarketCapUSD": 6112584704
+    },
+    {
+        "Symbol": "RUM",
+        "Security Name": "Rumble Inc.",
+        "MarketCapUSD": 2575472896
+    },
+    {
+        "Symbol": "RUN",
+        "Security Name": "Sunrun Inc.",
+        "MarketCapUSD": 3569439488
+    },
+    {
+        "Symbol": "RUSHA",
+        "Security Name": "Rush Enterprises, Inc.",
+        "MarketCapUSD": 4395309568
+    },
+    {
+        "Symbol": "RUSHB",
+        "Security Name": "Rush Enterprises, Inc.",
+        "MarketCapUSD": 4319248896
+    },
+    {
+        "Symbol": "RVMD",
+        "Security Name": "Revolution Medicines, Inc.",
+        "MarketCapUSD": 6759497216
+    },
+    {
+        "Symbol": "RXRX",
+        "Security Name": "Recursion Pharmaceuticals, Inc.",
+        "MarketCapUSD": 2070905088
+    },
+    {
+        "Symbol": "RYAAY",
+        "Security Name": "Ryanair Holdings plc",
+        "MarketCapUSD": 34657280000
+    },
+    {
+        "Symbol": "RYTM",
+        "Security Name": "Rhythm Pharmaceuticals, Inc.",
+        "MarketCapUSD": 6555663872
+    },
+    {
+        "Symbol": "SAFT",
+        "Security Name": "Safety Insurance Group, Inc.",
+        "MarketCapUSD": 1100011136
+    },
+    {
+        "Symbol": "SAIA",
+        "Security Name": "Saia, Inc.",
+        "MarketCapUSD": 7816068096
+    },
+    {
+        "Symbol": "SAIC",
+        "Security Name": "Science Applications International Corporation",
+        "MarketCapUSD": 5521147392
+    },
+    {
+        "Symbol": "SAIL",
+        "Security Name": "SailPoint, Inc.",
+        "MarketCapUSD": 10903578624
+    },
+    {
+        "Symbol": "SANM",
+        "Security Name": "Sanmina Corporation",
+        "MarketCapUSD": 5840514048
+    },
+    {
+        "Symbol": "SATS",
+        "Security Name": "EchoStar Corporation",
+        "MarketCapUSD": 7955347456
+    },
+    {
+        "Symbol": "SBAC",
+        "Security Name": "SBA Communications Corporation",
+        "MarketCapUSD": 24021755904
+    },
+    {
+        "Symbol": "SBCF",
+        "Security Name": "Seacoast Banking Corporation of Florida",
+        "MarketCapUSD": 2589956608
+    },
+    {
+        "Symbol": "SBET",
+        "Security Name": "SharpLink Gaming, Inc.",
+        "MarketCapUSD": 3287840512
+    },
+    {
+        "Symbol": "SBLK",
+        "Security Name": "Star Bulk Carriers Corp.",
+        "MarketCapUSD": 2123916928
+    },
+    {
+        "Symbol": "SBRA",
+        "Security Name": "Sabra Health Care REIT, Inc.",
+        "MarketCapUSD": 4666352128
+    },
+    {
+        "Symbol": "SBUX",
+        "Security Name": "Starbucks Corporation",
+        "MarketCapUSD": 101746024448
+    },
+    {
+        "Symbol": "SDGR",
+        "Security Name": "Schr\u00f6dinger, Inc.",
+        "MarketCapUSD": 1425012224
+    },
+    {
+        "Symbol": "SEDG",
+        "Security Name": "SolarEdge Technologies, Inc.",
+        "MarketCapUSD": 1903556224
+    },
+    {
+        "Symbol": "SEIC",
+        "Security Name": "SEI Investments Company",
+        "MarketCapUSD": 10928450560
+    },
+    {
+        "Symbol": "SEZL",
+        "Security Name": "Sezzle Inc.",
+        "MarketCapUSD": 3020265984
+    },
+    {
+        "Symbol": "SFD",
+        "Security Name": "Smithfield Foods, Inc.",
+        "MarketCapUSD": 10059761664
+    },
+    {
+        "Symbol": "SFM",
+        "Security Name": "Sprouts Farmers Market, Inc.",
+        "MarketCapUSD": 14762519552
+    },
+    {
+        "Symbol": "SFNC",
+        "Security Name": "Simmons First National Corporation",
+        "MarketCapUSD": 2896913920
+    },
+    {
+        "Symbol": "SGRY",
+        "Security Name": "Surgery Partners, Inc.",
+        "MarketCapUSD": 3056502528
+    },
+    {
+        "Symbol": "SHC",
+        "Security Name": "Sotera Health Company",
+        "MarketCapUSD": 4629965824
+    },
+    {
+        "Symbol": "SHLS",
+        "Security Name": "Shoals Technologies Group, Inc.",
+        "MarketCapUSD": 1029282496
+    },
+    {
+        "Symbol": "SHOO",
+        "Security Name": "Steven Madden, Ltd.",
+        "MarketCapUSD": 1932553856
+    },
+    {
+        "Symbol": "SHOP",
+        "Security Name": "Shopify Inc.",
+        "MarketCapUSD": 178472878080
+    },
+    {
+        "Symbol": "SHY",
+        "Security Name": "iShares 1-3 Year Treasury Bond ETF",
+        "MarketCapUSD": 17317482496
+    },
+    {
+        "Symbol": "SIGI",
+        "Security Name": "Selective Insurance Group, Inc.",
+        "MarketCapUSD": 4739630080
+    },
+    {
+        "Symbol": "SIMO",
+        "Security Name": "Silicon Motion Technology Corporation",
+        "MarketCapUSD": 2519551488
+    },
+    {
+        "Symbol": "SION",
+        "Security Name": "Sionna Therapeutics, Inc.",
+        "MarketCapUSD": 1005063296
+    },
+    {
+        "Symbol": "SIRI",
+        "Security Name": "Sirius XM Holdings Inc.",
+        "MarketCapUSD": 7458790912
+    },
+    {
+        "Symbol": "SITM",
+        "Security Name": "SiTime Corporation",
+        "MarketCapUSD": 5762486784
+    },
+    {
+        "Symbol": "SKWD",
+        "Security Name": "Skyward Specialty Insurance Group, Inc.",
+        "MarketCapUSD": 2007735424
+    },
+    {
+        "Symbol": "SKYW",
+        "Security Name": "SkyWest, Inc.",
+        "MarketCapUSD": 4580514304
+    },
+    {
+        "Symbol": "SLAB",
+        "Security Name": "Silicon Laboratories Inc.",
+        "MarketCapUSD": 4389374464
+    },
+    {
+        "Symbol": "SLDE",
+        "Security Name": "Slide Insurance Holdings, Inc.",
+        "MarketCapUSD": 1820961536
+    },
+    {
+        "Symbol": "SLM",
+        "Security Name": "SLM Corporation",
+        "MarketCapUSD": 6392027136
+    },
+    {
+        "Symbol": "SLMBP",
+        "Security Name": "SLM Corporation",
+        "MarketCapUSD": 4964386304
+    },
+    {
+        "Symbol": "SLNO",
+        "Security Name": "Soleno Therapeutics, Inc.",
+        "MarketCapUSD": 3663816448
+    },
+    {
+        "Symbol": "SMCI",
+        "Security Name": "Super Micro Computer, Inc.",
+        "MarketCapUSD": 25430415360
+    },
+    {
+        "Symbol": "SMH",
+        "Security Name": "VanEck Semiconductor ETF",
+        "MarketCapUSD": 3372423168
+    },
+    {
+        "Symbol": "SMMT",
+        "Security Name": "Summit Therapeutics Inc.",
+        "MarketCapUSD": 19217451008
+    },
+    {
+        "Symbol": "SMPL",
+        "Security Name": "The Simply Good Foods Company",
+        "MarketCapUSD": 2899602432
+    },
+    {
+        "Symbol": "SMTC",
+        "Security Name": "Semtech Corporation",
+        "MarketCapUSD": 4199227648
+    },
+    {
+        "Symbol": "SNDK",
+        "Security Name": "Sandisk Corporation",
+        "MarketCapUSD": 6482400256
+    },
+    {
+        "Symbol": "SNDX",
+        "Security Name": "Syndax Pharmaceuticals, Inc.",
+        "MarketCapUSD": 1355873536
+    },
+    {
+        "Symbol": "SNEX",
+        "Security Name": "StoneX Group Inc.",
+        "MarketCapUSD": 4996847104
+    },
+    {
+        "Symbol": "SNPS",
+        "Security Name": "Synopsys, Inc.",
+        "MarketCapUSD": 111235497984
+    },
+    {
+        "Symbol": "SNRE",
+        "Security Name": "Sunrise Communications AG",
+        "MarketCapUSD": 4017001728
+    },
+    {
+        "Symbol": "SNY",
+        "Security Name": "Sanofi",
+        "MarketCapUSD": 123240652800
+    },
+    {
+        "Symbol": "SOFI",
+        "Security Name": "SoFi Technologies, Inc.",
+        "MarketCapUSD": 26966575104
+    },
+    {
+        "Symbol": "SONO",
+        "Security Name": "Sonos, Inc.",
+        "MarketCapUSD": 1561165184
+    },
+    {
+        "Symbol": "SOUN",
+        "Security Name": "SoundHound AI, Inc.",
+        "MarketCapUSD": 5071613952
+    },
+    {
+        "Symbol": "SOXX",
+        "Security Name": "iShares Semiconductor ETF",
+        "MarketCapUSD": 1864611072
+    },
+    {
+        "Symbol": "SPNS",
+        "Security Name": "Sapiens International Corporation N.V.",
+        "MarketCapUSD": 2387514624
+    },
+    {
+        "Symbol": "SPRY",
+        "Security Name": "ARS Pharmaceuticals, Inc.",
+        "MarketCapUSD": 1442864128
+    },
+    {
+        "Symbol": "SPSC",
+        "Security Name": "SPS Commerce, Inc.",
+        "MarketCapUSD": 4224556800
+    },
+    {
+        "Symbol": "SRAD",
+        "Security Name": "Sportradar Group AG",
+        "MarketCapUSD": 8973264896
+    },
+    {
+        "Symbol": "SRCE",
+        "Security Name": "1st Source Corporation",
+        "MarketCapUSD": 1508338560
+    },
+    {
+        "Symbol": "SRPT",
+        "Security Name": "Sarepta Therapeutics, Inc.",
+        "MarketCapUSD": 2010941824
+    },
+    {
+        "Symbol": "SRRK",
+        "Security Name": "Scholar Rock Holding Corporation",
+        "MarketCapUSD": 3306779136
+    },
+    {
+        "Symbol": "SSII",
+        "Security Name": "SS Innovations International, Inc.",
+        "MarketCapUSD": 1246809728
+    },
+    {
+        "Symbol": "SSNC",
+        "Security Name": "SS&C Technologies Holdings, Inc.",
+        "MarketCapUSD": 21467025408
+    },
+    {
+        "Symbol": "SSRM",
+        "Security Name": "SSR Mining Inc.",
+        "MarketCapUSD": 3336948480
+    },
+    {
+        "Symbol": "STAA",
+        "Security Name": "STAAR Surgical Company",
+        "MarketCapUSD": 1385997312
+    },
+    {
+        "Symbol": "STBA",
+        "Security Name": "S&T Bancorp, Inc.",
+        "MarketCapUSD": 1436441088
+    },
+    {
+        "Symbol": "STEP",
+        "Security Name": "StepStone Group Inc.",
+        "MarketCapUSD": 7249560064
+    },
+    {
+        "Symbol": "STGW",
+        "Security Name": "Stagwell Inc.",
+        "MarketCapUSD": 1415105408
+    },
+    {
+        "Symbol": "STLD",
+        "Security Name": "Steel Dynamics, Inc.",
+        "MarketCapUSD": 18466865152
+    },
+    {
+        "Symbol": "STNE",
+        "Security Name": "StoneCo Ltd.",
+        "MarketCapUSD": 3962030592
+    },
+    {
+        "Symbol": "STOK",
+        "Security Name": "Stoke Therapeutics, Inc.",
+        "MarketCapUSD": 1058685760
+    },
+    {
+        "Symbol": "STRA",
+        "Security Name": "Strategic Education, Inc.",
+        "MarketCapUSD": 1896974848
+    },
+    {
+        "Symbol": "STRL",
+        "Security Name": "Sterling Infrastructure, Inc.",
+        "MarketCapUSD": 8362099200
+    },
+    {
+        "Symbol": "STX",
+        "Security Name": "Seagate Technology Holdings plc",
+        "MarketCapUSD": 33688033280
+    },
+    {
+        "Symbol": "SUPN",
+        "Security Name": "Supernus Pharmaceuticals, Inc.",
+        "MarketCapUSD": 2393199872
+    },
+    {
+        "Symbol": "SWKS",
+        "Security Name": "Skyworks Solutions, Inc.",
+        "MarketCapUSD": 11149912064
+    },
+    {
+        "Symbol": "SYBT",
+        "Security Name": "Stock Yards Bancorp, Inc.",
+        "MarketCapUSD": 2274454528
+    },
+    {
+        "Symbol": "SYM",
+        "Security Name": "Symbotic Inc.",
+        "MarketCapUSD": 26276937728
+    },
+    {
+        "Symbol": "SYNA",
+        "Security Name": "Synaptics Incorporated",
+        "MarketCapUSD": 2573297664
+    },
+    {
+        "Symbol": "TARS",
+        "Security Name": "Tarsus Pharmaceuticals, Inc.",
+        "MarketCapUSD": 2339083264
+    },
+    {
+        "Symbol": "TASK",
+        "Security Name": "TaskUs, Inc.",
+        "MarketCapUSD": 1558449792
+    },
+    {
+        "Symbol": "TBBK",
+        "Security Name": "The Bancorp, Inc.",
+        "MarketCapUSD": 3061967104
+    },
+    {
+        "Symbol": "TCBI",
+        "Security Name": "Texas Capital Bancshares, Inc.",
+        "MarketCapUSD": 3847546112
+    },
+    {
+        "Symbol": "TCBK",
+        "Security Name": "TriCo Bancshares",
+        "MarketCapUSD": 1392873984
+    },
+    {
+        "Symbol": "TCOM",
+        "Security Name": "Trip.com Group Limited",
+        "MarketCapUSD": 41939009536
+    },
+    {
+        "Symbol": "TDUP",
+        "Security Name": "ThredUp Inc.",
+        "MarketCapUSD": 1311664640
+    },
+    {
+        "Symbol": "TEAM",
+        "Security Name": "Atlassian Corporation",
+        "MarketCapUSD": 43691896832
+    },
+    {
+        "Symbol": "TECH",
+        "Security Name": "Bio-Techne Corporation",
+        "MarketCapUSD": 8517151744
+    },
+    {
+        "Symbol": "TEM",
+        "Security Name": "Tempus AI, Inc.",
+        "MarketCapUSD": 12730787840
+    },
+    {
+        "Symbol": "TENB",
+        "Security Name": "Tenable Holdings, Inc.",
+        "MarketCapUSD": 3680077056
+    },
+    {
+        "Symbol": "TER",
+        "Security Name": "Teradyne, Inc.",
+        "MarketCapUSD": 17421783040
+    },
+    {
+        "Symbol": "TFIN",
+        "Security Name": "Triumph Financial, Inc.",
+        "MarketCapUSD": 1275589120
+    },
+    {
+        "Symbol": "TFSL",
+        "Security Name": "TFS Financial Corporation",
+        "MarketCapUSD": 3710695424
+    },
+    {
+        "Symbol": "TGTX",
+        "Security Name": "TG Therapeutics, Inc.",
+        "MarketCapUSD": 4491834368
+    },
+    {
+        "Symbol": "THRM",
+        "Security Name": "Gentherm Incorporated",
+        "MarketCapUSD": 1073381312
+    },
+    {
+        "Symbol": "TIGO",
+        "Security Name": "Millicom International Cellular S.A.",
+        "MarketCapUSD": 7580184576
+    },
+    {
+        "Symbol": "TIGR",
+        "Security Name": "UP Fintech Holding Limited",
+        "MarketCapUSD": 1860240256
+    },
+    {
+        "Symbol": "TILE",
+        "Security Name": "Interface, Inc.",
+        "MarketCapUSD": 1543661696
+    },
+    {
+        "Symbol": "TLN",
+        "Security Name": "Talen Energy Corporation",
+        "MarketCapUSD": 16451276800
+    },
+    {
+        "Symbol": "TLRY",
+        "Security Name": "Tilray Brands, Inc.",
+        "MarketCapUSD": 1164441728
+    },
+    {
+        "Symbol": "TLT",
+        "Security Name": "iShares 20+ Year Treasury Bond ETF",
+        "MarketCapUSD": 9526347776
+    },
+    {
+        "Symbol": "TLX",
+        "Security Name": "Telix Pharmaceuticals Limited",
+        "MarketCapUSD": 3699512064
+    },
+    {
+        "Symbol": "TMC",
+        "Security Name": "TMC the metals company Inc.",
+        "MarketCapUSD": 2464527104
+    },
+    {
+        "Symbol": "TMDX",
+        "Security Name": "TransMedics Group, Inc.",
+        "MarketCapUSD": 4154937856
+    },
+    {
+        "Symbol": "TMUS",
+        "Security Name": "T-Mobile US, Inc.",
+        "MarketCapUSD": 291495051264
+    },
+    {
+        "Symbol": "TOWN",
+        "Security Name": "TowneBank",
+        "MarketCapUSD": 2673802240
+    },
+    {
+        "Symbol": "TPG",
+        "Security Name": "TPG Inc.",
+        "MarketCapUSD": 22524891136
+    },
+    {
+        "Symbol": "TRI",
+        "Security Name": "Thomson Reuters Corporation",
+        "MarketCapUSD": 79231844352
+    },
+    {
+        "Symbol": "TRIN",
+        "Security Name": "Trinity Capital Inc.",
+        "MarketCapUSD": 1113073792
+    },
+    {
+        "Symbol": "TRIP",
+        "Security Name": "Tripadvisor, Inc.",
+        "MarketCapUSD": 1992859392
+    },
+    {
+        "Symbol": "TRMB",
+        "Security Name": "Trimble Inc.",
+        "MarketCapUSD": 19085113344
+    },
+    {
+        "Symbol": "TRMD",
+        "Security Name": "TORM plc",
+        "MarketCapUSD": 2014880896
+    },
+    {
+        "Symbol": "TRMK",
+        "Security Name": "Trustmark Corporation",
+        "MarketCapUSD": 2324717568
+    },
+    {
+        "Symbol": "TROW",
+        "Security Name": "T. Rowe Price Group, Inc.",
+        "MarketCapUSD": 23237060608
+    },
+    {
+        "Symbol": "TRS",
+        "Security Name": "TriMas Corporation",
+        "MarketCapUSD": 1517963648
+    },
+    {
+        "Symbol": "TRUP",
+        "Security Name": "Trupanion, Inc.",
+        "MarketCapUSD": 2052996864
+    },
+    {
+        "Symbol": "TSAT",
+        "Security Name": "Telesat Corporation",
+        "MarketCapUSD": 1026733824
+    },
+    {
+        "Symbol": "TSCO",
+        "Security Name": "Tractor Supply Company",
+        "MarketCapUSD": 32342970368
+    },
+    {
+        "Symbol": "TSEM",
+        "Security Name": "Tower Semiconductor Ltd.",
+        "MarketCapUSD": 5768912896
+    },
+    {
+        "Symbol": "TSLA",
+        "Security Name": "Tesla, Inc.",
+        "MarketCapUSD": 1044723204096
+    },
+    {
+        "Symbol": "TTAN",
+        "Security Name": "ServiceTitan, Inc.",
+        "MarketCapUSD": 9298300928
+    },
+    {
+        "Symbol": "TTD",
+        "Security Name": "The Trade Desk, Inc.",
+        "MarketCapUSD": 25684174848
+    },
+    {
+        "Symbol": "TTEK",
+        "Security Name": "Tetra Tech, Inc.",
+        "MarketCapUSD": 9370484736
+    },
+    {
+        "Symbol": "TTMI",
+        "Security Name": "TTM Technologies, Inc.",
+        "MarketCapUSD": 4138718976
+    },
+    {
+        "Symbol": "TTWO",
+        "Security Name": "Take-Two Interactive Software, Inc.",
+        "MarketCapUSD": 42182754304
+    },
+    {
+        "Symbol": "TVTX",
+        "Security Name": "Travere Therapeutics, Inc.",
+        "MarketCapUSD": 1601822464
+    },
+    {
+        "Symbol": "TW",
+        "Security Name": "Tradeweb Markets Inc.",
+        "MarketCapUSD": 28487933952
+    },
+    {
+        "Symbol": "TWST",
+        "Security Name": "Twist Bioscience Corporation",
+        "MarketCapUSD": 1596545792
+    },
+    {
+        "Symbol": "TXG",
+        "Security Name": "10x Genomics, Inc.",
+        "MarketCapUSD": 1663186304
+    },
+    {
+        "Symbol": "TXN",
+        "Security Name": "Texas Instruments Incorporated",
+        "MarketCapUSD": 182527442944
+    },
+    {
+        "Symbol": "TXRH",
+        "Security Name": "Texas Roadhouse, Inc.",
+        "MarketCapUSD": 11511237632
+    },
+    {
+        "Symbol": "UAL",
+        "Security Name": "United Airlines Holdings, Inc.",
+        "MarketCapUSD": 32321400832
+    },
+    {
+        "Symbol": "UBSI",
+        "Security Name": "United Bankshares, Inc.",
+        "MarketCapUSD": 5249438208
+    },
+    {
+        "Symbol": "UCTT",
+        "Security Name": "Ultra Clean Holdings, Inc.",
+        "MarketCapUSD": 1012984960
+    },
+    {
+        "Symbol": "UDMY",
+        "Security Name": "Udemy, Inc.",
+        "MarketCapUSD": 1008808256
+    },
+    {
+        "Symbol": "UFPI",
+        "Security Name": "UFP Industries, Inc.",
+        "MarketCapUSD": 5844311040
+    },
+    {
+        "Symbol": "UFPT",
+        "Security Name": "UFP Technologies, Inc.",
+        "MarketCapUSD": 1691744768
+    },
+    {
+        "Symbol": "ULTA",
+        "Security Name": "Ulta Beauty, Inc.",
+        "MarketCapUSD": 23222941696
+    },
+    {
+        "Symbol": "UMBF",
+        "Security Name": "UMB Financial Corporation",
+        "MarketCapUSD": 8789460992
+    },
+    {
+        "Symbol": "UNIT",
+        "Security Name": "Unity Group LLC",
+        "MarketCapUSD": 1501771136
+    },
+    {
+        "Symbol": "UPBD",
+        "Security Name": "Upbound Group, Inc.",
+        "MarketCapUSD": 1391810304
+    },
+    {
+        "Symbol": "UPST",
+        "Security Name": "Upstart Holdings, Inc.",
+        "MarketCapUSD": 6146386432
+    },
+    {
+        "Symbol": "UPWK",
+        "Security Name": "Upwork Inc.",
+        "MarketCapUSD": 1883682432
+    },
+    {
+        "Symbol": "URBN",
+        "Security Name": "Urban Outfitters, Inc.",
+        "MarketCapUSD": 6577048576
+    },
+    {
+        "Symbol": "USAR",
+        "Security Name": "USA Rare Earth, Inc.",
+        "MarketCapUSD": 1390284800
+    },
+    {
+        "Symbol": "USLM",
+        "Security Name": "United States Lime & Minerals, Inc.",
+        "MarketCapUSD": 3220225536
+    },
+    {
+        "Symbol": "UTHR",
+        "Security Name": "United Therapeutics Corporation",
+        "MarketCapUSD": 13860957184
+    },
+    {
+        "Symbol": "VALN",
+        "Security Name": "Valneva SE",
+        "MarketCapUSD": 1000060672
+    },
+    {
+        "Symbol": "VBTX",
+        "Security Name": "Veritex Holdings, Inc.",
+        "MarketCapUSD": 1769928960
+    },
+    {
+        "Symbol": "VC",
+        "Security Name": "Visteon Corporation",
+        "MarketCapUSD": 3298250240
+    },
+    {
+        "Symbol": "VCEL",
+        "Security Name": "Vericel Corporation",
+        "MarketCapUSD": 1784272640
+    },
+    {
+        "Symbol": "VCTR",
+        "Security Name": "Victory Capital Holdings, Inc.",
+        "MarketCapUSD": 4679512576
+    },
+    {
+        "Symbol": "VCYT",
+        "Security Name": "Veracyte, Inc.",
+        "MarketCapUSD": 2320025344
+    },
+    {
+        "Symbol": "VECO",
+        "Security Name": "Veeco Instruments Inc.",
+        "MarketCapUSD": 1437867008
+    },
+    {
+        "Symbol": "VEON",
+        "Security Name": "VEON Ltd.",
+        "MarketCapUSD": 4046149120
+    },
+    {
+        "Symbol": "VERA",
+        "Security Name": "Vera Therapeutics, Inc.",
+        "MarketCapUSD": 1410503808
+    },
+    {
+        "Symbol": "VERB",
+        "Security Name": "Verb Technology Company, Inc.",
+        "MarketCapUSD": 1254365952
+    },
+    {
+        "Symbol": "VERX",
+        "Security Name": "Vertex, Inc.",
+        "MarketCapUSD": 4020339456
+    },
+    {
+        "Symbol": "VFS",
+        "Security Name": "VinFast Auto Ltd.",
+        "MarketCapUSD": 8068895232
+    },
+    {
+        "Symbol": "VIAV",
+        "Security Name": "Viavi Solutions Inc.",
+        "MarketCapUSD": 2355245312
+    },
+    {
+        "Symbol": "VICR",
+        "Security Name": "Vicor Corporation",
+        "MarketCapUSD": 2088298368
+    },
+    {
+        "Symbol": "VITL",
+        "Security Name": "Vital Farms, Inc.",
+        "MarketCapUSD": 2224915968
+    },
+    {
+        "Symbol": "VKTX",
+        "Security Name": "Viking Therapeutics, Inc.",
+        "MarketCapUSD": 2888712192
+    },
+    {
+        "Symbol": "VLY",
+        "Security Name": "Valley National Bancorp",
+        "MarketCapUSD": 5457280000
+    },
+    {
+        "Symbol": "VLYPO",
+        "Security Name": "Valley National Bancorp",
+        "MarketCapUSD": 3351452928
+    },
+    {
+        "Symbol": "VLYPP",
+        "Security Name": "Valley National Bancorp",
+        "MarketCapUSD": 3178713344
+    },
+    {
+        "Symbol": "VNET",
+        "Security Name": "VNET Group, Inc.",
+        "MarketCapUSD": 2146827392
+    },
+    {
+        "Symbol": "VNOM",
+        "Security Name": "Viper Energy, Inc.",
+        "MarketCapUSD": 10739495936
+    },
+    {
+        "Symbol": "VOD",
+        "Security Name": "Vodafone Group Public Limited Company",
+        "MarketCapUSD": 28741709824
+    },
+    {
+        "Symbol": "VRDN",
+        "Security Name": "Viridian Therapeutics, Inc.",
+        "MarketCapUSD": 1481355904
+    },
+    {
+        "Symbol": "VRNA",
+        "Security Name": "Verona Pharma plc",
+        "MarketCapUSD": 8990767104
+    },
+    {
+        "Symbol": "VRNS",
+        "Security Name": "Varonis Systems, Inc.",
+        "MarketCapUSD": 6528978944
+    },
+    {
+        "Symbol": "VRNT",
+        "Security Name": "Verint Systems Inc.",
+        "MarketCapUSD": 1131015424
+    },
+    {
+        "Symbol": "VRRM",
+        "Security Name": "Verra Mobility Corporation",
+        "MarketCapUSD": 3889609216
+    },
+    {
+        "Symbol": "VRSK",
+        "Security Name": "Verisk Analytics, Inc.",
+        "MarketCapUSD": 37841809408
+    },
+    {
+        "Symbol": "VRSN",
+        "Security Name": "VeriSign, Inc.",
+        "MarketCapUSD": 25352964096
+    },
+    {
+        "Symbol": "VRTX",
+        "Security Name": "Vertex Pharmaceuticals Incorporated",
+        "MarketCapUSD": 101110358016
+    },
+    {
+        "Symbol": "VSAT",
+        "Security Name": "Viasat, Inc.",
+        "MarketCapUSD": 3486810112
+    },
+    {
+        "Symbol": "VSEC",
+        "Security Name": "VSE Corporation",
+        "MarketCapUSD": 3303038976
+    },
+    {
+        "Symbol": "VTRS",
+        "Security Name": "Viatris Inc.",
+        "MarketCapUSD": 12416514048
+    },
+    {
+        "Symbol": "WABC",
+        "Security Name": "Westamerica Bancorporation",
+        "MarketCapUSD": 1246614656
+    },
+    {
+        "Symbol": "WAFD",
+        "Security Name": "WaFd, Inc.",
+        "MarketCapUSD": 2416553472
+    },
+    {
+        "Symbol": "WAY",
+        "Security Name": "Waystar Holding Corp.",
+        "MarketCapUSD": 6114046976
+    },
+    {
+        "Symbol": "WB",
+        "Security Name": "Weibo Corporation",
+        "MarketCapUSD": 2793481984
+    },
+    {
+        "Symbol": "WBA",
+        "Security Name": "Walgreens Boots Alliance, Inc.",
+        "MarketCapUSD": 10559844352
+    },
+    {
+        "Symbol": "WBD",
+        "Security Name": "Warner Bros. Discovery, Inc.",
+        "MarketCapUSD": 28570386432
+    },
+    {
+        "Symbol": "WBTN",
+        "Security Name": "WEBTOON Entertainment Inc.",
+        "MarketCapUSD": 1965650432
+    },
+    {
+        "Symbol": "WDAY",
+        "Security Name": "Workday, Inc.",
+        "MarketCapUSD": 60647923712
+    },
+    {
+        "Symbol": "WDC",
+        "Security Name": "Western Digital Corporation",
+        "MarketCapUSD": 26241179648
+    },
+    {
+        "Symbol": "WDFC",
+        "Security Name": "WD-40 Company",
+        "MarketCapUSD": 2988826368
+    },
+    {
+        "Symbol": "WEN",
+        "Security Name": "The Wendy's Company",
+        "MarketCapUSD": 1957102592
+    },
+    {
+        "Symbol": "WERN",
+        "Security Name": "Werner Enterprises, Inc.",
+        "MarketCapUSD": 1654906112
+    },
+    {
+        "Symbol": "WFRD",
+        "Security Name": "Weatherford International plc",
+        "MarketCapUSD": 4048620544
+    },
+    {
+        "Symbol": "WGS",
+        "Security Name": "GeneDx Holdings Corp.",
+        "MarketCapUSD": 3455474688
+    },
+    {
+        "Symbol": "WINA",
+        "Security Name": "Winmark Corporation",
+        "MarketCapUSD": 1532189568
+    },
+    {
+        "Symbol": "WING",
+        "Security Name": "Wingstop Inc.",
+        "MarketCapUSD": 9194190848
+    },
+    {
+        "Symbol": "WIX",
+        "Security Name": "Wix.com Ltd.",
+        "MarketCapUSD": 7065408000
+    },
+    {
+        "Symbol": "WLDN",
+        "Security Name": "Willdan Group, Inc.",
+        "MarketCapUSD": 1513144960
+    },
+    {
+        "Symbol": "WLFC",
+        "Security Name": "Willis Lease Finance Corporation",
+        "MarketCapUSD": 1119810816
+    },
+    {
+        "Symbol": "WMG",
+        "Security Name": "Warner Music Group Corp.",
+        "MarketCapUSD": 16909900800
+    },
+    {
+        "Symbol": "WRD",
+        "Security Name": "WeRide Inc.",
+        "MarketCapUSD": 2563606272
+    },
+    {
+        "Symbol": "WSBC",
+        "Security Name": "WesBanco, Inc.",
+        "MarketCapUSD": 2992962048
+    },
+    {
+        "Symbol": "WSC",
+        "Security Name": "WillScot Holdings Corporation",
+        "MarketCapUSD": 4315177984
+    },
+    {
+        "Symbol": "WSFS",
+        "Security Name": "WSFS Financial Corporation",
+        "MarketCapUSD": 3120836864
+    },
+    {
+        "Symbol": "WTFC",
+        "Security Name": "Wintrust Financial Corporation",
+        "MarketCapUSD": 8625465344
+    },
+    {
+        "Symbol": "WTW",
+        "Security Name": "Willis Towers Watson Public Limited Company",
+        "MarketCapUSD": 32748814336
+    },
+    {
+        "Symbol": "WULF",
+        "Security Name": "TeraWulf Inc.",
+        "MarketCapUSD": 3639207680
+    },
+    {
+        "Symbol": "WVE",
+        "Security Name": "Wave Life Sciences Ltd.",
+        "MarketCapUSD": 1504695168
+    },
+    {
+        "Symbol": "WWD",
+        "Security Name": "Woodward, Inc.",
+        "MarketCapUSD": 14766676992
+    },
+    {
+        "Symbol": "WYNN",
+        "Security Name": "Wynn Resorts, Limited",
+        "MarketCapUSD": 11594475520
+    },
+    {
+        "Symbol": "XEL",
+        "Security Name": "Xcel Energy Inc.",
+        "MarketCapUSD": 43274637312
+    },
+    {
+        "Symbol": "XENE",
+        "Security Name": "Xenon Pharmaceuticals Inc.",
+        "MarketCapUSD": 2902262272
+    },
+    {
+        "Symbol": "XERS",
+        "Security Name": "Xeris Biopharma Holdings, Inc.",
+        "MarketCapUSD": 1222403584
+    },
+    {
+        "Symbol": "XMTR",
+        "Security Name": "Xometry, Inc.",
+        "MarketCapUSD": 2261959168
+    },
+    {
+        "Symbol": "XP",
+        "Security Name": "XP Inc.",
+        "MarketCapUSD": 8452297728
+    },
+    {
+        "Symbol": "XPEL",
+        "Security Name": "XPEL, Inc.",
+        "MarketCapUSD": 1021952832
+    },
+    {
+        "Symbol": "XRAY",
+        "Security Name": "DENTSPLY SIRONA Inc.",
+        "MarketCapUSD": 2844641792
+    },
+    {
+        "Symbol": "YB",
+        "Security Name": "Yuanbao Inc.",
+        "MarketCapUSD": 1139176704
+    },
+    {
+        "Symbol": "Z",
+        "Security Name": "Zillow Group, Inc.",
+        "MarketCapUSD": 19450050560
+    },
+    {
+        "Symbol": "ZBRA",
+        "Security Name": "Zebra Technologies Corporation",
+        "MarketCapUSD": 15494565888
+    },
+    {
+        "Symbol": "ZD",
+        "Security Name": "Ziff Davis, Inc.",
+        "MarketCapUSD": 1471184128
+    },
+    {
+        "Symbol": "ZG",
+        "Security Name": "Zillow Group, Inc.",
+        "MarketCapUSD": 19450081280
+    },
+    {
+        "Symbol": "ZION",
+        "Security Name": "Zions Bancorporation, National Association",
+        "MarketCapUSD": 7939218432
+    },
+    {
+        "Symbol": "ZLAB",
+        "Security Name": "Zai Lab Limited",
+        "MarketCapUSD": 3857324032
+    },
+    {
+        "Symbol": "ZM",
+        "Security Name": "Zoom Communications Inc.",
+        "MarketCapUSD": 21831864320
+    },
+    {
+        "Symbol": "ZS",
+        "Security Name": "Zscaler, Inc.",
+        "MarketCapUSD": 42630340608
+    },
+    {
+        "Symbol": "ZYME",
+        "Security Name": "Zymeworks Inc.",
+        "MarketCapUSD": 1084530944
+    }
+]
