@@ -6,3 +6,7 @@ code that scans a JSON file with all the Nasdaq stocks (if you got an updated on
 
 enjoy :)
 didnt bother to make the code look orgenized yet
+
+
+14.9 update - 
+Looking into resistance levels and filtering stocks with prices before the breakout
