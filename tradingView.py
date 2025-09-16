@@ -180,7 +180,7 @@ def run_stock_scan() -> None:
                         sr_range_str = f"{closest_level:.2f}"
 
             # Log results if any condition is met
-            if True:#is_near_sma150 or is_near_vwap or is_near_sma200 or is_near_sr:
+            if is_near_sma150 or is_near_vwap or is_near_sma200 or is_near_sr:
                 reason_str = ", ".join(reasons)
 
                 lookback = 2
@@ -483,3 +483,4 @@ if barstate.islast
     atr_label := label.new(x = bar_index + x_offset_input,y = close + y_offset,xloc = xloc.bar_index,yloc = yloc.price,text = "ATR: " + str.tostring(atrValue, format.mintick) + " (" + str.tostring(atr, format.mintick) + "%)",color = atr_color,textcolor = color.white,style = label.style_label_left,size = label_size)
 
 '''
+
