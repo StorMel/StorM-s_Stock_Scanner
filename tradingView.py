@@ -67,13 +67,27 @@ def run_stock_scan() -> None:
     with open("filtered_large_cap_stocks.json", "r") as f:
         data = json.load(f)
 
-    TICKERS = [item["Symbol"] for item in data]
+    TICKERS = data
     results = []
 
     for symbol in TICKERS:
         print(f"Processing {symbol}...")
         try:
             stock = yf.Ticker(symbol)
+
+            # Retrieve the stock's information, which contains the exchange
+            info = stock.get_info()
+            exchange = info.get('exchange', 'N/A')
+
+            # Convert Yahoo's exchange codes to TradingView's format
+            # This is a crucial step for the hyperlink to work
+            if exchange == 'NAS':
+                tv_exchange = 'NASDAQ'
+            elif exchange == 'NYQ':
+                tv_exchange = 'NYSE'
+            else:
+                tv_exchange = exchange  # Use the original name if not a common US exchange
+
             hist = stock.history(period="1y")
             info = stock.get_info()
             market_cap = info.get('marketCap', 0)
@@ -173,7 +187,7 @@ def run_stock_scan() -> None:
                 rising_volume = (hist["Volume"].tail(lookback).diff().dropna() > 0).all()
 
                 results.append({
-                    "Ticker": f'=HYPERLINK("https://www.tradingview.com/chart/?symbol=NASDAQ:{symbol}", "{symbol}")',
+                    "Ticker": f'=HYPERLINK("https://www.tradingview.com/chart/?symbol={tv_exchange}:{symbol}", "{symbol}")',
                     "Reason": reason_str,
                     "Close": current_price,
                     "VWAP150": vwap_150,
@@ -203,7 +217,7 @@ def run_stock_scan() -> None:
 
 if __name__ == "__main__":
     run_stock_scan()
-    
+
 #pine script
 ''' 
 
