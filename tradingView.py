@@ -64,10 +64,10 @@ def run_stock_scan() -> None:
     """
     THRESHHOLD_VAL = 2.5
 
-    with open("filtered_large_cap_stocks.json", "r") as f:
+    with open("filtered_nyse_nasdaq_stocks.json", "r") as f:
         data = json.load(f)
 
-    TICKERS = data
+    TICKERS = data#["EVGO","UBER","JDCMF","IBRX","CRF","CAMT"]#
     results = []
 
     for symbol in TICKERS:
@@ -81,12 +81,13 @@ def run_stock_scan() -> None:
 
             # Convert Yahoo's exchange codes to TradingView's format
             # This is a crucial step for the hyperlink to work
-            if exchange == 'NAS':
+            if exchange == 'NMS':
                 tv_exchange = 'NASDAQ'
             elif exchange == 'NYQ':
                 tv_exchange = 'NYSE'
             else:
                 tv_exchange = exchange  # Use the original name if not a common US exchange
+                #ASE, NGM, OTC
 
             hist = stock.history(period="1y")
             info = stock.get_info()
@@ -179,7 +180,7 @@ def run_stock_scan() -> None:
                         sr_range_str = f"{closest_level:.2f}"
 
             # Log results if any condition is met
-            if is_near_sma150 or is_near_vwap or is_near_sma200 or is_near_sr:
+            if True:#is_near_sma150 or is_near_vwap or is_near_sma200 or is_near_sr:
                 reason_str = ", ".join(reasons)
 
                 lookback = 2
@@ -188,6 +189,7 @@ def run_stock_scan() -> None:
 
                 results.append({
                     "Ticker": f'=HYPERLINK("https://www.tradingview.com/chart/?symbol={tv_exchange}:{symbol}", "{symbol}")',
+                    "Exchange": tv_exchange,
                     "Reason": reason_str,
                     "Close": current_price,
                     "VWAP150": vwap_150,
