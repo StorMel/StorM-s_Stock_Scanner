@@ -197,7 +197,7 @@ def run_stock_scan() -> None:
                         sr_range_str = f"{closest_level:.2f}"
 
             # Log results if any condition is met
-            if is_near_sma150 or is_near_vwap or is_near_sma200 or is_near_sr and avg_volume_today >= 300000:
+            if (is_near_sma150 or is_near_vwap or is_near_sma200 or is_near_sr) and avg_volume_today >= 300000:
                 reason_str = ", ".join(reasons)
 
                 lookback = 2
