@@ -67,7 +67,7 @@ def run_stock_scan() -> None:
     with open("filtered_nyse_nasdaq_stocks.json", "r") as f:
         data = json.load(f)
 
-    TICKERS = data#["EVGO","UBER","JDCMF","IBRX","CRF","CAMT"]#
+    TICKERS = data#["EVGO", "UBER", "JDCMF", "IBRX", "CRF", "CAMT"]  #
     results = []
 
     for symbol in TICKERS:
@@ -87,7 +87,7 @@ def run_stock_scan() -> None:
                 tv_exchange = 'NYSE'
             else:
                 tv_exchange = exchange  # Use the original name if not a common US exchange
-                #ASE, NGM, OTC
+                # ASE, NGM, OTC
 
             hist = stock.history(period="1y")
             info = stock.get_info()
@@ -98,6 +98,22 @@ def run_stock_scan() -> None:
                 continue
 
             current_price = hist["Close"].iloc[-1]
+            current_volume = hist["Volume"].iloc[-1]
+
+            # --- Start: Added Volume Logic ---
+            hist["avg_volume"] = hist["Volume"].rolling(window=14).mean()
+
+            # Get the average volume for the last two days
+            avg_volume_today = hist["avg_volume"].iloc[-1]
+            avg_volume_yesterday = hist["avg_volume"].iloc[-2]
+
+            # Check if volume on the last two days was greater than their own historical average
+            rising_volume_1 = hist["Volume"].iloc[-1] > avg_volume_today
+            rising_volume_2 = hist["Volume"].iloc[-2] > avg_volume_yesterday
+
+            # Combine the two checks into a single boolean
+            rising_volume_2d = rising_volume_1 and rising_volume_2
+            # --- End: Added Volume Logic ---
 
             # Calculate True Range (TR)
             hist['tr'] = np.maximum(
@@ -174,13 +190,14 @@ def run_stock_scan() -> None:
 
                 if closest_level is not None:
                     sr_proximity_pct = (min_distance / current_price) * 100
-                    if sr_proximity_pct <= THRESHHOLD_VAL:
+
+                    if sr_proximity_pct <= THRESHHOLD_VAL and current_price > sma150 and closest_level > sma150:
                         is_near_sr = True
                         reasons.append("Near S/R")
                         sr_range_str = f"{closest_level:.2f}"
 
             # Log results if any condition is met
-            if is_near_sma150 or is_near_vwap or is_near_sma200 or is_near_sr:
+            if is_near_sma150 or is_near_vwap or is_near_sma200 or is_near_sr and avg_volume_today >= 300000:
                 reason_str = ", ".join(reasons)
 
                 lookback = 2
@@ -193,16 +210,18 @@ def run_stock_scan() -> None:
                     "Reason": reason_str,
                     "Close": current_price,
                     "VWAP150": vwap_150,
-                    "VWAP_Proximity_ATR_Pct": abs(current_price - vwap_150) / current_price * 100,
+                    "VWAP_distance": abs(current_price - vwap_150) / current_price * 100,
                     "SMA150": sma150,
-                    "SMA150_Proximity_ATR_Pct": abs(current_price - sma150) / current_price * 100,
+                    "SMA150_distance": abs(current_price - sma150) / current_price * 100,
                     "SMA200": sma200,
-                    "SMA200_Proximity_ATR_Pct": abs(current_price - sma200) / current_price * 100,
+                    "SMA200_distance": abs(current_price - sma200) / current_price * 100,
                     "ATR_Pct": (atr_value / current_price) * 100,
                     "SR_Range": sr_range_str,
-                    "SR_Proximity_Pct": sr_proximity_pct,
+                    "SR_distance": sr_proximity_pct,
                     "Bull Streak": bullish_streak,
-                    "Rising Vol": rising_volume
+                    "Rising Vol": rising_volume,
+                    "Vol > Avg": rising_volume_2d,
+                    "Avg_Volume": avg_volume_today
                 })
 
         except Exception as e:
@@ -219,268 +238,3 @@ def run_stock_scan() -> None:
 
 if __name__ == "__main__":
     run_stock_scan()
-
-#pine script
-''' 
-
-// This source code is subject to the terms of the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
-// © LonesomeTheBlue
-
-//@version=6
-indicator('StorMs all in one', 'SRchannel', overlay = true, max_bars_back = 501)
-prd = input.int(defval = 5, title = 'Pivot Period', minval = 4, maxval = 30, group = 'Settings 🔨', tooltip = 'Used while calculating Pivot Points, checks left&right bars')
-ppsrc = input.string(defval = 'High/Low', title = 'Source', options = ['High/Low', 'Close/Open'], group = 'Settings 🔨', tooltip = 'Source for Pivot Points')
-ChannelW = input.int(defval = 1, title = 'Maximum Channel Width %', minval = 1, maxval = 8, group = 'Settings 🔨', tooltip = 'Calculated using Highest/Lowest levels in 300 bars')
-minstrength = input.int(defval = 1, title = 'Minimum Strength', minval = 1, group = 'Settings 🔨', tooltip = 'Channel must contain at least 2 Pivot Points')
-maxnumsr = input.int(defval = 10, title = 'Maximum Number of S/R', minval = 1, maxval = 10, group = 'Settings 🔨', tooltip = 'Maximum number of Support/Resistance Channels to Show') - 1
-loopback = input.int(defval = 250, title = 'Loopback Period', minval = 100, maxval = 400, group = 'Settings 🔨', tooltip = 'While calculating S/R levels it checks Pivots in Loopback Period')
-res_col = input.color(defval = color.new(#fbff00, 40), title = 'Resistance Color', group = 'Colors 🟡🟢🟣')
-sup_col = input.color(defval = color.new(#fbff00, 40), title = 'Support Color', group = 'Colors 🟡🟢🟣')
-inch_col = input.color(defval = color.new(#fbff00, 63), title = 'Color When Price in Channel', group = 'Colors 🟡🟢🟣')
-showpp = input.bool(defval = false, title = 'Show Pivot Points', group = 'Extras ⏶⏷')
-showsrbroken = input.bool(defval = false, title = 'Show Broken Support/Resistance', group = 'Extras ⏶⏷')
-showthema1en = input.bool(defval = false, title = 'MA 1', inline = 'ma1')
-showthema1len = input.int(defval = 50, title = '', inline = 'ma1')
-showthema1type = input.string(defval = 'SMA', title = '', options = ['SMA', 'EMA'], inline = 'ma1')
-showthema2en = input.bool(defval = false, title = 'MA 2', inline = 'ma2')
-showthema2len = input.int(defval = 200, title = '', inline = 'ma2')
-showthema2type = input.string(defval = 'SMA', title = '', options = ['SMA', 'EMA'], inline = 'ma2')
-
-ma1 = showthema1en ? showthema1type == 'SMA' ? ta.sma(close, showthema1len) : ta.ema(close, showthema1len) : na
-ma2 = showthema2en ? showthema2type == 'SMA' ? ta.sma(close, showthema2len) : ta.ema(close, showthema2len) : na
-
-plot(ma1, color = not na(ma1) ? color.blue : na)
-plot(ma2, color = not na(ma2) ? color.red : na)
-
-// get Pivot High/low
-float src1 = ppsrc == 'High/Low' ? high : math.max(close, open)
-float src2 = ppsrc == 'High/Low' ? low : math.min(close, open)
-float ph = ta.pivothigh(src1, prd, prd)
-float pl = ta.pivotlow(src2, prd, prd)
-
-// draw Pivot points
-plotshape(bool(ph) and showpp, text = 'H', style = shape.labeldown, color = na, textcolor = color.new(color.red, 0), location = location.abovebar, offset = -prd)
-plotshape(bool(pl) and showpp, text = 'L', style = shape.labelup, color = na, textcolor = color.new(color.lime, 0), location = location.belowbar, offset = -prd)
-
-//calculate maximum S/R channel width
-prdhighest = ta.highest(300)
-prdlowest = ta.lowest(300)
-cwidth = (prdhighest - prdlowest) * ChannelW / 100
-
-// get/keep Pivot levels
-var pivotvals = array.new_float(0)
-var pivotlocs = array.new_float(0)
-if bool(ph) or bool(pl)
-    array.unshift(pivotvals, bool(ph) ? ph : pl)
-    array.unshift(pivotlocs, bar_index)
-    for x = array.size(pivotvals) - 1 to 0 by 1
-        if bar_index - array.get(pivotlocs, x) > loopback // remove old pivot points
-            array.pop(pivotvals)
-            array.pop(pivotlocs)
-            continue
-        break
-
-//find/create SR channel of a pivot point
-get_sr_vals(ind) =>
-    float lo = array.get(pivotvals, ind)
-    float hi = lo
-    int numpp = 0
-    for y = 0 to array.size(pivotvals) - 1 by 1
-        float cpp = array.get(pivotvals, y)
-        float wdth = cpp <= hi ? hi - cpp : cpp - lo
-        if wdth <= cwidth // fits the max channel width?
-            if cpp <= hi
-                lo := math.min(lo, cpp)
-                lo
-            else
-                hi := math.max(hi, cpp)
-                hi
-
-            numpp := numpp + 20 // each pivot point added as 20
-            numpp
-    [hi, lo, numpp]
-
-// keep old SR channels and calculate/sort new channels if we met new pivot point
-var suportresistance = array.new_float(20, 0) // min/max levels
-changeit(x, y) =>
-    tmp = array.get(suportresistance, y * 2)
-    array.set(suportresistance, y * 2, array.get(suportresistance, x * 2))
-    array.set(suportresistance, x * 2, tmp)
-    tmp := array.get(suportresistance, y * 2 + 1)
-    array.set(suportresistance, y * 2 + 1, array.get(suportresistance, x * 2 + 1))
-    array.set(suportresistance, x * 2 + 1, tmp)
-
-if bool(ph) or bool(pl)
-    supres = array.new_float(0) // number of pivot, strength, min/max levels
-    stren = array.new_float(10, 0)
-    // get levels and strengs
-    for x = 0 to array.size(pivotvals) - 1 by 1
-        [hi, lo, strength] = get_sr_vals(x)
-        array.push(supres, strength)
-        array.push(supres, hi)
-        array.push(supres, lo)
-
-    // add each HL to strengh
-    for x = 0 to array.size(pivotvals) - 1 by 1
-        h = array.get(supres, x * 3 + 1)
-        l = array.get(supres, x * 3 + 2)
-        s = 0
-        for y = 0 to loopback by 1
-            if high[y] <= h and high[y] >= l or low[y] <= h and low[y] >= l
-                s := s + 1
-                s
-        array.set(supres, x * 3, array.get(supres, x * 3) + s)
-
-    //reset SR levels
-    array.fill(suportresistance, 0)
-    // get strongest SRs
-    src = 0
-    for x = 0 to array.size(pivotvals) - 1 by 1
-        stv = -1. // value
-        stl = -1 // location
-        for y = 0 to array.size(pivotvals) - 1 by 1
-            if array.get(supres, y * 3) > stv and array.get(supres, y * 3) >= minstrength * 20
-                stv := array.get(supres, y * 3)
-                stl := y
-                stl
-        if stl >= 0
-            //get sr level
-            hh = array.get(supres, stl * 3 + 1)
-            ll = array.get(supres, stl * 3 + 2)
-            array.set(suportresistance, src * 2, hh)
-            array.set(suportresistance, src * 2 + 1, ll)
-            array.set(stren, src, array.get(supres, stl * 3))
-
-            // make included pivot points' strength zero 
-            for y = 0 to array.size(pivotvals) - 1 by 1
-                if array.get(supres, y * 3 + 1) <= hh and array.get(supres, y * 3 + 1) >= ll or array.get(supres, y * 3 + 2) <= hh and array.get(supres, y * 3 + 2) >= ll
-                    array.set(supres, y * 3, -1)
-
-            src := src + 1
-            if src >= 10
-                break
-
-    for x = 0 to 8 by 1
-        for y = x + 1 to 9 by 1
-            if array.get(stren, y) > array.get(stren, x)
-                tmp = array.get(stren, y)
-                array.set(stren, y, array.get(stren, x))
-                changeit(x, y)
-
-
-get_level(ind) =>
-    float ret = na
-    if ind < array.size(suportresistance)
-        if array.get(suportresistance, ind) != 0
-            ret := array.get(suportresistance, ind)
-            ret
-    ret
-
-get_color(ind) =>
-    color ret = na
-    if ind < array.size(suportresistance)
-        if array.get(suportresistance, ind) != 0
-            ret := array.get(suportresistance, ind) > close and array.get(suportresistance, ind + 1) > close ? res_col : array.get(suportresistance, ind) < close and array.get(suportresistance, ind + 1) < close ? sup_col : inch_col
-            ret
-    ret
-
-var srchannels = array.new_box(10)
-for x = 0 to math.min(9, maxnumsr) by 1
-    box.delete(array.get(srchannels, x))
-    srcol = get_color(x * 2)
-    if not na(srcol)
-        array.set(srchannels, x, box.new(left = bar_index, top = get_level(x * 2), right = bar_index + 1, bottom = get_level(x * 2 + 1), border_color = srcol, border_width = 1, extend = extend.both, bgcolor = srcol))
-
-resistancebroken = false
-supportbroken = false
-
-// check if it's not in a channel
-not_in_a_channel = true
-for x = 0 to math.min(9, maxnumsr) by 1
-    if close <= array.get(suportresistance, x * 2) and close >= array.get(suportresistance, x * 2 + 1)
-        not_in_a_channel := false
-        not_in_a_channel
-
-// if price is not in a channel then check broken ones
-if not_in_a_channel
-    for x = 0 to math.min(9, maxnumsr) by 1
-        if close[1] <= array.get(suportresistance, x * 2) and close > array.get(suportresistance, x * 2)
-            resistancebroken := true
-            resistancebroken
-        if close[1] >= array.get(suportresistance, x * 2 + 1) and close < array.get(suportresistance, x * 2 + 1)
-            supportbroken := true
-            supportbroken
-
-alertcondition(resistancebroken, title = 'Resistance Broken', message = 'Resistance Broken')
-alertcondition(supportbroken, title = 'Support Broken', message = 'Support Broken')
-plotshape(showsrbroken and resistancebroken, style = shape.triangleup, location = location.belowbar, color = color.new(color.lime, 0), size = size.tiny)
-plotshape(showsrbroken and supportbroken, style = shape.triangledown, location = location.abovebar, color = color.new(color.red, 0), size = size.tiny)
-
-
-// Typical Price = (High + Low + Close)/3
-atr_length = input.int(14, "ATR Length")  // ATR period
-
-// User input
-lookback_vwap = input.int(150, "VWAP Lookback Days")
-
-// Typical Price for VWAP
-tp = (high + low + close) / 3
-
-// Cumulative sums for rolling VWAP
-tpv = ta.cum(tp * volume)
-vol_cum = ta.cum(volume)
-
-// Rolling VWAP
-vwap_rolling = (tpv - ta.cum(tp * volume)[lookback_vwap]) / (vol_cum - ta.cum(volume)[lookback_vwap])
-label_size_input = input.string("Normal", "Label Size", options=["Tiny", "Small", "Normal", "Large", "Huge"])
-x_offset_input = input.int(2, "Label X Offset", minval=0) // Bars to the right
-// Convert string input to Pine Script size type
-label_size = switch label_size_input
-    "Tiny"   => size.tiny
-    "Small"  => size.small
-    "Normal" => size.normal
-    "Large"  => size.large
-    "Huge"   => size.huge
-// Plot VWAP
-plot(vwap_rolling, color=color.white, title="VWAP Rolling")
-
-// --- Simple Moving Averages ---
-sma20  = ta.sma(close, 20)
-sma50  = ta.sma(close, 50)
-sma100 = ta.sma(close, 100)
-sma150 = ta.sma(close, 150)
-sma200 = ta.sma(close, 200)
-
-// Plot SMAs
-plot(sma20,  color=color.rgb(59, 143, 211),   title="SMA20")
-plot(sma50,  color=color.rgb(69, 224, 74),  title="SMA50")
-plot(sma100, color=color.orange, title="SMA100")
-plot(sma150, color=color.purple, title="SMA150")
-plot(sma200, color=color.rgb(238, 45, 77),    title="SMA200")
-
-// --- ATR Indicator ---
-atrValue = ta.atr(atr_length)
-atr=(atrValue / close) * 100
-
-atr_color=color.rgb(36, 224, 42)
-if atr>3
-    atr_color:=color.rgb(233, 200, 14)
-if atr>6
-    atr_color:=color.rgb(233, 14, 14)
-// Persistent label
-var label atr_label = na
-
-if barstate.islast
-    // Delete previous label
-    if not na(atr_label)
-        label.delete(atr_label)
-    
-    // Offsets to float label to the right
-    
-    y_offset = 0  // adjust vertically if needed
-    
-    // Create new label
-    atr_label := label.new(x = bar_index + x_offset_input,y = close + y_offset,xloc = xloc.bar_index,yloc = yloc.price,text = "ATR: " + str.tostring(atrValue, format.mintick) + " (" + str.tostring(atr, format.mintick) + "%)",color = atr_color,textcolor = color.white,style = label.style_label_left,size = label_size)
-
-'''
-
