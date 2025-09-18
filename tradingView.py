@@ -2,12 +2,28 @@ import yfinance as yf
 import pandas as pd
 import json
 import numpy as np
+from typing import List, Tuple, Dict, Any
 
 
-def find_nearest_sr_levels(hist: pd.DataFrame, channel_width_pct: int = 1, loopback: int = 250,
-                           min_strength: int = 1) -> list:
+def is_pivot_high(data: pd.DataFrame, index: int, period: int) -> bool:
+    """Checks for a pivot high with a given lookback period."""
+    if index < period or index >= len(data) - period:
+        return False
+    return data['High'].iloc[index] == data['High'].iloc[index - period: index + period + 1].max()
+
+
+def is_pivot_low(data: pd.DataFrame, index: int, period: int) -> bool:
+    """Checks for a pivot low with a given lookback period."""
+    if index < period or index >= len(data) - period:
+        return False
+    return data['Low'].iloc[index] == data['Low'].iloc[index - period: index + period + 1].min()
+
+
+def find_nearest_sr_levels(hist: pd.DataFrame, channel_width_pct: int = 1, loopback: int = 490,
+                           min_strength: int = 2) -> List[Tuple[float, float, int]]:
     """
-    Finds support and resistance levels based on pivot points.
+    Finds support and resistance levels based on pivot points,
+    and returns their location for debugging.
 
     Args:
         hist (pd.DataFrame): Historical price data.
@@ -16,46 +32,77 @@ def find_nearest_sr_levels(hist: pd.DataFrame, channel_width_pct: int = 1, loopb
         min_strength (int): Minimum number of pivots required for a level.
 
     Returns:
-        list: A list of tuples, where each tuple contains (min_price, max_price) of a S/R level.
+        list: A list of tuples, where each tuple contains
+              (min_price, max_price, most_recent_pivot_index).
     """
-    pivot_lookback = 5
+    pivot_period = 10
 
-    # Identify pivot points using a rolling window
-    hist['pivot_high'] = hist['High'].rolling(window=pivot_lookback * 2 + 1, center=True).max() == hist['High']
-    hist['pivot_low'] = hist['Low'].rolling(window=pivot_lookback * 2 + 1, center=True).min() == hist['Low']
+    # 1. Identify pivot points within the loopback period
+    pivot_points: List[Dict[str, Any]] = []
 
-    pivot_vals = []
+    end_index = max(pivot_period, len(hist) - loopback - 1)
 
-    # Extract unique pivot values from the lookback period
-    for i in range(len(hist) - 1, len(hist) - loopback - 1, -1):
-        if i >= 0 and i < len(hist):
-            if hist['pivot_high'].iloc[i] and hist['High'].iloc[i] not in pivot_vals:
-                pivot_vals.append(hist['High'].iloc[i])
-            if hist['pivot_low'].iloc[i] and hist['Low'].iloc[i] not in pivot_vals:
-                pivot_vals.append(hist['Low'].iloc[i])
+    for i in range(len(hist) - 1, end_index, -1):
+        if is_pivot_high(hist, i, pivot_period):
+            pivot_points.append({'price': hist['High'].iloc[i], 'index': 751-i})#added the 750 for 3 year candles to spot the location in order to debug
+        elif is_pivot_low(hist, i, pivot_period):
+            pivot_points.append({'price': hist['Low'].iloc[i], 'index': 751-i})
 
-    if not pivot_vals:
+    if not pivot_points:
         return []
 
-    # Group pivots into S/R channels
-    sr_levels = []
-    pivot_vals.sort()
-    processed_pivots = set()
+    # 2. Group pivots into S/R channels and calculate their strength
+    potential_sr_channels = []
 
-    for pivot in pivot_vals:
-        if pivot in processed_pivots:
-            continue
+    unique_pivot_prices = sorted(list(set(p['price'] for p in pivot_points)))
 
-        channel_width = (hist['High'].tail(300).max() - hist['Low'].tail(300).min()) * channel_width_pct / 100
-        channel_pivots = [p for p in pivot_vals if abs(p - pivot) <= channel_width]
+    historical_high = hist['High'].tail(500).max()
+    historical_low = hist['Low'].tail(500).min()
+    channel_width = (historical_high - historical_low) * channel_width_pct / 100
 
-        if len(channel_pivots) >= min_strength:
-            channel_min = min(channel_pivots)
-            channel_max = max(channel_pivots)
-            sr_levels.append((channel_min, channel_max))
-            processed_pivots.update(channel_pivots)
+    for pivot_price in unique_pivot_prices:
+        channel_pivots_prices = [p for p in unique_pivot_prices if abs(p - pivot_price) <= channel_width]
 
-    return sr_levels
+        if len(channel_pivots_prices) >= min_strength:
+            channel_min = min(channel_pivots_prices)
+            channel_max = max(channel_pivots_prices)
+
+            pivot_strength = len(channel_pivots_prices) * 20
+
+            bar_interaction_strength = 0
+            for i in range(len(hist) - 1, end_index, -1):
+                high_price = hist['High'].iloc[i]
+                low_price = hist['Low'].iloc[i]
+
+                if (high_price <= channel_max and high_price >= channel_min) or \
+                        (low_price <= channel_max and low_price >= channel_min):
+                    bar_interaction_strength += 1
+
+            total_strength = pivot_strength + bar_interaction_strength
+
+            channel_indices = [p['index'] for p in pivot_points if p['price'] in channel_pivots_prices]
+            most_recent_index = min(channel_indices)
+
+            potential_sr_channels.append({
+                'min': channel_min,
+                'max': channel_max,
+                'strength': total_strength,
+                'pivots': set(channel_pivots_prices),
+                'index': most_recent_index
+            })
+
+    # 3. Sort channels by strength and filter for non-overlapping levels
+    potential_sr_channels.sort(key=lambda x: x['strength'], reverse=True)
+
+    final_sr_levels = []
+    used_pivots_prices = set()
+
+    for channel in potential_sr_channels:
+        if not channel['pivots'].intersection(used_pivots_prices):
+            final_sr_levels.append((channel['min'], channel['max'], channel['index']))
+            used_pivots_prices.update(channel['pivots'])
+
+    return final_sr_levels
 
 
 def run_stock_scan() -> None:
@@ -67,7 +114,7 @@ def run_stock_scan() -> None:
     with open("filtered_nyse_nasdaq_stocks.json", "r") as f:
         data = json.load(f)
 
-    TICKERS = data#["EVGO", "UBER", "JDCMF", "IBRX", "CRF", "CAMT"]  #
+    TICKERS = data
     results = []
 
     for symbol in TICKERS:
@@ -75,47 +122,41 @@ def run_stock_scan() -> None:
         try:
             stock = yf.Ticker(symbol)
 
-            # Retrieve the stock's information, which contains the exchange
+            # --- Data Retrieval and Initial Checks ---
             info = stock.get_info()
             exchange = info.get('exchange', 'N/A')
-
-            # Convert Yahoo's exchange codes to TradingView's format
-            # This is a crucial step for the hyperlink to work
             if exchange == 'NMS':
                 tv_exchange = 'NASDAQ'
             elif exchange == 'NYQ':
                 tv_exchange = 'NYSE'
             else:
-                tv_exchange = exchange  # Use the original name if not a common US exchange
-                # ASE, NGM, OTC
+                tv_exchange = exchange
 
-            hist = stock.history(period="1y")
-            info = stock.get_info()
+            hist = stock.history(period="3y",auto_adjust=False) #to ensure both your Python script and your TradingView chart are using the same type of data.
+
+            if hist.empty or len(hist) < 200:
+                print(f"Skipping {symbol}: Not enough data.")
+                continue
+
             market_cap = info.get('marketCap', 0)
-
-            if not market_cap or market_cap < 1e9 or hist.empty or len(hist) < 200:
-                print(f"Skipping {symbol}: Market Cap missing or under $1B or insufficient data.")
+            if not market_cap or market_cap < 1e9:
+                print(f"Skipping {symbol}: Market Cap missing or under $1B.")
                 continue
 
             current_price = hist["Close"].iloc[-1]
+            last_index = len(hist) - 1
+
+            # --- Technical Indicator Calculations ---
+            hist["avg_volume_14"] = hist["Volume"].rolling(window=14).mean()
             current_volume = hist["Volume"].iloc[-1]
+            avg_volume_today = hist["avg_volume_14"].iloc[-1]
+            rising_volume_2d = False
+            if len(hist) >= 2:
+                avg_volume_yesterday = hist["avg_volume_14"].iloc[-2]
+                rising_volume_1 = current_volume > avg_volume_today
+                rising_volume_2 = hist["Volume"].iloc[-2] > avg_volume_yesterday
+                rising_volume_2d = rising_volume_1 and rising_volume_2
 
-            # --- Start: Added Volume Logic ---
-            hist["avg_volume"] = hist["Volume"].rolling(window=14).mean()
-
-            # Get the average volume for the last two days
-            avg_volume_today = hist["avg_volume"].iloc[-1]
-            avg_volume_yesterday = hist["avg_volume"].iloc[-2]
-
-            # Check if volume on the last two days was greater than their own historical average
-            rising_volume_1 = hist["Volume"].iloc[-1] > avg_volume_today
-            rising_volume_2 = hist["Volume"].iloc[-2] > avg_volume_yesterday
-
-            # Combine the two checks into a single boolean
-            rising_volume_2d = rising_volume_1 and rising_volume_2
-            # --- End: Added Volume Logic ---
-
-            # Calculate True Range (TR)
             hist['tr'] = np.maximum(
                 hist['High'] - hist['Low'],
                 np.maximum(
@@ -123,83 +164,65 @@ def run_stock_scan() -> None:
                     abs(hist['Low'] - hist['Close'].shift(1))
                 )
             )
-
-            # Calculate Average True Range (ATR) using Wilder's smoothing
             alpha = 1 / 14
             hist['atr'] = hist['tr'].ewm(alpha=alpha, adjust=False).mean()
             atr_value = hist['atr'].iloc[-1]
-
             if pd.isna(atr_value):
                 continue
 
-            # Calculate key moving averages and VWAP
             sma200 = hist["Close"].rolling(window=200).mean().iloc[-1]
             sma150 = hist["Close"].rolling(window=150).mean().iloc[-1]
             hist["TPV"] = (hist["High"] + hist["Low"] + hist["Close"]) * hist["Volume"] / 3
             vwap_150 = hist["TPV"].tail(150).sum() / hist["Volume"].tail(150).sum()
 
-            # Check if current price is near and BELOW key levels
-            is_near_sma150 = False
-            is_near_vwap = False
-            is_near_sma200 = False
-            is_near_sr = False
+            # --- Proximity Checks & Condition Evaluation ---
+            is_near_sma150 = current_price < sma150 and abs(
+                current_price - sma150) * 100 / current_price <= THRESHHOLD_VAL
+            is_near_vwap = current_price < vwap_150 and abs(
+                current_price - vwap_150) * 100 / current_price <= THRESHHOLD_VAL
+            is_near_sma200 = current_price < sma200 and abs(
+                current_price - sma200) * 100 / current_price <= THRESHHOLD_VAL
 
             reasons = []
+            if is_near_sma150: reasons.append("Near SMA150")
+            if is_near_vwap: reasons.append("Near VWAP")
+            if is_near_sma200: reasons.append("Near SMA200")
 
-            # SMA150 check
-            if current_price < sma150 and abs(current_price - sma150) * 100 / current_price <= THRESHHOLD_VAL:
-                is_near_sma150 = True
-                reasons.append("Near SMA150")
-
-            # VWAP check
-            if current_price < vwap_150 and abs(current_price - vwap_150) * 100 / current_price <= THRESHHOLD_VAL:
-                is_near_vwap = True
-                reasons.append("Near VWAP")
-
-            # SMA200 check
-            if current_price < sma200 and abs(current_price - sma200) * 100 / current_price <= THRESHHOLD_VAL:
-                is_near_sma200 = True
-                reasons.append("Near SMA200")
-
-            # S/R proximity check
+            # S/R Check
             sr_levels = find_nearest_sr_levels(hist)
-            sr_range_str, sr_proximity_pct = "0", np.nan
+            is_near_sr = False
+            sr_range_str, sr_proximity_pct, sr_candles_ago = "0", np.nan, np.nan
 
-            # Check if price is within an S/R range and below it
-            for sr_min, sr_max in sr_levels:
+            for sr_min, sr_max, sr_index in sr_levels:
                 if sr_min <= current_price <= sr_max:
-                    # Check if the level is acting as resistance
                     if current_price < (sr_min + sr_max) / 2:
                         is_near_sr = True
                         reasons.append("Near S/R")
                         sr_range_str = f"{sr_min:.2f}-{sr_max:.2f}"
                         sr_proximity_pct = (abs(current_price - sr_max) / current_price) * 100
+                        sr_candles_ago = last_index - sr_index
                         break
 
-            # If not in a range, find the closest level and check if it's below
             if not is_near_sr:
-                closest_level, min_distance = None, float('inf')
-
-                for sr_min, sr_max in sr_levels:
-                    # Only consider levels that are above the current price
+                closest_level, min_distance, sr_index = None, float('inf'), None
+                for sr_min, sr_max, idx in sr_levels:
                     if current_price < sr_min:
                         dist = abs(sr_min - current_price)
                         if dist < min_distance:
                             min_distance = dist
                             closest_level = sr_min
-
+                            sr_index = idx
                 if closest_level is not None:
                     sr_proximity_pct = (min_distance / current_price) * 100
-
                     if sr_proximity_pct <= THRESHHOLD_VAL and current_price > sma150 and closest_level > sma150:
                         is_near_sr = True
                         reasons.append("Near S/R")
                         sr_range_str = f"{closest_level:.2f}"
+                        sr_candles_ago = last_index - sr_index
 
-            # Log results if any condition is met
+            # --- Final Result Aggregation ---
             if (is_near_sma150 or is_near_vwap or is_near_sma200 or is_near_sr) and avg_volume_today >= 300000:
                 reason_str = ", ".join(reasons)
-
                 lookback = 2
                 bullish_streak = (hist["Close"].tail(lookback) > hist["Open"].tail(lookback)).all()
                 rising_volume = (hist["Volume"].tail(lookback).diff().dropna() > 0).all()
@@ -209,25 +232,25 @@ def run_stock_scan() -> None:
                     "Exchange": tv_exchange,
                     "Reason": reason_str,
                     "Close": current_price,
+                    "ATR_Pct": (atr_value / current_price) * 100,
                     "VWAP150": vwap_150,
                     "VWAP_distance": abs(current_price - vwap_150) / current_price * 100,
                     "SMA150": sma150,
                     "SMA150_distance": abs(current_price - sma150) / current_price * 100,
                     "SMA200": sma200,
                     "SMA200_distance": abs(current_price - sma200) / current_price * 100,
-                    "ATR_Pct": (atr_value / current_price) * 100,
                     "SR_Range": sr_range_str,
                     "SR_distance": sr_proximity_pct,
                     "Bull Streak": bullish_streak,
                     "Rising Vol": rising_volume,
-                    "Vol > Avg": rising_volume_2d,
-                    "Avg_Volume": avg_volume_today
+                    "Vol > Avg (2D)": rising_volume_2d,
+                    "Avg_Volume": avg_volume_today,
                 })
 
         except Exception as e:
             print(f"Skipping {symbol}: An error occurred: {e}")
 
-    # Output results
+    # Save results
     df = pd.DataFrame(results)
     if not df.empty:
         df.to_csv("scan_results.csv", index=False)
