@@ -1,0 +1,1455 @@
+//@ire0n https://www.tradingview.com/script/UpsMdRXG-Simple-Auto-Trend-Lines/
+//@version=6
+indicator("Auto Trend Lines", overlay=true)
+
+leftLenH = input.int(10, "Pivot High Left", inline="Pivot High", minval=1, maxval=100, group="Trendlines")
+rightLenH = input.int(10, "Pivot High Right", inline="Pivot High", minval=1, maxval=100, group="Trendlines")
+leftLenL = input.int(10, "Pivot Low Left", inline="Pivot Low", minval=1, maxval=100, group="Trendlines")
+rightLenL = input.int(10, "Pivot Low Right", inline="Pivot Low", minval=1, maxval=100, group="Trendlines")
+
+
+
+// Set proper historical buffer sizes to prevent buffer limit errors
+max_bars_back(high, 5000)
+max_bars_back(low, 5000)
+max_bars_back(close, 5000)
+max_bars_back(time, 5000)
+
+// Line display settings
+candlesForCross = input.int(3, "Candles To Cross For Invalidation", minval=1, maxval=50, tooltip="Number of consecutive candles that must cross a line to invalidate it", group="Line Display")
+maxDrawingDistance = input.int(500, "Max Drawing Distance (bars)", minval=50, maxval=5000, tooltip="Maximum distance in bars between pivot points for drawing trendlines (higher value can cause indicator timeout)", group="Line Display")
+// Multiple lines settings
+maxLinesPerPivot = input.int(1, "Max Lines Per Pivot", minval=1, maxval=10, tooltip="Maximum number of trendlines that can start from a single pivot point (set to 1 to only allow one line per pivot)", group="Line Display")
+maxResistanceLines = input.int(2, "Max Resistance Trendlines", minval=1, maxval=10, tooltip="Maximum number of resistance trendlines to display", group="Line Display")
+maxSupportLines = input.int(2, "Max Support Trendlines", minval=1, maxval=10, tooltip="Maximum number of support trendlines to display", group="Line Display")
+
+// Style settings
+topLineColor = input.color(color.red, "Top Lines Color", group="Style")
+bottomLineColor = input.color(color.green, "Bottom Lines Color", group="Style")
+lineThickness = input.int(2, "Line Thickness", minval=1, maxval=20, group="Style")
+
+// Pivot point dot settings
+showPivotDots = input.bool(true, "Show Pivot Dots", group="Style")
+topPivotDotColor = input.color(color.fuchsia, "Resistance Pivot Dot Color", group="Style")
+bottomPivotDotColor = input.color(color.aqua, "Support Pivot Dot Color", group="Style")
+pivotDotSize = input.int(20, "Pivot Dot Size", minval=1, maxval=300, group="Style")
+
+// Store drawn lines for filtering
+var array<line> lines = array.new_line(0)
+var array<label> dots = array.new_label(0)
+
+// Map to track lines by their end bars
+var map<int, line> linesByEndBar = map.new<int, line>()
+
+// Safe data access function to prevent buffer errors
+safeHigh(int offset) =>
+    offset < 0 or offset >= bar_index ? na : high[offset]
+    
+safeLow(int offset) =>
+    offset < 0 or offset >= bar_index ? na : low[offset]
+
+// Function to check if resistance line is crossed by price action
+isResistanceCrossed(int bar1, float value1, int bar2, float value2) =>
+    // Calculate line parameters
+    float slope = (value2 - value1) / (bar2 - bar1)
+    float intercept = value1 - slope * bar1
+    
+    // Initialize variables to track consecutive crosses
+    int consecutiveCrosses = 0
+    int maxConsecutiveCrosses = 0
+    
+    // Check each bar for crosses
+    for m = 0 to maxDrawingDistance
+        // Skip if we're at the end of available data
+        if m > bar_index
+            break
+            
+        // Calculate line value at this bar
+        float lineValue = slope * (bar_index - m) + intercept
+        
+        // Check if price closed OR opened above the line (resistance is crossed)
+        if close[m] > lineValue or open[m] > lineValue
+            consecutiveCrosses += 1
+            maxConsecutiveCrosses := math.max(maxConsecutiveCrosses, consecutiveCrosses)
+        else
+            consecutiveCrosses := 0
+    
+    // Line is considered crossed if we have enough consecutive crosses
+    maxConsecutiveCrosses >= candlesForCross
+
+// Function to find where a resistance line is crossed
+findResistanceCrossPoint(int bar1, float value1, int bar2, float value2) =>
+    // Calculate line equation: y = mx + b
+    float slope = (value2 - value1) / (bar2 - bar1)
+    float intercept = value1 - slope * bar1
+    
+    // Track consecutive crosses
+    int consecutiveCrosses = 0
+    int crossBar = na
+    
+    // Check recent bars for crosses above the resistance line
+    for m = 0 to math.min(maxDrawingDistance, bar_index)
+        // Skip if we're trying to access data beyond what's available
+        if m >= bar_index
+            break
+            
+        // Calculate line value at this bar
+        int checkBar = bar_index - m
+        float lineValue = slope * checkBar + intercept
+        
+        // Check if price closed OR opened above the resistance line
+        if not na(close[m]) and (close[m] > lineValue or open[m] > lineValue)
+            consecutiveCrosses += 1
+            
+            // If we've found enough consecutive crosses, mark this as the crossing point
+            if consecutiveCrosses >= candlesForCross and na(crossBar)
+                crossBar := checkBar
+                break
+        else
+            consecutiveCrosses := 0  // Reset counter if not above
+    
+    // Return the crossing point
+    crossBar
+
+// Function to check if a support line is crossed
+isSupportCrossed(int bar1, float value1, int bar2, float value2) =>
+    // Calculate line equation: y = mx + b
+    float slope = (value2 - value1) / (bar2 - bar1)
+    float intercept = value1 - slope * bar1
+    
+    // Track consecutive crosses
+    int consecutiveCrosses = 0
+    int maxConsecutiveCrosses = 0
+    
+    // Check recent bars for crosses below the support line
+    for m = 0 to math.min(maxDrawingDistance, bar_index)
+        // Skip if we're trying to access data beyond what's available
+        if m >= bar_index
+            break
+            
+        // Calculate line value at this bar
+        int checkBar = bar_index - m
+        float lineValue = slope * checkBar + intercept
+        
+        // Check if price closed OR opened below the support line
+        if not na(close[m]) and (close[m] < lineValue or open[m] < lineValue)
+            consecutiveCrosses += 1
+            maxConsecutiveCrosses := math.max(maxConsecutiveCrosses, consecutiveCrosses)
+        else
+            consecutiveCrosses := 0  // Reset counter if not below
+    
+    // Return true if line is crossed for more than the threshold
+    maxConsecutiveCrosses >= candlesForCross
+
+// Function to find where a support line is crossed
+findSupportCrossPoint(int bar1, float value1, int bar2, float value2) =>
+    // Calculate line equation: y = mx + b
+    float slope = (value2 - value1) / (bar2 - bar1)
+    float intercept = value1 - slope * bar1
+    
+    // Track consecutive crosses
+    int consecutiveCrosses = 0
+    int crossBar = na
+    
+    // Check recent bars for crosses below the support line
+    for m = 0 to math.min(maxDrawingDistance, bar_index)
+        // Skip if we're trying to access data beyond what's available
+        if m >= bar_index
+            break
+            
+        // Calculate line value at this bar
+        int checkBar = bar_index - m
+        float lineValue = slope * checkBar + intercept
+        
+        // Check if price closed OR opened below the support line
+        if not na(close[m]) and (close[m] < lineValue or open[m] < lineValue)
+            consecutiveCrosses += 1
+            if consecutiveCrosses >= candlesForCross and na(crossBar)
+                crossBar := checkBar
+                break
+        else
+            consecutiveCrosses := 0  // Reset counter if not below
+    
+    // Return the crossing point
+    crossBar
+
+// Find pivot points for each set
+// Set 1
+ph = ta.pivothigh(safeHigh(0), leftLenH, rightLenH)
+pl = ta.pivotlow(safeLow(0), leftLenL, rightLenL)
+
+// Log pivot points for debugging
+if not na(ph)
+    log.warning(str.tostring(ph))
+if not na(pl)
+    log.warning(str.tostring(pl))
+
+// Store pivot points for each set
+// Set 1
+var float[] topPivots1 = array.new_float(0)
+var int[] topPivotBars1 = array.new_int(0)
+var float[] bottomPivots1 = array.new_float(0)
+var int[] bottomPivotBars1 = array.new_int(0)
+
+// Add new pivot points for Set 1
+if not na(ph)
+    array.push(topPivots1, ph)
+    // Store the actual bar index where the pivot was found, accounting for the rightLenH offset
+    array.push(topPivotBars1, bar_index - rightLenH)
+    log.warning("Added top pivot at bar " + str.tostring(bar_index - rightLenH) + ", value: " + str.tostring(ph))
+
+if not na(pl)
+    array.push(bottomPivots1, pl)
+    // Store the actual bar index where the pivot was found, accounting for the rightLenL offset
+    array.push(bottomPivotBars1, bar_index - rightLenL)
+    log.warning("Added bottom pivot at bar " + str.tostring(bar_index - rightLenL) + ", value: " + str.tostring(pl))
+
+// Function to validate a resistance line - checks if there are any bars with highs above the line between the pivots
+isValidResistanceLine(int startBar, float startValue, int endBar, float endValue) =>
+    // Safety check for division by zero
+    if endBar <= startBar
+        false
+    else
+        // Calculate line equation
+        float slope = (endValue - startValue) / (endBar - startBar)
+        float intercept = startValue - slope * startBar
+        
+        // Check all bars between the pivots
+        bool isValid = true
+        for i = 1 to (endBar - startBar - 1)
+            int checkBar = startBar + i
+            float lineValue = slope * checkBar + intercept
+            
+            // Get the high at this bar
+            float highValue = safeHigh(bar_index - checkBar)
+            
+            // If any high is above the line, the resistance line is invalid
+            if not na(highValue) and highValue > lineValue
+                isValid := false
+                break
+                
+        isValid
+
+// Function to validate a support line - checks if there are any bars with lows below the line between the pivots
+isValidSupportLine(int startBar, float startValue, int endBar, float endValue) =>
+    // Safety check for division by zero
+    if endBar <= startBar
+        false
+    else
+        // Calculate line equation
+        float slope = (endValue - startValue) / (endBar - startBar)
+        float intercept = startValue - slope * startBar
+        
+        // Check all bars between the pivots
+        bool isValid = true
+        for i = 1 to (endBar - startBar - 1)
+            int checkBar = startBar + i
+            float lineValue = slope * checkBar + intercept
+            
+            // Get the low at this bar
+            float lowValue = safeLow(bar_index - checkBar)
+            
+            // If any low is below the line, the support line is invalid
+            if not na(lowValue) and lowValue < lineValue
+                isValid := false
+                break
+                
+        isValid
+
+// Function to validate resistance line projection from second pivot to current price
+isValidResistanceProjection(int pivotBar, float pivotValue) =>
+    // Safety check
+    if pivotBar <= 0
+        false
+    else
+        // Calculate projected line from pivot to current bar
+        float currentValue = close
+        int currentBar = bar_index
+        
+        // Calculate line equation
+        float slope = (currentValue - pivotValue) / (currentBar - pivotBar)
+        float intercept = pivotValue - slope * pivotBar
+        
+        // Check all bars between the pivot and current bar
+        bool isValid = true
+        for i = 1 to (currentBar - pivotBar - 1)
+            int checkBar = pivotBar + i
+            float lineValue = slope * checkBar + intercept
+            
+            // Get the high at this bar
+            float highValue = safeHigh(bar_index - checkBar)
+            
+            // If any high is above the line, the resistance projection is invalid
+            if not na(highValue) and highValue > lineValue
+                isValid := false
+                break
+                
+        isValid
+
+// Function to validate support line projection from second pivot to current price
+isValidSupportProjection(int pivotBar, float pivotValue) =>
+    // Safety check
+    if pivotBar <= 0
+        false
+    else
+        // Calculate projected line from pivot to current bar
+        float currentValue = close
+        int currentBar = bar_index
+        
+        // Calculate line equation
+        float slope = (currentValue - pivotValue) / (currentBar - pivotBar)
+        float intercept = pivotValue - slope * pivotBar
+        
+        // Check all bars between the pivot and current bar
+        bool isValid = true
+        for i = 1 to (currentBar - pivotBar - 1)
+            int checkBar = pivotBar + i
+            float lineValue = slope * checkBar + intercept
+            
+            // Get the low at this bar
+            float lowValue = safeLow(bar_index - checkBar)
+            
+            // If any low is below the line, the support projection is invalid
+            if not na(lowValue) and lowValue < lineValue
+                isValid := false
+                break
+                
+        isValid
+
+// Function to check if a line has been crossed
+isLineCrossed(int startBar, float startValue, int endBar, float endValue, bool isSupport) =>
+    // Safety check for division by zero
+    if endBar == startBar
+        false
+    else
+        // Calculate line equation
+        float slope = (endValue - startValue) / (endBar - startBar)
+        float intercept = startValue - slope * startBar
+        
+        // Make sure we have enough bars after the end point
+        if bar_index <= endBar + candlesForCross
+            false  // Not enough bars to check
+        else
+            // For red resistance lines (downtrend)
+            if not isSupport
+                // Check the most recent bars for consecutive closes above the line
+                int consecutiveAbove = 0
+                
+                // Check the most recent bars
+                for i = 0 to candlesForCross * 2
+                    // Make sure we don't go beyond available bars
+                    if i >= bar_index - endBar
+                        break
+                        
+                    // Calculate line value at this bar
+                    int checkBar = bar_index - i
+                    float lineValue = slope * checkBar + intercept
+                
+                    // Safely check if price closed OR opened above the line
+                    float closePrice = i < 0 or i >= bar_index ? na : close[i]
+                    float openPrice = i < 0 or i >= bar_index ? na : open[i]
+                    if not na(closePrice) and (closePrice > lineValue or openPrice > lineValue)
+                        consecutiveAbove += 1
+                        // If we have enough consecutive bars above, it's crossed
+                        if consecutiveAbove >= candlesForCross
+                            break
+                    else
+                        consecutiveAbove := 0  // Reset counter if not above
+                
+                consecutiveAbove >= candlesForCross  // Return true if crossed
+            else
+                // For green support lines (uptrend)
+                // Check the most recent bars for consecutive closes below the line
+                int consecutiveBelow = 0
+            
+                // Check the most recent bars
+                for i = 0 to candlesForCross * 2
+                    // Make sure we don't go beyond available bars
+                    if i >= bar_index - endBar
+                        break
+                        
+                    // Calculate line value at this bar
+                    int checkBar = bar_index - i
+                    float lineValue = slope * checkBar + intercept
+                    
+                    // Safely check if price closed OR opened below the line
+                    float closePrice = i < 0 or i >= bar_index ? na : close[i]
+                    float openPrice = i < 0 or i >= bar_index ? na : open[i]
+                    if not na(closePrice) and (closePrice < lineValue or openPrice < lineValue)
+                        consecutiveBelow += 1
+                        // If we have enough consecutive bars below, it's crossed
+                        if consecutiveBelow >= candlesForCross
+                            break
+                    else
+                        consecutiveBelow := 0  // Reset counter if not below
+            
+                consecutiveBelow >= candlesForCross  // Return true if crossed
+
+// Function to find the crossing point of a line
+findCrossingPoint(int startBar, float startValue, int endBar, float endValue, bool isSupport) =>
+    // Safety check for division by zero
+    if endBar == startBar
+        na
+    else
+        // Calculate line equation
+        float slope = (endValue - startValue) / (endBar - startBar)
+        float intercept = startValue - slope * startBar
+        int crossBar = int(na)
+        
+        // Make sure we have enough bars after the end point
+        if bar_index > endBar + candlesForCross
+            // For red resistance lines (downtrend)
+            if not isSupport
+                // Check the most recent bars for consecutive closes above the line
+                consecutiveAbove = 0
+                
+                // Check the most recent bars
+                for i = 0 to candlesForCross * 2
+                    // Make sure we don't go beyond available bars
+                    if i >= bar_index - endBar
+                        break
+                        
+                    // Calculate line value at this bar
+                    checkBar = bar_index - i
+                    lineValue = slope * checkBar + intercept
+                    
+                    // Safely check if price closed above the line
+                    float closePrice = i < 0 or i >= bar_index ? na : close[i]
+                    if not na(closePrice) and closePrice > lineValue
+                        consecutiveAbove += 1
+                        // If we have enough consecutive bars above, record the crossing point
+                        if consecutiveAbove >= candlesForCross and na(crossBar)
+                            crossBar := checkBar
+                            break
+                    else
+                        consecutiveAbove := 0  // Reset counter if not above
+            else
+                // For green support lines (uptrend)
+                // Check the most recent bars for consecutive closes below the line
+                consecutiveBelow = 0
+                
+                // Check the most recent bars
+                for i = 0 to candlesForCross * 2
+                    // Make sure we don't go beyond available bars
+                    if i >= bar_index - endBar
+                        break
+                        
+                    // Calculate line value at this bar
+                    checkBar = bar_index - i
+                    lineValue = slope * checkBar + intercept
+                    
+                    // Safely check if price closed below the line
+                    float closePrice = i < 0 or i >= bar_index ? na : close[i]
+                    if not na(closePrice) and closePrice < lineValue
+                        consecutiveBelow += 1
+                        // If we have enough consecutive bars below, record the crossing point
+                        if consecutiveBelow >= candlesForCross and na(crossBar)
+                            crossBar := checkBar
+                            break
+                    else
+                        consecutiveBelow := 0  // Reset counter if not below
+        
+        // Return the crossing point
+        crossBar
+
+// Function to draw resistance lines (top pivots)
+drawResistanceLines(float[] pivotArray, int[] barArray, int setNumber) =>
+    if array.size(pivotArray) >= 2
+        // SAFETY CHECK: Make sure we're not trying to access data beyond the buffer's limit
+        maxLookback = math.min(5000, bar_index) // Match our pre-allocated buffer size
+        
+        // Ensure we never try to access more bars than available
+        if maxLookback <= 0
+            false // Skip entirely if we don't have enough bars
+        // Get the last two pivot points
+        lastIdx = array.size(pivotArray) - 1
+        secondLastIdx = array.size(pivotArray) - 2
+        
+        startBar = array.get(barArray, secondLastIdx)
+        startValue = array.get(pivotArray, secondLastIdx)
+        endBar = array.get(barArray, lastIdx)
+        endValue = array.get(pivotArray, lastIdx)
+        
+        // Skip if either bar is too far back in history
+        if bar_index - startBar >= maxLookback or bar_index - endBar >= maxLookback
+            false // Skip this pivot
+        
+        // Only proceed if it's a downtrend
+        if endValue < startValue
+            // Start by assuming the trendline is valid
+            validTrendline = true
+            
+            // Get the pivot points
+            startPivotHigh = startValue
+            
+            // Convert bar offsets to array indices
+            startIndex = math.min(bar_index - startBar, maxLookback)
+            endIndex = math.min(bar_index - endBar, maxLookback)
+            
+            // IMPORTANT: Check all candles between the pivot points
+            checkStart = math.min(startIndex, endIndex) + 1  // The higher bar index (more recent bar)
+            checkEnd = math.max(startIndex, endIndex) - 1    // The lower bar index (older bar)
+            
+            // Only proceed with the loop if there are candles to check
+            if checkStart <= checkEnd
+                // Loop through each bar between the pivots
+                for i = checkStart to checkEnd
+                    // Skip if we're trying to access data beyond what's available
+                    if i < 0 or i >= maxLookback
+                        continue
+                    
+                    // Try to safely get the high of the current candle
+                    float currentHigh = na
+                    if i < bar_index
+                        currentHigh := high[i]
+                    
+                    // Skip this candle if we couldn't get its high value
+                    if na(currentHigh)
+                        continue
+                    
+                    // STRICT RULE: If ANY candle's high is above the starting pivot's high, it's invalid
+                    if currentHigh > startPivotHigh
+                        validTrendline := false
+                        break
+            
+            // STRICT: Only draw the line if it's 100% valid
+            if validTrendline
+                // Check if line is crossed
+                isCrossed = isLineCrossed(startBar, startValue, endBar, endValue, false)
+                
+                if not isCrossed
+                    // Draw valid trendline (not crossed)
+                    l = line.new(startBar, startValue, endBar, endValue, 
+                         extend=extend.right, color=topLineColor, width=2)
+                    array.push(lines, l)
+
+// Function to draw support lines (bottom pivots)
+drawSupportLines(float[] pivotArray, int[] barArray, int setNumber) =>
+    if array.size(pivotArray) >= 2
+        // SAFETY CHECK: Make sure we're not trying to access data beyond the buffer's limit
+        maxLookback = math.min(5000, bar_index) // Match our pre-allocated buffer size
+        
+        // Ensure we never try to access more bars than available
+        if maxLookback <= 0
+            false // Skip entirely if we don't have enough bars
+        // Get the last two pivot points
+        lastIdx = array.size(pivotArray) - 1
+        secondLastIdx = array.size(pivotArray) - 2
+        
+        startBar = array.get(barArray, secondLastIdx)
+        startValue = array.get(pivotArray, secondLastIdx)
+        endBar = array.get(barArray, lastIdx)
+        endValue = array.get(pivotArray, lastIdx)
+        
+        // Skip if either bar is too far back in history
+        if bar_index - startBar >= maxLookback or bar_index - endBar >= maxLookback
+            false // Skip this pivot
+        
+        // Only proceed if it's an uptrend
+        if endValue > startValue
+            // Use the existing maxLookback from parent scope
+            // No need to redefine it here
+            // Start by assuming the trendline is valid
+            validTrendline = true
+            
+            // Get the pivot points
+            startPivotLow = startValue
+            
+            // Convert bar offsets to array indices
+            startIndex = math.min(bar_index - startBar, maxLookback)
+            endIndex = math.min(bar_index - endBar, maxLookback)
+            
+            // IMPORTANT: Check all candles between the pivot points
+            // For support lines, we need to check all candles between the two pivots
+            checkStart = math.min(startIndex, endIndex) + 1  // The higher bar index (more recent bar)
+            checkEnd = math.max(startIndex, endIndex) - 1    // The lower bar index (older bar)
+            
+            // Only proceed with the loop if there are candles to check
+            if checkStart <= checkEnd
+                // Loop through each bar between the pivots
+                for i = checkStart to checkEnd
+                    // Skip if we're trying to access data beyond what's available
+                    if i < 0 or i >= maxLookback
+                        continue
+                    
+                    // Try to safely get the low of the current candle
+                    float currentLow = na
+                    if i < bar_index
+                        currentLow := low[i]
+                    
+                    // Skip this candle if we couldn't get its low value
+                    if na(currentLow)
+                        continue
+                    
+                    // STRICT RULE: If ANY candle's low is below the starting pivot's low, it's invalid
+                    if currentLow < startPivotLow
+                        validTrendline := false
+                        break
+            
+            // STRICT: Only draw the line if it's 100% valid
+            if validTrendline
+                // Check if line is crossed
+                isCrossed = isLineCrossed(startBar, startValue, endBar, endValue, true)
+                
+                if not isCrossed
+                    // Draw valid trendline (not crossed)
+                    l = line.new(startBar, startValue, endBar, endValue, 
+                         extend=extend.right, color=bottomLineColor, width=2)
+                    array.push(lines, l)
+
+// Function to draw multiple resistance lines from a single pivot
+drawMultipleResistanceLines(float[] pivotArray, int[] barArray, int setNumber) =>
+    if array.size(pivotArray) >= 2 and bar_index > 0
+        // Get the starting pivot point (second last)
+        secondLastIdx = array.size(pivotArray) - 2
+        startBar = array.get(barArray, secondLastIdx)
+        startValue = array.get(pivotArray, secondLastIdx)
+        
+        // SAFETY CHECK: Make sure we're not trying to access data beyond the buffer's limit
+        maxLookback = 5000 // Reduced maximum lookback to avoid buffer errors
+        
+        // Skip if the starting bar is too far back
+        if bar_index - startBar >= maxLookback
+            false // Skip this pivot
+        
+        // Try to connect with multiple end points
+        linesDrawn = 0
+        
+        // Loop through potential end points using a different approach
+        // Start from the most recent pivot and work backwards
+        pivotCount = array.size(pivotArray)
+        for k = 0 to pivotCount - 1
+            // Calculate the actual index (from newest to oldest)
+            j = pivotCount - 1 - k
+            
+            // Skip if we've drawn enough lines or if we're looking at the starting pivot or older
+            if linesDrawn >= maxLinesPerPivot or j <= secondLastIdx
+                break
+                
+            endBar = array.get(barArray, j)
+            endValue = array.get(pivotArray, j)
+            
+            // Skip if end bar is too far back in history
+            if bar_index - endBar >= maxLookback
+                continue
+            
+            // Only proceed if it's a downtrend
+            if endValue < startValue
+                // Use the existing maxLookback from parent scope
+                // No need to redefine it here
+                // Start by assuming the trendline is valid
+                validTrendline = true
+                
+                // Get the pivot points
+                startPivotHigh = startValue
+                
+                // Convert bar offsets to array indices
+                startIndex = math.min(bar_index - startBar, maxLookback)
+                endIndex = math.min(bar_index - endBar, maxLookback)
+                
+                // IMPORTANT: Check all candles between the pivot points
+                checkStart = math.min(startIndex, endIndex) + 1  // The higher bar index (more recent bar)
+                checkEnd = math.max(startIndex, endIndex) - 1    // The lower bar index (older bar)
+                
+                // Only proceed with the loop if there are candles to check
+                if checkStart <= checkEnd
+                    // Loop through each bar between the pivots
+                    for i = checkStart to checkEnd
+                        // Skip if we're trying to access data beyond what's available
+                        if i < 0 or i >= maxLookback or i >= bar_index
+                            continue
+                        
+                        // Use our safe access function to get the high value
+                        float currentHigh = safeHigh(i)
+                        
+                        // Skip this candle if we couldn't get its high value
+                        if na(currentHigh)
+                            continue
+                        
+                        // STRICT RULE: If ANY candle's high is above the starting pivot's high, it's invalid
+                        if currentHigh > startPivotHigh
+                            validTrendline := false
+                            break
+                
+                // ADDITIONAL VALIDATION: Check bars between second pivot and current price minus candles for cross
+                if validTrendline
+                    // Check from second pivot to current bar minus candles for cross
+                    secondPivotIndex = math.min(bar_index - endBar, maxLookback)
+                    endCheckIndex = candlesForCross  // Stop checking this many bars before current bar
+                    
+                    // Only check if there are bars to check
+                    if secondPivotIndex > endCheckIndex
+                        // Loop through each bar between second pivot and (current bar - candlesForCross)
+                        for i = endCheckIndex to secondPivotIndex - 1
+                            // Skip if we're trying to access data beyond what's available
+                            if i < 0 or i >= bar_index
+                                continue
+                            
+                            // Get the high of the current candle
+                            float currentHigh = safeHigh(i)
+                            
+                            // Skip this candle if we couldn't get its high value
+                            if na(currentHigh)
+                                continue
+                            
+                            // Calculate expected line value at this point
+                            float lineValue = startValue + ((endValue - startValue) / (endBar - startBar)) * (bar_index - i - startBar)
+                            
+                            // For red resistance lines (downtrend), if any bar's high is above the line, it's invalid
+                            if currentHigh > lineValue
+                                validTrendline := false
+                                break
+                    
+                // STRICT: Only draw the line if it's 100% valid
+                if validTrendline
+                    // Check if line is crossed
+                    isCrossed = isLineCrossed(startBar, startValue, endBar, endValue, false)
+                    
+                    if not isCrossed
+                        // Draw valid trendline (not crossed)
+                        l = line.new(startBar, startValue, endBar, endValue, 
+                             extend=extend.right, color=topLineColor, width=lineThickness)
+                        array.push(lines, l)
+                        linesDrawn += 1
+
+// Function to draw multiple support lines from a single pivot
+drawMultipleSupportLines(float[] pivotArray, int[] barArray, int setNumber) =>
+    if array.size(pivotArray) >= 2 and bar_index > 0
+        // Get the starting pivot point (second last)
+        secondLastIdx = array.size(pivotArray) - 2
+        startBar = array.get(barArray, secondLastIdx)
+        startValue = array.get(pivotArray, secondLastIdx)
+        
+        // SAFETY CHECK: Make sure we're not trying to access data beyond the buffer's limit
+        maxLookback = 5000 // Reduced maximum lookback to avoid buffer errors
+        
+        // Skip if the starting bar is too far back
+        if bar_index - startBar >= maxLookback
+            false // Skip this pivot
+        
+        // Try to connect with multiple end points
+        linesDrawn = 0
+        
+        // Loop through potential end points using a different approach
+        // Start from the most recent pivot and work backwards
+        pivotCount = array.size(pivotArray)
+        for k = 0 to pivotCount - 1
+            // Calculate the actual index (from newest to oldest)
+            j = pivotCount - 1 - k
+            
+            // Skip if we've drawn enough lines or if we're looking at the starting pivot or older
+            if linesDrawn >= maxLinesPerPivot or j <= secondLastIdx
+                break
+                
+            endBar = array.get(barArray, j)
+            endValue = array.get(pivotArray, j)
+            
+            // Skip if end bar is too far back in history
+            if bar_index - endBar >= maxLookback
+                continue
+            
+            // Only proceed if it's an uptrend
+            if endValue > startValue
+                // Use the existing maxLookback from parent scope
+                // No need to redefine it here
+                // Start by assuming the trendline is valid
+                validTrendline = true
+                
+                // Get the pivot points
+                startPivotLow = startValue
+                
+                // Convert bar offsets to array indices
+                startIndex = math.min(bar_index - startBar, maxLookback)
+                endIndex = math.min(bar_index - endBar, maxLookback)
+                
+                // IMPORTANT: Check all candles between the pivot points
+                checkStart = math.min(startIndex, endIndex) + 1  // The higher bar index (more recent bar)
+                checkEnd = math.max(startIndex, endIndex) - 1    // The lower bar index (older bar)
+                
+                // Only proceed with the loop if there are candles to check
+                if checkStart <= checkEnd
+                    // Loop through each bar between the pivots
+                    for i = checkStart to checkEnd
+                        // Skip if we're trying to access data beyond what's available
+                        if i < 0 or i >= maxLookback or i >= bar_index
+                            continue
+                        
+                        // Use our safe access function to get the low value
+                        float currentLow = safeLow(i)
+                        
+                        // Skip this candle if we couldn't get its low value
+                        if na(currentLow)
+                            continue
+                        
+                        // STRICT RULE: If ANY candle's low is below the starting pivot's low, it's invalid
+                        if currentLow < startPivotLow
+                            validTrendline := false
+                            break
+                
+                // ADDITIONAL VALIDATION: Check bars between second pivot and current price minus candles for cross
+                if validTrendline
+                    // Check from second pivot to current bar minus candles for cross
+                    secondPivotIndex = math.min(bar_index - endBar, maxLookback)
+                    endCheckIndex = candlesForCross  // Stop checking this many bars before current bar
+                    
+                    // Only check if there are bars to check
+                    if secondPivotIndex > endCheckIndex
+                        // Loop through each bar between second pivot and (current bar - candlesForCross)
+                        for i = endCheckIndex to secondPivotIndex - 1
+                            // Skip if we're trying to access data beyond what's available
+                            if i < 0 or i >= bar_index
+                                continue
+                            
+                            // Get the low of the current candle
+                            float currentLow = safeLow(i)
+                            
+                            // Skip this candle if we couldn't get its low value
+                            if na(currentLow)
+                                continue
+                            
+                            // Calculate expected line value at this point
+                            float lineValue = startValue + ((endValue - startValue) / (endBar - startBar)) * (bar_index - i - startBar)
+                            
+                            // For green support lines (uptrend), if any bar's low is below the line, it's invalid
+                            if currentLow < lineValue
+                                validTrendline := false
+                                break
+                    
+                // STRICT: Only draw the line if it's 100% valid
+                if validTrendline
+                    // Check if line is crossed
+                    isCrossed = isLineCrossed(startBar, startValue, endBar, endValue, true)
+                    
+                    if not isCrossed
+                        // Draw valid trendline (not crossed)
+                        l = line.new(startBar, startValue, endBar, endValue, 
+                             extend=extend.right, color=bottomLineColor, width=lineThickness)
+                        array.push(lines, l)
+                        linesDrawn += 1
+
+// Process lines on the last bar
+if barstate.islast
+    // We'll only check for crossed lines and remove them
+    // First, create a temporary array to store lines to be removed
+    var array<line> linesToRemove = array.new_line(0)
+    var array<int> lineIndicesToRemove = array.new_int(0)
+    
+    // Check each existing line to see if it's been crossed
+    if array.size(lines) > 0
+        for i = 0 to array.size(lines) - 1
+            line currentLine = array.get(lines, i)
+            int startBar = line.get_x1(currentLine)
+            float startValue = line.get_y1(currentLine)
+            int endBar = line.get_x2(currentLine)
+            float endValue = line.get_y2(currentLine)
+            
+            // Determine if this is a support or resistance line
+            bool isSupport = endValue > startValue  // Support lines go up
+            
+            // Check if the line has been crossed
+            bool isCrossed = isSupport ? isSupportCrossed(startBar, startValue, endBar, endValue) : isResistanceCrossed(startBar, startValue, endBar, endValue)
+                
+            // If crossed, mark for removal
+            if isCrossed
+                array.push(linesToRemove, currentLine)
+                array.push(lineIndicesToRemove, i)
+    
+    // Remove crossed lines (in reverse order to maintain correct indices)
+    if array.size(lineIndicesToRemove) > 0
+        for i = array.size(lineIndicesToRemove) - 1 to 0
+            int indexToRemove = array.get(lineIndicesToRemove, i)
+            line lineToRemove = array.get(lines, indexToRemove)
+            line.delete(lineToRemove)
+            array.remove(lines, indexToRemove)
+            
+    // Also check dots and remove any that don't have associated lines
+    // This is a simplification - in a full implementation you'd want to track which dots belong to which lines
+    if array.size(dots) > 0 and array.size(linesToRemove) > 0
+        // For simplicity, we'll just remove all dots if any lines were removed
+        // In a more sophisticated implementation, you'd only remove dots associated with removed lines
+        for i = 0 to array.size(dots) - 1
+            label.delete(array.get(dots, i))
+        array.clear(dots)
+    
+
+    
+    // Enhanced line drawing implementation checking all pivot combinations
+    log.warning("Drawing lines - Top pivots: " + str.tostring(array.size(topPivots1)) + ", Bottom pivots: " + str.tostring(array.size(bottomPivots1)))
+    
+    // Track visible lines drawn for each type
+    int visibleResistanceLines = 0
+    int visibleSupportLines = 0
+    
+    // Draw resistance trendlines (connecting top pivots)
+    int validResistanceLines = 0
+    // visibleResistanceLines is already declared at line 793
+    
+    // Create arrays to store potential line information before drawing
+    var array<int> lineStartBars = array.new_int(0)
+    var array<float> lineStartValues = array.new_float(0)
+    var array<int> lineEndBars = array.new_int(0)
+    var array<float> lineEndValues = array.new_float(0)
+    var array<bool> lineIsCrossed = array.new_bool(0)
+    var array<int> linePivotIndices = array.new_int(0)  // Store the starting pivot index
+    var array<int> lineCrossBars = array.new_int(0)     // For crossed lines
+    
+    // First, find all potential lines and store their information
+    for i = 0 to array.size(topPivots1) - 2
+        for j = i + 1 to array.size(topPivots1) - 1
+            // Get pivot points for this combination
+            float value1 = array.get(topPivots1, i)
+            float value2 = array.get(topPivots1, j)
+            int bar1 = array.get(topPivotBars1, i)
+            int bar2 = array.get(topPivotBars1, j)
+            
+            // Ensure starting bar is earlier than ending bar
+            if bar1 >= bar2
+                continue
+                
+            // Only draw downtrend lines (resistance)
+            if value2 < value1
+                // Only draw lines between bars that aren't too far apart
+                if math.abs(bar1 - bar2) <= maxDrawingDistance and math.abs(bar_index - bar1) <= 1000 and math.abs(bar_index - bar2) <= 1000
+                    // Validate that there are no bars with highs above the line between the pivots
+                    bool isValid = isValidResistanceLine(bar1, value1, bar2, value2)
+                    
+                    // Also validate that the projection from second pivot to current price is valid
+                    // (no bars with highs above the projected line)
+                    if isValid
+                        isValid := isValidResistanceProjection(bar2, value2)
+                        if not isValid
+                            log.warning("Resistance line invalid: projection from second pivot to current price is violated")
+                    
+                    // Only proceed if both validations pass
+                        // Check if the line is crossed by price action
+                        bool isCrossed = isResistanceCrossed(bar1, value1, bar2, value2)
+                        
+                        // Store line information
+                        array.push(lineStartBars, bar1)
+                        array.push(lineStartValues, value1)
+                        array.push(lineEndBars, bar2)
+                        array.push(lineEndValues, value2)
+                        array.push(lineIsCrossed, isCrossed)
+                        array.push(linePivotIndices, i)
+                        
+                        // For crossed lines, store the cross point
+                        if isCrossed and false
+                            int crossBar = findResistanceCrossPoint(bar1, value1, bar2, value2)
+                            array.push(lineCrossBars, crossBar)
+                        else
+                            array.push(lineCrossBars, na)
+    
+    // Process stored lines based on settings
+    var map<int, int> pivotLineCount = map.new<int, int>()  // Track lines per pivot
+    
+    // Create a list of indices to process in the desired order
+    var array<int> processOrder = array.new_int(0)
+    
+    // Create a list of all line indices
+    for lineIdx = 0 to array.size(lineStartBars) - 1
+        array.push(processOrder, lineIdx)
+    
+    // Sort by end bar (second pivot) recency - prioritize most recent second pivots
+    // This is a simple bubble sort to order by end bar (most recent first)
+    for a = 0 to array.size(processOrder) - 2
+        for b = 0 to array.size(processOrder) - a - 2
+            int idxA = array.get(processOrder, b)
+            int idxB = array.get(processOrder, b + 1)
+            int barA = array.get(lineEndBars, idxA)
+            int barB = array.get(lineEndBars, idxB)
+            
+            // Swap if B is more recent (higher bar number)
+            if barA < barB
+                int temp = array.get(processOrder, b)
+                array.set(processOrder, b, array.get(processOrder, b + 1))
+                array.set(processOrder, b + 1, temp)
+    
+    // Now draw the lines in the determined order
+    if array.size(processOrder) > 0
+        for orderIdx = 0 to array.size(processOrder) - 1
+            int lineIdx = array.get(processOrder, orderIdx)
+            
+            // Get line information
+            int bar1 = array.get(lineStartBars, lineIdx)
+            float value1 = array.get(lineStartValues, lineIdx)
+            int bar2 = array.get(lineEndBars, lineIdx)
+            float value2 = array.get(lineEndValues, lineIdx)
+            bool isCrossed = array.get(lineIsCrossed, lineIdx)
+            int pivotIndex = array.get(linePivotIndices, lineIdx)
+        
+            // Check if we've reached maximum lines
+            if visibleResistanceLines >= maxResistanceLines
+                break
+            
+            // Check if we've exceeded max lines per pivot
+            int currentPivotLineCount = map.get(pivotLineCount, pivotIndex) 
+            if na(currentPivotLineCount)
+                currentPivotLineCount := 0
+            if currentPivotLineCount >= maxLinesPerPivot
+                continue
+        
+            // Draw the line based on whether it's crossed or not
+            if not isCrossed
+                // Check if there's already a line with the same end bar
+                bool shouldDrawLine = true
+                line existingLine = map.get(linesByEndBar, bar2)
+                
+                // Check if we already have a line with this end bar
+                if not na(existingLine)
+                    // Found a line with the same end bar
+                    int existingStartBar = line.get_x1(existingLine)
+                    float existingStartValue = line.get_y1(existingLine)
+                    
+                    // For resistance lines with the same end bar, keep the one with the most recent first pivot
+                    // If first pivots are the same bar, then keep the one with the higher value
+                    if bar1 > existingStartBar
+                        // Current line has more recent first pivot, remove the existing one
+                        log.warning("Replacing existing resistance line at end bar " + str.tostring(bar2) + 
+                                   " with one that has more recent first pivot bar (" + str.tostring(bar1) + 
+                                   " vs " + str.tostring(existingStartBar) + ")")
+                        line.delete(existingLine)
+                        
+                        // Find and remove from the lines array
+                        for i = 0 to array.size(lines) - 1
+                            if array.get(lines, i) == existingLine
+                                array.remove(lines, i)
+                                break
+                    else if bar1 == existingStartBar and value1 > existingStartValue
+                        // Same first pivot bar but current line has higher value, remove the existing one
+                        log.warning("Replacing existing resistance line at end bar " + str.tostring(bar2) + 
+                                   " with one that has higher first pivot value at the same bar")
+                        line.delete(existingLine)
+                        
+                        // Find and remove from the lines array
+                        for i = 0 to array.size(lines) - 1
+                            if array.get(lines, i) == existingLine
+                                array.remove(lines, i)
+                                break
+                    else
+                        // Existing line has more recent first pivot or same bar with higher/equal value, don't draw current line
+                        shouldDrawLine := false
+                        log.warning("Skipping resistance line at end bar " + str.tostring(bar2) + 
+                                   " in favor of existing line with more recent or higher first pivot")
+                
+                // Draw the new line if it should be drawn and doesn't already exist
+                if shouldDrawLine
+                    // Check if this exact line already exists
+                    bool lineExists = false
+                    
+                    // Look through existing lines to see if this one already exists
+                    if array.size(lines) > 0
+                        for lineIdx = 0 to array.size(lines) - 1
+                            line existingLine = array.get(lines, lineIdx)
+                            int existingBar1 = line.get_x1(existingLine)
+                            float existingValue1 = line.get_y1(existingLine)
+                            int existingBar2 = line.get_x2(existingLine)
+                            float existingValue2 = line.get_y2(existingLine)
+                            
+                            // If we find a line with the same coordinates, don't draw a new one
+                            if existingBar1 == bar1 and existingValue1 == value1 and 
+                               existingBar2 == bar2 and existingValue2 == value2
+                                lineExists := true
+                                break
+                    
+                    // Only draw if the line doesn't already exist
+                    if not lineExists
+                        validResistanceLines += 1
+                        map.put(pivotLineCount, pivotIndex, currentPivotLineCount + 1)
+                        visibleResistanceLines += 1
+                        log.warning("Drawing valid resistance line between bars " + str.tostring(bar1) + " and " + str.tostring(bar2))
+                        line l = line.new(bar1, value1, bar2, value2, extend=extend.right, color=topLineColor, width=lineThickness)
+                        array.push(lines, l)
+                        
+                        // Store the line in our map by end bar
+                        map.put(linesByEndBar, bar2, l)
+                        
+                        // Add pivot dots only if the line is actually drawn and dots are enabled 
+                        if showPivotDots
+                            label dot1 = label.new(x=bar1,y= high[bar_index - bar1] + syminfo.mintick * 2, yloc     = yloc.price,text =  "•" , color=color.new(color.black, 100), style=label.style_label_center, textcolor=topPivotDotColor, size=pivotDotSize)
+                            //added yloc to make the data stick to the chart
+                            label dot2 = label.new(bar2, value2, "•" ,color=color.new(color.black, 100), style=label.style_label_center, textcolor=topPivotDotColor, size=pivotDotSize)
+                            array.push(dots, dot1)
+                            array.push(dots, dot2)
+                
+                // Track that we've drawn a line from this pivot
+                map.put(pivotLineCount, pivotIndex, currentPivotLineCount + 1)
+    
+    // Add a summary of resistance lines found
+    log.warning("Found " + str.tostring(validResistanceLines) + " valid resistance lines")
+    
+
+    // Draw support lines (connecting bottom pivots)
+    int validSupportLines = 0
+    // visibleSupportLines is already declared at line 794
+    
+    // Create arrays to store potential line information before drawing
+    var array<int> supportLineStartBars = array.new_int(0)
+    var array<float> supportLineStartValues = array.new_float(0)
+    var array<int> supportLineEndBars = array.new_int(0)
+    var array<float> supportLineEndValues = array.new_float(0)
+    var array<bool> supportLineIsCrossed = array.new_bool(0)
+    var array<int> supportLinePivotIndices = array.new_int(0)  // Store the starting pivot index
+    var array<int> supportLineCrossBars = array.new_int(0)     // For crossed lines
+    
+    // First, find all potential support lines and store their information
+    for i = 0 to array.size(bottomPivots1) - 2
+        for j = i + 1 to array.size(bottomPivots1) - 1
+            // Get pivot points for this combination
+            float value1 = array.get(bottomPivots1, i)
+            float value2 = array.get(bottomPivots1, j)
+            int bar1 = array.get(bottomPivotBars1, i)
+            int bar2 = array.get(bottomPivotBars1, j)
+            
+            // Ensure starting bar is earlier than ending bar
+            if bar1 >= bar2
+                continue
+                
+            // Only draw uptrend lines (support)
+            if value2 > value1
+                // Only draw lines between bars that aren't too far apart
+                if math.abs(bar1 - bar2) <= maxDrawingDistance and math.abs(bar_index - bar1) <= 1000 and math.abs(bar_index - bar2) <= 1000
+                    // Validate that there are no bars with lows below the line between the pivots
+                    bool isValid = isValidSupportLine(bar1, value1, bar2, value2)
+                    
+                    // Also validate that the projection from second pivot to current price is valid
+                    // (no bars with lows below the projected line)
+                    if isValid
+                        isValid := isValidSupportProjection(bar2, value2)
+                        if not isValid
+                            log.warning("Support line invalid: projection from second pivot to current price is violated")
+                    
+                    // Only proceed if both validations pass
+                        // Check if the line is crossed by price action
+                        bool isCrossed = isSupportCrossed(bar1, value1, bar2, value2)
+                        
+                        // Store line information
+                        array.push(supportLineStartBars, bar1)
+                        array.push(supportLineStartValues, value1)
+                        array.push(supportLineEndBars, bar2)
+                        array.push(supportLineEndValues, value2)
+                        array.push(supportLineIsCrossed, isCrossed)
+                        array.push(supportLinePivotIndices, i)
+                        
+                        // For crossed lines, store the cross point
+                        if isCrossed and false
+                            int crossBar = findSupportCrossPoint(bar1, value1, bar2, value2)
+                            array.push(supportLineCrossBars, crossBar)
+                        else
+                            array.push(supportLineCrossBars, na)
+    
+    // Process stored lines based on settings
+    var map<int, int> supportPivotLineCount = map.new<int, int>()  // Track lines per pivot
+    
+    // Create a list of indices to process in the desired order
+    var array<int> supportProcessOrder = array.new_int(0)
+    
+    // Create a list of all line indices
+    for lineIdx = 0 to array.size(supportLineStartBars) - 1
+        array.push(supportProcessOrder, lineIdx)
+    
+    // Sort by end bar (second pivot) recency - prioritize most recent second pivots
+    // This is a simple bubble sort to order by end bar (most recent first)
+    for a = 0 to array.size(supportProcessOrder) - 2
+        for b = 0 to array.size(supportProcessOrder) - a - 2
+            int idxA = array.get(supportProcessOrder, b)
+            int idxB = array.get(supportProcessOrder, b + 1)
+            int barA = array.get(supportLineEndBars, idxA)
+            int barB = array.get(supportLineEndBars, idxB)
+            
+            // Swap if B is more recent (higher bar number)
+            if barA < barB
+                int temp = array.get(supportProcessOrder, b)
+                array.set(supportProcessOrder, b, array.get(supportProcessOrder, b + 1))
+                array.set(supportProcessOrder, b + 1, temp)
+    
+    // Now draw the lines in the determined order
+    if array.size(supportProcessOrder) > 0
+        for orderIdx = 0 to array.size(supportProcessOrder) - 1
+            int lineIdx = array.get(supportProcessOrder, orderIdx)
+            
+            // Get line information
+            int bar1 = array.get(supportLineStartBars, lineIdx)
+            float value1 = array.get(supportLineStartValues, lineIdx)
+            int bar2 = array.get(supportLineEndBars, lineIdx)
+            float value2 = array.get(supportLineEndValues, lineIdx)
+            bool isCrossed = array.get(supportLineIsCrossed, lineIdx)
+            int pivotIndex = array.get(supportLinePivotIndices, lineIdx)
+            
+            // Check if we've reached maximum lines
+            if visibleSupportLines >= maxSupportLines
+                break
+            
+            // Check if we've exceeded max lines per pivot
+            int currentPivotLineCount = map.get(supportPivotLineCount, pivotIndex)
+            if na(currentPivotLineCount)
+                currentPivotLineCount := 0
+            if currentPivotLineCount >= maxLinesPerPivot
+                continue
+        
+            // Draw the line based on whether it's crossed or not
+            if not isCrossed
+                // Check if there's already a line with the same end bar
+                bool shouldDrawLine = true
+                line existingLine = map.get(linesByEndBar, bar2)
+                
+                // Check if we already have a line with this end bar
+                if not na(existingLine)
+                    // Found a line with the same end bar
+                    int existingStartBar = line.get_x1(existingLine)
+                    float existingStartValue = line.get_y1(existingLine)
+                    
+                    // For support lines with the same end bar, keep the one with the most recent first pivot
+                    // If first pivots are the same bar, then keep the one with the lower value
+                    if bar1 > existingStartBar
+                        // Current line has more recent first pivot, remove the existing one
+                        log.warning("Replacing existing support line at end bar " + str.tostring(bar2) + 
+                                   " with one that has more recent first pivot bar (" + str.tostring(bar1) + 
+                                   " vs " + str.tostring(existingStartBar) + ")")
+                        line.delete(existingLine)
+                        
+                        // Find and remove from the lines array
+                        for i = 0 to array.size(lines) - 1
+                            if array.get(lines, i) == existingLine
+                                array.remove(lines, i)
+                                break
+                    else if bar1 == existingStartBar and value1 < existingStartValue
+                        // Same first pivot bar but current line has lower value, remove the existing one
+                        log.warning("Replacing existing support line at end bar " + str.tostring(bar2) + 
+                                   " with one that has lower first pivot value at the same bar")
+                        line.delete(existingLine)
+                        
+                        // Find and remove from the lines array
+                        for i = 0 to array.size(lines) - 1
+                            if array.get(lines, i) == existingLine
+                                array.remove(lines, i)
+                                break
+                    else
+                        // Existing line has more recent first pivot or same bar with lower/equal value, don't draw current line
+                        shouldDrawLine := false
+                        log.warning("Skipping support line at end bar " + str.tostring(bar2) + 
+                                   " in favor of existing line with more recent or lower first pivot")
+                
+                // Draw the new line if it should be drawn and doesn't already exist
+                if shouldDrawLine
+                    // Check if this exact line already exists
+                    bool lineExists = false
+                    
+                    // Look through existing lines to see if this one already exists
+                    if array.size(lines) > 0
+                        for lineIdx = 0 to array.size(lines) - 1
+                            line existingLine = array.get(lines, lineIdx)
+                            int existingBar1 = line.get_x1(existingLine)
+                            float existingValue1 = line.get_y1(existingLine)
+                            int existingBar2 = line.get_x2(existingLine)
+                            float existingValue2 = line.get_y2(existingLine)
+                            
+                            // If we find a line with the same coordinates, don't draw a new one
+                            if existingBar1 == bar1 and existingValue1 == value1 and 
+                               existingBar2 == bar2 and existingValue2 == value2
+                                lineExists := true
+                                break
+                    
+                    // Only draw if the line doesn't already exist
+                    if not lineExists
+                        validSupportLines += 1
+                        map.put(supportPivotLineCount, pivotIndex, currentPivotLineCount + 1)
+                        visibleSupportLines += 1
+                        log.warning("Drawing valid support line between bars " + str.tostring(bar1) + " and " + str.tostring(bar2))
+                        line l = line.new(bar1, value1, bar2, value2, extend=extend.right, color=bottomLineColor, width=lineThickness)
+                        array.push(lines, l)
+                        
+                        // Store the line in our map by end bar
+                        map.put(linesByEndBar, bar2, l)
+                        
+                        // Add pivot dots only if the line is actually drawn and dots are enabled
+                        if showPivotDots
+                            label dot1 = label.new(bar1, value1, "•", color=color.new(color.black, 100), style=label.style_label_center, textcolor=bottomPivotDotColor, size=pivotDotSize)
+                            label dot2 = label.new(bar2, value2, "•", color=color.new(color.black, 100), style=label.style_label_center, textcolor=bottomPivotDotColor, size=pivotDotSize)
+                            array.push(dots, dot1)
+                            array.push(dots, dot2)
+                
+                // Track that we've drawn a line from this pivot
+                map.put(supportPivotLineCount, pivotIndex, currentPivotLineCount + 1)
+        
+    // Add a summary of support lines found
+    log.warning("Found " + str.tostring(validSupportLines) + " valid support lines")
+
+// Function to check if price crosses above a resistance trendline
+isCurrentBarCrossingResistance(line trendline) =>
+    if na(trendline)
+        false
+    else
+        int bar1 = line.get_x1(trendline)
+        float value1 = line.get_y1(trendline)
+        int bar2 = line.get_x2(trendline)
+        float value2 = line.get_y2(trendline)
+        
+        // Calculate line parameters
+        float slope = (value2 - value1) / math.max(1, bar2 - bar1)
+        float intercept = value1 - slope * bar1
+        
+        // Calculate the projected value of the line at the current bar
+        float lineValue = slope * bar_index + intercept
+        
+        // Calculate the projected value of the line at the previous bar
+        float prevLineValue = bar_index > 0 ? (slope * (bar_index-1) + intercept) : na
+        
+        // Check if high crosses above the line with safety checks
+        bool currentAbove = not na(high) and high > lineValue
+        bool prevBelow = bar_index > 0 and not na(high[1]) and not na(prevLineValue) and high[1] <= prevLineValue
+        
+        currentAbove and prevBelow
+
+// Function to check if price crosses and closes above a resistance trendline
+isCurrentBarCrossingAndClosingResistance(line trendline) =>
+    if na(trendline)
+        false
+    else
+        int bar1 = line.get_x1(trendline)
+        float value1 = line.get_y1(trendline)
+        int bar2 = line.get_x2(trendline)
+        float value2 = line.get_y2(trendline)
+        
+        // Calculate line parameters
+        float slope = (value2 - value1) / math.max(1, bar2 - bar1)
+        float intercept = value1 - slope * bar1
+        
+        // Calculate the projected value of the line at the current bar
+        float lineValue = slope * bar_index + intercept
+        
+        // Calculate the projected value of the line at the previous bar
+        float prevLineValue = bar_index > 0 ? (slope * (bar_index-1) + intercept) : na
+        
+        // Check if high crosses above the line and close is above the line with safety checks
+        bool currentAbove = not na(high) and high > lineValue
+        bool prevBelow = bar_index > 0 and not na(high[1]) and not na(prevLineValue) and high[1] <= prevLineValue
+        bool closeAbove = not na(close) and close > lineValue
+        
+        currentAbove and prevBelow and closeAbove
+
+// Function to check if price crosses below a support trendline
+isCurrentBarCrossingSupport(line trendline) =>
+    if na(trendline)
+        false
+    else
+        int bar1 = line.get_x1(trendline)
+        float value1 = line.get_y1(trendline)
+        int bar2 = line.get_x2(trendline)
+        float value2 = line.get_y2(trendline)
+        
+        // Calculate line parameters
+        float slope = (value2 - value1) / math.max(1, bar2 - bar1)
+        float intercept = value1 - slope * bar1
+        
+        // Calculate the projected value of the line at the current bar
+        float lineValue = slope * bar_index + intercept
+        
+        // Calculate the projected value of the line at the previous bar
+        float prevLineValue = bar_index > 0 ? (slope * (bar_index-1) + intercept) : na
+        
+        // Check if low crosses below the line with safety checks
+        bool currentBelow = not na(low) and low < lineValue
+        bool prevAbove = bar_index > 0 and not na(low[1]) and not na(prevLineValue) and low[1] >= prevLineValue
+        
+        currentBelow and prevAbove
+
+// Function to check if price crosses and closes below a support trendline
+isCurrentBarCrossingAndClosingSupport(line trendline) =>
+    if na(trendline)
+        false
+    else
+        int bar1 = line.get_x1(trendline)
+        float value1 = line.get_y1(trendline)
+        int bar2 = line.get_x2(trendline)
+        float value2 = line.get_y2(trendline)
+        
+        // Calculate line parameters
+        float slope = (value2 - value1) / math.max(1, bar2 - bar1)
+        float intercept = value1 - slope * bar1
+        
+        // Calculate the projected value of the line at the current bar
+        float lineValue = slope * bar_index + intercept
+        
+        // Calculate the projected value of the line at the previous bar
+        float prevLineValue = bar_index > 0 ? (slope * (bar_index-1) + intercept) : na
+        
+        // Check if low crosses below the line and close is below the line with safety checks
+        bool currentBelow = not na(low) and low < lineValue
+        bool prevAbove = bar_index > 0 and not na(low[1]) and not na(prevLineValue) and low[1] >= prevLineValue
+        bool closeBelow = not na(close) and close < lineValue
+        
+        currentBelow and prevAbove and closeBelow
+
+// Calculate alert conditions
+var bool resistanceCrossed = false
+var bool resistanceCrossedAndClosed = false
+var bool supportCrossed = false
+var bool supportCrossedAndClosed = false
+
+// Reset alert flags on each bar
+resistanceCrossed := false
+resistanceCrossedAndClosed := false
+supportCrossed := false
+supportCrossedAndClosed := false
+
+// Check for line crosses if alerts are enabled - must run on every bar, not just last bar
+// This needs to run regardless of barstate.islast to catch crosses as they happen
+if barstate.isconfirmed
+    // Create a log message for debugging
+    log.warning("Checking for line crosses on bar " + str.tostring(bar_index) + " with " + str.tostring(array.size(lines)) + " lines")
+     
+    // Check for resistance line crosses
+    if array.size(lines) > 0
+        for i = 0 to array.size(lines) - 1
+            if i < array.size(lines)  // Safety check
+                line currentLine = array.get(lines, i)
+                if not na(currentLine)
+                    int bar1 = line.get_x1(currentLine)
+                    float value1 = line.get_y1(currentLine)
+                    int bar2 = line.get_x2(currentLine)
+                    float value2 = line.get_y2(currentLine)
+                    
+                    // Only process resistance lines (downward sloping or flat)
+                    if value2 <= value1
+                        // Check for crosses with detailed logging
+                        bool crossDetected = isCurrentBarCrossingResistance(currentLine)
+                        bool crossAndCloseDetected = isCurrentBarCrossingAndClosingResistance(currentLine)
+                        
+                        if crossDetected
+                            resistanceCrossed := true
+                            log.warning("ALERT: Resistance line crossed at bar " + str.tostring(bar_index))
+                            
+                        if crossAndCloseDetected
+                            resistanceCrossedAndClosed := true
+                            log.warning("ALERT: Resistance line crossed and closed above at bar " + str.tostring(bar_index))
+     
+    // Check for support line crosses
+    if array.size(lines) > 0
+        for i = 0 to array.size(lines) - 1
+            if i < array.size(lines)  // Safety check
+                line currentLine = array.get(lines, i)
+                if not na(currentLine)
+                    int bar1 = line.get_x1(currentLine)
+                    float value1 = line.get_y1(currentLine)
+                    int bar2 = line.get_x2(currentLine)
+                    float value2 = line.get_y2(currentLine)
+                    
+                    // Only process support lines (upward sloping or flat)
+                    if value2 >= value1
+                        // Check for crosses with detailed logging
+                        bool crossDetected = isCurrentBarCrossingSupport(currentLine)
+                        bool crossAndCloseDetected = isCurrentBarCrossingAndClosingSupport(currentLine)
+                        
+                        if crossDetected
+                            supportCrossed := true
+                            log.warning("ALERT: Support line crossed at bar " + str.tostring(bar_index))
+                            
+                        if crossAndCloseDetected
+                            supportCrossedAndClosed := true
+                            log.warning("ALERT: Support line crossed and closed below at bar " + str.tostring(bar_index))
+
+// Define alert conditions
+alertcondition(resistanceCrossed, title="Resistance Trendline Crossed", message="Price crossed above resistance trendline at {{close}}")
+alertcondition(resistanceCrossedAndClosed, title="Resistance Trendline Crossed & Closed Above", message="Price crossed and closed above resistance trendline at {{close}}")
+alertcondition(supportCrossed, title="Support Trendline Crossed", message="Price crossed below support trendline at {{close}}")
+alertcondition(supportCrossedAndClosed, title="Support Trendline Crossed & Closed Below", message="Price crossed and closed below support trendline at {{close}}")
