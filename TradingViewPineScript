@@ -3,30 +3,18 @@
 // © StorMonster threw all the relevant stuff together to match the sanner in python
 
 //@version=6
-indicator('StorMs all in one', 'SRchannel', overlay = true, max_bars_back = 501)
+indicator('StorMs all in one', overlay = true, max_bars_back = 501)
 prd = input.int(defval = 10, title = 'Pivot Period', minval = 2, maxval = 30, group = 'Settings 🔨', tooltip = 'Used while calculating Pivot Points, checks left&right bars')
 ppsrc = input.string(defval = 'High/Low', title = 'Source', options = ['High/Low', 'Close/Open'], group = 'Settings 🔨', tooltip = 'Source for Pivot Points')
 ChannelW = input.int(defval = 1, title = 'Maximum Channel Width %', minval = 1, maxval = 8, group = 'Settings 🔨', tooltip = 'Calculated using Highest/Lowest levels in 500 bars')
 minstrength = input.int(defval = 2, title = 'Minimum Strength', minval = 1, group = 'Settings 🔨', tooltip = 'Channel must contain at least 2 Pivot Points')
 maxnumsr = input.int(defval = 10, title = 'Maximum Number of S/R', minval = 1, maxval = 10, group = 'Settings 🔨', tooltip = 'Maximum number of Support/Resistance Channels to Show') - 1
-loopback = input.int(defval = 490, title = 'Loopback Period', minval = 100, maxval = 1500, group = 'Settings 🔨', tooltip = 'While calculating S/R levels it checks Pivots in Loopback Period')
+loopback = input.int(defval = 500, title = 'Loopback Period', minval = 100, maxval = 1500, group = 'Settings 🔨', tooltip = 'While calculating S/R levels it checks Pivots in Loopback Period')
 res_col = input.color(defval = color.new(#fbff00, 40), title = 'Resistance Color', group = 'Colors 🟡🟢🟣')
 sup_col = input.color(defval = color.new(#fbff00, 40), title = 'Support Color', group = 'Colors 🟡🟢🟣')
 inch_col = input.color(defval = color.new(#fbff00, 63), title = 'Color When Price in Channel', group = 'Colors 🟡🟢🟣')
 showpp = input.bool(defval = false, title = 'Show Pivot Points', group = 'Extras ⏶⏷')
-showsrbroken = input.bool(defval = false, title = 'Show Broken Support/Resistance', group = 'Extras ⏶⏷')
-showthema1en = input.bool(defval = false, title = 'MA 1', inline = 'ma1')
-showthema1len = input.int(defval = 50, title = '', inline = 'ma1')
-showthema1type = input.string(defval = 'SMA', title = '', options = ['SMA', 'EMA'], inline = 'ma1')
-showthema2en = input.bool(defval = false, title = 'MA 2', inline = 'ma2')
-showthema2len = input.int(defval = 200, title = '', inline = 'ma2')
-showthema2type = input.string(defval = 'SMA', title = '', options = ['SMA', 'EMA'], inline = 'ma2')
 
-ma1 = showthema1en ? showthema1type == 'SMA' ? ta.sma(close, showthema1len) : ta.ema(close, showthema1len) : na
-ma2 = showthema2en ? showthema2type == 'SMA' ? ta.sma(close, showthema2len) : ta.ema(close, showthema2len) : na
-
-plot(ma1, color = not na(ma1) ? color.blue : na)
-plot(ma2, color = not na(ma2) ? color.red : na)
 
 // get Pivot High/low
 float src1 = ppsrc == 'High/Low' ? high : math.max(close, open)
@@ -39,8 +27,8 @@ plotshape(bool(ph) and showpp, text = 'H', style = shape.labeldown, color = na, 
 plotshape(bool(pl) and showpp, text = 'L', style = shape.labelup, color = na, textcolor = color.new(color.lime, 0), location = location.belowbar, offset = -prd)
 
 //calculate maximum S/R channel width
-prdhighest = ta.highest(500)
-prdlowest = ta.lowest(500)
+prdhighest = ta.highest(511)
+prdlowest = ta.lowest(511)
 cwidth = (prdhighest - prdlowest) * ChannelW / 100
 
 // get/keep Pivot levels
@@ -169,7 +157,6 @@ for x = 0 to math.min(9, maxnumsr) by 1
 
 resistancebroken = false
 supportbroken = false
-
 // check if it's not in a channel
 not_in_a_channel = true
 for x = 0 to math.min(9, maxnumsr) by 1
@@ -189,11 +176,14 @@ if not_in_a_channel
 
 alertcondition(resistancebroken, title = 'Resistance Broken', message = 'Resistance Broken')
 alertcondition(supportbroken, title = 'Support Broken', message = 'Support Broken')
-plotshape(showsrbroken and resistancebroken, style = shape.triangleup, location = location.belowbar, color = color.new(color.lime, 0), size = size.tiny)
-plotshape(showsrbroken and supportbroken, style = shape.triangledown, location = location.abovebar, color = color.new(color.red, 0), size = size.tiny)
 
 
-// Typical Price = (High + Low + Close)/3
+
+
+
+
+//sma and addons
+// Typical Price = (High + Low + Close)/3  
 atr_length = input.int(14, "ATR Length")  // ATR period
 
 // User input
@@ -209,7 +199,7 @@ vol_cum = ta.cum(volume)
 // Rolling VWAP
 vwap_rolling = (tpv - ta.cum(tp * volume)[lookback_vwap]) / (vol_cum - ta.cum(volume)[lookback_vwap])
 label_size_input = input.string("Normal", "Label Size", options=["Tiny", "Small", "Normal", "Large", "Huge"])
-x_offset_input = input.int(2, "Label X Offset", minval=0) // Bars to the right
+x_offset_input = input.int(2, "Label X Offset for ATR", minval=0) // Bars to the right
 // Convert string input to Pine Script size type
 label_size = switch label_size_input
     "Tiny"   => size.tiny
